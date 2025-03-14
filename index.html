@@ -1,0 +1,963 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Slider dengan Efek Fade</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <!-- general style  -->
+    <style>
+        .my-container {
+            max-width: 1140px;
+            margin: 0 auto;
+        }
+    </style>
+    <!-- end general style  -->
+
+    <!-- featured css -->
+    <style>
+        .my-col-12 {
+            position: relative;
+            width: 100%;
+        }
+
+        .image-container {
+            position: relative;
+            display: inline-block;
+            width: 100%;
+        }
+
+        .image-container img {
+            display: block;
+            width: 100%;
+        }
+
+        .image-container svg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .image-container .s0:hover {
+            opacity: 0.45;
+        }
+
+
+        .box-info-block {
+            position: absolute;
+            bottom: 0;
+            width: 200px;
+            /* text-align: center; */
+            background-color: #ffa925;
+            color: #fff;
+            padding: 10px 30px;
+            display: none;
+            transition: all 0.3s;
+        }
+
+        .box-info-block .title-block {
+            font-size: 34px;
+        }
+
+        .box-info-block .description-block {
+            font-size: 21px;
+        }
+    </style>
+    <!-- end featured css  -->
+
+    <!-- grid css  -->
+    <style>
+        .my-row {
+            display: flex;
+            flex-wrap: wrap;
+            margin-left: -10px;
+            margin-right: -10px;
+        }
+
+        [class*="my-col-"] {
+            padding-left: 10px;
+            padding-right: 10px;
+            box-sizing: border-box;
+        }
+
+        .my-col-1 {
+            flex: 0 0 8.333333%;
+            max-width: 8.333333%;
+        }
+
+        .my-col-2 {
+            flex: 0 0 16.666667%;
+            max-width: 16.666667%;
+        }
+
+        .my-col-3 {
+            flex: 0 0 25%;
+            max-width: 25%;
+        }
+
+        .my-col-4 {
+            flex: 0 0 33.333333%;
+            max-width: 33.333333%;
+        }
+
+        .my-col-5 {
+            flex: 0 0 41.666667%;
+            max-width: 41.666667%;
+        }
+
+        .my-col-6 {
+            flex: 0 0 50%;
+            max-width: 50%;
+        }
+
+        .my-col-7 {
+            flex: 0 0 58.333333%;
+            max-width: 58.333333%;
+        }
+
+        .my-col-8 {
+            flex: 0 0 66.666667%;
+            max-width: 66.666667%;
+        }
+
+        .my-col-9 {
+            flex: 0 0 75%;
+            max-width: 75%;
+        }
+
+        .my-col-10 {
+            flex: 0 0 83.333333%;
+            max-width: 83.333333%;
+        }
+
+        .my-col-11 {
+            flex: 0 0 91.666667%;
+            max-width: 91.666667%;
+        }
+
+        .my-col-12 {
+            flex: 0 0 100%;
+            max-width: 100%;
+        }
+
+        @media (max-width: 768px) {
+            [class*="my-col-"] {
+                flex: 0 0 100%;
+                max-width: 100%;
+            }
+        }
+    </style>
+    <!-- End grid css  -->
+
+    <!-- Slider css -->
+    <style>
+        .slider-wrapper {
+            position: relative;
+            width: 100%;
+            margin: 0 auto;
+        }
+
+        .slider-container {
+            position: relative;
+            width: 100%;
+            height: 500px;
+            overflow: hidden;
+            /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); */
+            border: 1px solid #ddd;
+        }
+
+        .slide {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 0s ease-in-out;
+            z-index: 1;
+        }
+
+        .slide.active {
+            opacity: 1;
+            z-index: 2;
+        }
+
+        .slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .slider-nav {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            padding: 15px 0;
+            box-sizing: border-box;
+        }
+
+        .nav-button {
+            background-color: rgba(0, 0, 0, 0.7);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            font-size: 18px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background-color 0.3s;
+        }
+
+        .nav-button:hover {
+            background-color: rgba(0, 0, 0, 0.9);
+        }
+
+        .dots-container {
+            position: absolute;
+            bottom: 20px;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            z-index: 3;
+        }
+
+        .dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.5);
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .dot.active {
+            background-color: white;
+        }
+
+        .peta {
+            width: 200px !important;
+            position: absolute;
+            height: auto !important;
+            opacity: 1;
+            z-index: 999;
+            top: 20px;
+            right: 20px;
+        }
+    </style>
+    <!-- End Slider css -->
+
+    <!-- table css  -->
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        th,
+        td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        /* Styling untuk hover dan active */
+        tbody tr:hover {
+            background-color: #ffe5cc;
+            /* Warna saat hover (orange muda) */
+            cursor: pointer;
+        }
+
+        tbody tr.active {
+            background-color: #ff9800;
+            /* Warna saat active (orange) */
+        }
+    </style>
+    <!-- table css  -->
+
+    <!-- filter css -->
+    <style>
+        .filter-section {
+            padding: 30px 0 30px;
+        }
+
+        .filter-section h3 {
+            margin: 0;
+            font-size: 24px;
+            margin-top: -10px;
+        }
+
+        .filter-section .btn-filter {
+            padding: 15px 20px;
+            border: 1px solid #000;
+            border-radius: 100px;
+        }
+
+        .filter-section .btn-filter:hover {
+            background-color: #000;
+            border: 1px solid #fff;
+            color: #fff;
+        }
+
+        .filter-section .btn-filter.active {
+            background-color: #000;
+            border: 1px solid #fff;
+            color: #fff;
+        }
+    </style>
+    <!-- end filter css -->
+
+</head>
+
+<body>
+    <div class="my-container">
+        <div class="my-row">
+            <div class="my-col-12">
+                <div class="image-container">
+                    <div class="box-info-block">
+                        <div class="title-block">Wind Block</div>
+                        <div class="description-block">19 Available</div>
+                    </div>
+                    <img src="image/featured.jpg" alt="Gambar 1" width="100%">
+                    <svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1706 990" width="1706"
+                        height="990">
+                        <title>featured</title>
+                        <style>
+                            .s0 {
+                                opacity: 0;
+                                fill: #f7b34b;
+                                transition: opacity 0.3s ease;
+                            }
+                        </style>
+                        <path id="Layer 1" class="s0" data-title="Fire Block" data-desc="19 Available" data-block="fire"
+                            data-slide="1"
+                            d="m38 436l1-10 27-6-1-104-19-15 112-33 25-23 92 17 6 13 25-9 134 27 1 18 72 17-7 10 6 99-55 19 1 46-34 12z" />
+                        <path id="Layer 2" class="s0" data-title="Fire Block" data-desc="19 Available" data-block="fire"
+                            data-slide="2"
+                            d="m601 551v-29h-9l2-52 13-3-1-13-18-3-2-36 33-12 4-16 20 5 46-19 15 3-2 11 29 9 10-4 6 9 8-8-1-11 18-1 14 3 3 16 76 11 3 15 36 12-4 34-79 30 1 10-13 5v9l-47 27-11-2 11 31z" />
+                        <path id="Layer 3" class="s0" data-title="Earth Block" data-desc="19 Available"
+                            data-block="earth" data-slide="3"
+                            d="m772 658v-68l-11-4 1-36 48-24 1-12 79-41 34 4 26-15 99 22 26 1 2 10h11l44 12-8 6-3 89-62 38-2 119-34 20-247-57 6-58z" />
+                        <path id="Layer 4" class="s0" data-title="Water Block" data-desc="19 Available"
+                            data-block="water" data-slide="4"
+                            d="m1184 572l32 3-1-10 14-6 19 3v15l27 6-1 10 20-10 2 11 16 4-31 16 1 25-28 17-10 9 11 5-1 37 28 5v7l-13 10-2 40 14 5-14 11 11 3 1 12-46 29-149-34v-36l-9-2 2-75-9-3-1-38-12-2z" />
+                        <path id="Layer 5" class="s0" data-title="Wind Block" data-desc="19 Available" data-block="wind"
+                            data-slide="5"
+                            d="m1278 840v-51l-11-5 14-10-15-5 1-41 14-10 1-5-28-7v-38l-10-4 37-24 1-27 30-15 11 2 55-29 35 6 17-12 3 5 5 1 15-8 38 8 7-4 21 3 1 14 29-9 2 13 18 4 6-5 33 5 2 16 9-1 50 15-18 13 1 7 10-2 2 19-17 12 1 12 15 3 5 18-18 9v10l14 4 3 14-14 8-3 7 1 31-134 104-15 1z" />
+                    </svg>
+                </div>
+            </div>
+        </div>
+        <div class="my-row filter-section" id="filter" style="margin-top: 30px;">
+            <div class="my-col-4">
+                <h3>Block</h3>
+            </div>
+            <div class="my-col-8">
+                <span class="btn-filter btn-block" data-id="">ALL BLOCK</span>
+                <span class="btn-filter btn-block" data-id="wind">BLOCK WIND</span>
+
+                <span class="btn-filter btn-block" data-id="water">BLOCK WATER</span>
+
+                <span class="btn-filter btn-block" data-id="earth">BLOCK EARTH</span>
+
+                <span class="btn-filter btn-block" data-id="fire">BLOCK FIRE</span>
+            </div>
+        </div>
+        <div class="my-row filter-section">
+            <div class="my-col-4">
+                <h3>Floor</h3>
+            </div>
+            <div class="my-col-8">
+                <span class="btn-filter btn-floor" data-floor="">ALL FLOOR</span>
+                <span class="btn-filter btn-floor" data-floor="1">1</span>
+                <span class="btn-filter btn-floor" data-floor="2">2</span>
+                <span class="btn-filter btn-floor" data-floor="3">3</span>
+                <span class="btn-filter btn-floor" data-floor="4">4</span>
+            </div>
+        </div>
+        <div class="my-row" style="margin-top: 50px;">
+            <div class="my-col-6">
+                <!-- Slider html -->
+                <div class="slider-wrapper">
+                    <div class="slider-container">
+                        <!-- Slides -->
+                        <div class="slide active" data-id="1">
+                            <img src="image/pos1.webp" alt="Gambar 1">
+                            <img src="image/peta.png" alt="Gambar 1" class="peta">
+                        </div>
+                        <div class="slide" data-id="2">
+                            <img src="image/pos2.webp" alt="Gambar 2">
+                            <img src="image/peta.png" alt="Gambar 1" class="peta">
+                        </div>
+                        <div class="slide" data-id="3">
+                            <img src="image/pos3.webp" alt="Gambar 3">
+                            <img src="image/peta.png" alt="Gambar 1" class="peta">
+                        </div>
+                        <div class="slide" data-id="4">
+                            <img src="image/pos4.webp" alt="Gambar 4">
+                            <img src="image/peta.png" alt="Gambar 1" class="peta">
+                        </div>
+                        <div class="slide" data-id="5">
+                            <img src="image/pos5.webp" alt="Gambar 5">
+                            <img src="image/peta.png" alt="Gambar 1" class="peta">
+                        </div>
+                        <div class="slide" data-id="6">
+                            <img src="image/pos6.webp" alt="Gambar 6">
+                            <img src="image/peta.png" alt="Gambar 1" class="peta">
+                        </div>
+                        <div class="slide" data-id="7">
+                            <img src="image/pos7.webp" alt="Gambar 7">
+                            <img src="image/peta.png" alt="Gambar 1" class="peta">
+                        </div>
+                        <div class="slide" data-id="8">
+                            <img src="image/pos8.webp" alt="Gambar 8">
+                            <img src="image/peta.png" alt="Gambar 1" class="peta">
+                        </div>
+
+                        <!-- Dots for navigation (inside slider) -->
+                        <div class="dots-container"></div>
+                    </div>
+
+                    <!-- Navigation Buttons (outside slider container) -->
+
+                    <div class="slider-nav">
+                        <button class="nav-button prev">&#10094;</button>
+                        <img src="image/compass.webp" width="150px" alt="Compass">
+                        <button class="nav-button next">&#10095;</button>
+                    </div>
+                </div>
+                <!-- End Slider html -->
+            </div>
+            <div class="my-col-6">
+                <table id="dataTable">
+                    <thead>
+                        <tr>
+                            <th>Unit Number</th>
+                            <th>Floor</th>
+                            <th>Block</th>
+                            <th>Bedrooms</th>
+                            <th>Bathrooms</th>
+                            <th>Gross SQM</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+
+
+    <script>
+        // Data awal
+        const data = [
+            { unit_number: 3101, floor: 1, block: "fire", bedrooms: 1, bathrooms: 1, gros_sqm_total: 60, description: "1 BEDROOM TYPE (TERRACE) @60 SQM" },
+            { unit_number: 3102, floor: 1, block: "fire", bedrooms: 1, bathrooms: 1, gros_sqm_total: 60, description: "1 BEDROOM TYPE (TERRACE) @60 SQM" },
+            { unit_number: 3103, floor: 1, block: "fire", bedrooms: 1, bathrooms: 1, gros_sqm_total: 60, description: "1 BEDROOM TYPE (TERRACE) @60 SQM" },
+            { unit_number: 3104, floor: 1, block: "fire", bedrooms: 1, bathrooms: 1, gros_sqm_total: 60, description: "1 BEDROOM TYPE (TERRACE) @60 SQM" },
+            { unit_number: 3201, floor: 2, block: "fire", bedrooms: 1, bathrooms: 1, gros_sqm_total: 50, description: "1 BEDROOM TYPE (BALCONY) @50SQM" },
+            { unit_number: 3202, floor: 2, block: "fire", bedrooms: 1, bathrooms: 1, gros_sqm_total: 50, description: "1 BEDROOM TYPE (BALCONY) @50SQM" },
+            { unit_number: 3203, floor: 2, block: "fire", bedrooms: 1, bathrooms: 1, gros_sqm_total: 50, description: "1 BEDROOM TYPE (BALCONY) @50SQM" },
+            { unit_number: 3204, floor: 2, block: "fire", bedrooms: 1, bathrooms: 1, gros_sqm_total: 50, description: "1 BEDROOM TYPE (BALCONY) @50SQM" },
+            { unit_number: 3301, floor: 3, block: "fire", bedrooms: 1, bathrooms: 1, gros_sqm_total: 43, description: "STUDIO TYPE CORNER @43 SQM" },
+            { unit_number: 3302, floor: 3, block: "fire", bedrooms: 1, bathrooms: 1, gros_sqm_total: 43, description: "STUDIO TYPE CORNER @43 SQM" },
+            { unit_number: 3303, floor: 3, block: "fire", bedrooms: 1, bathrooms: 1, gros_sqm_total: 43, description: "STUDIO TYPE CORNER @43 SQM" },
+            { unit_number: 3304, floor: 3, block: "fire", bedrooms: 1, bathrooms: 1, gros_sqm_total: 43, description: "STUDIO TYPE CORNER @43 SQM" },
+            { unit_number: 3401, floor: 4, block: "fire", bedrooms: 1, bathrooms: 1, gros_sqm_total: 43, description: "STUDIO TYPE CORNER @43 SQM" },
+            { unit_number: 3402, floor: 4, block: "fire", bedrooms: 1, bathrooms: 1, gros_sqm_total: 43, description: "STUDIO TYPE CORNER @43 SQM" },
+            { unit_number: 3403, floor: 4, block: "fire", bedrooms: 1, bathrooms: 1, gros_sqm_total: 43, description: "STUDIO TYPE CORNER @43 SQM" },
+            { unit_number: 3404, floor: 4, block: "fire", bedrooms: 1, bathrooms: 1, gros_sqm_total: 43, description: "STUDIO TYPE CORNER @43 SQM" },
+            { unit_number: 3501, floor: 5, block: "fire", bedrooms: 2, bathrooms: 2, gros_sqm_total: 148, description: "2 BEDROOM TYPE CORNER @113 SQM" },
+            { unit_number: 3502, floor: 5, block: "fire", bedrooms: 2, bathrooms: 2, gros_sqm_total: 148, description: "2 BEDROOM TYPE CORNER @113 SQM" },
+            { unit_number: 4101, floor: 1, block: "earth", bedrooms: 1, bathrooms: 1, gros_sqm_total: 88, description: "LOFT TYPE @88 SQM" },
+            { unit_number: 4102, floor: 1, block: "earth", bedrooms: 1, bathrooms: 1, gros_sqm_total: 88, description: "LOFT TYPE @88 SQM" },
+            { unit_number: 4103, floor: 1, block: "earth", bedrooms: 1, bathrooms: 1, gros_sqm_total: 88, description: "LOFT TYPE @88 SQM" },
+            { unit_number: 4104, floor: 1, block: "earth", bedrooms: 1, bathrooms: 1, gros_sqm_total: 88, description: "LOFT TYPE @88 SQM" },
+            { unit_number: 4105, floor: 1, block: "earth", bedrooms: 1, bathrooms: 1, gros_sqm_total: 88, description: "LOFT TYPE @88 SQM" },
+            { unit_number: 4106, floor: 1, block: "earth", bedrooms: 1, bathrooms: 1, gros_sqm_total: 88, description: "LOFT TYPE @88 SQM" },
+            { unit_number: 4107, floor: 1, block: "earth", bedrooms: 1, bathrooms: 1, gros_sqm_total: 88, description: "LOFT TYPE @88 SQM" },
+            { unit_number: 4108, floor: 1, block: "earth", bedrooms: 1, bathrooms: 1, gros_sqm_total: 88, description: "LOFT TYPE @88 SQM" },
+            { unit_number: 4109, floor: 1, block: "earth", bedrooms: 1, bathrooms: 1, gros_sqm_total: 88, description: "LOFT TYPE @88 SQM" },
+            { unit_number: 4110, floor: 1, block: "earth", bedrooms: 1, bathrooms: 1, gros_sqm_total: 88, description: "LOFT TYPE @88 SQM" },
+            { unit_number: 4301, floor: 3, block: "earth", bedrooms: 1, bathrooms: 1, gros_sqm_total: 43, description: "STUDIO TYPE CORNER @43 SQM" },
+            { unit_number: 4302, floor: 3, block: "earth", bedrooms: 1, bathrooms: 1, gros_sqm_total: 40, description: "STUDIO TYPE @40 SQM" },
+            { unit_number: 4303, floor: 3, block: "earth", bedrooms: 1, bathrooms: 1, gros_sqm_total: 40, description: "STUDIO TYPE @40 SQM" },
+            { unit_number: 4304, floor: 3, block: "earth", bedrooms: 1, bathrooms: 1, gros_sqm_total: 43, description: "STUDIO TYPE CORNER @43 SQM" },
+            { unit_number: 4305, floor: 3, block: "earth", bedrooms: 1, bathrooms: 1, gros_sqm_total: 43, description: "STUDIO TYPE CORNER @43 SQM" },
+            { unit_number: 4306, floor: 3, block: "earth", bedrooms: 1, bathrooms: 1, gros_sqm_total: 40, description: "STUDIO TYPE @40 SQM" },
+            { unit_number: 4307, floor: 3, block: "earth", bedrooms: 1, bathrooms: 1, gros_sqm_total: 40, description: "STUDIO TYPE @40 SQM" },
+            { unit_number: 4308, floor: 3, block: "earth", bedrooms: 1, bathrooms: 1, gros_sqm_total: 40, description: "STUDIO TYPE @40 SQM" },
+            { unit_number: 4309, floor: 3, block: "earth", bedrooms: 1, bathrooms: 1, gros_sqm_total: 40, description: "STUDIO TYPE @40 SQM" },
+            { unit_number: 4310, floor: 3, block: "earth", bedrooms: 1, bathrooms: 1, gros_sqm_total: 43, description: "STUDIO TYPE CORNER @43 SQM" },
+            { unit_number: 4301, floor: 4, block: "earth", bedrooms: 1, bathrooms: 1, gros_sqm_total: 43, description: "STUDIO TYPE CORNER @43 SQM" },
+            { unit_number: 4304, floor: 4, block: "earth", bedrooms: 1, bathrooms: 1, gros_sqm_total: 43, description: "STUDIO TYPE CORNER @43 SQM" },
+            { unit_number: 4305, floor: 4, block: "earth", bedrooms: 1, bathrooms: 1, gros_sqm_total: 43, description: "STUDIO TYPE CORNER @43 SQM" },
+            { unit_number: 4310, floor: 4, block: "earth", bedrooms: 1, bathrooms: 1, gros_sqm_total: 43, description: "STUDIO TYPE CORNER @43 SQM" },
+            { unit_number: 4402, floor: 4, block: "earth", bedrooms: 1, bathrooms: 1, gros_sqm_total: 40, description: "STUDIO TYPE @40 SQM" },
+            { unit_number: 4403, floor: 4, block: "earth", bedrooms: 1, bathrooms: 1, gros_sqm_total: 40, description: "STUDIO TYPE @40 SQM" },
+            { unit_number: 4406, floor: 4, block: "earth", bedrooms: 1, bathrooms: 1, gros_sqm_total: 40, description: "STUDIO TYPE @40 SQM" },
+            { unit_number: 4407, floor: 4, block: "earth", bedrooms: 1, bathrooms: 1, gros_sqm_total: 40, description: "STUDIO TYPE @40 SQM" },
+            { unit_number: 4408, floor: 4, block: "earth", bedrooms: 1, bathrooms: 1, gros_sqm_total: 40, description: "STUDIO TYPE @40 SQM" },
+            { unit_number: 4409, floor: 4, block: "earth", bedrooms: 1, bathrooms: 1, gros_sqm_total: 40, description: "STUDIO TYPE @40 SQM" },
+            { unit_number: 4501, floor: 5, block: "earth", bedrooms: 2, bathrooms: 2, gros_sqm_total: 148, description: "2 BEDROOM TYPE CORNER @113 SQM" },
+            { unit_number: 4502, floor: 5, block: "earth", bedrooms: 2, bathrooms: 2, gros_sqm_total: 148, description: "2 BEDROOM TYPE CORNER @113 SQM" },
+            { unit_number: 4503, floor: 5, block: "earth", bedrooms: 2, bathrooms: 2, gros_sqm_total: 148, description: "2 BEDROOM TYPE CORNER @113 SQM" },
+            { unit_number: 4504, floor: 5, block: "earth", bedrooms: 2, bathrooms: 2, gros_sqm_total: 157, description: "2 BEDROOM TYPE @107 SQM" },
+            { unit_number: 4505, floor: 5, block: "earth", bedrooms: 2, bathrooms: 2, gros_sqm_total: 148, description: "2 BEDROOM TYPE CORNER @113 SQM" },
+            { unit_number: 5101, floor: 1, block: "water", bedrooms: 1, bathrooms: 1, gros_sqm_total: 60, description: "1 BEDROOM TYPE (TERRACE) @60 SQM" },
+            { unit_number: 5102, floor: 1, block: "water", bedrooms: 1, bathrooms: 1, gros_sqm_total: 60, description: "1 BEDROOM TYPE (TERRACE) @60 SQM" },
+            { unit_number: 5103, floor: 1, block: "water", bedrooms: 1, bathrooms: 1, gros_sqm_total: 60, description: "1 BEDROOM TYPE (TERRACE) @60 SQM" },
+            { unit_number: 5104, floor: 1, block: "water", bedrooms: 1, bathrooms: 1, gros_sqm_total: 60, description: "1 BEDROOM TYPE (TERRACE) @60 SQM" },
+            { unit_number: 5201, floor: 2, block: "water", bedrooms: 1, bathrooms: 1, gros_sqm_total: 50, description: "1 BEDROOM TYPE (BALCONY) @50SQM" },
+            { unit_number: 5202, floor: 2, block: "water", bedrooms: 1, bathrooms: 1, gros_sqm_total: 50, description: "1 BEDROOM TYPE (BALCONY) @50SQM" },
+            { unit_number: 5203, floor: 2, block: "water", bedrooms: 1, bathrooms: 1, gros_sqm_total: 50, description: "1 BEDROOM TYPE (BALCONY) @50SQM" },
+            { unit_number: 5204, floor: 2, block: "water", bedrooms: 1, bathrooms: 1, gros_sqm_total: 50, description: "1 BEDROOM TYPE (BALCONY) @50SQM" },
+            { unit_number: 5301, floor: 3, block: "water", bedrooms: 1, bathrooms: 1, gros_sqm_total: 43, description: "STUDIO TYPE CORNER @43 SQM" },
+            { unit_number: 5302, floor: 3, block: "water", bedrooms: 1, bathrooms: 1, gros_sqm_total: 40, description: "STUDIO TYPE @40 SQM" },
+            { unit_number: 5303, floor: 3, block: "water", bedrooms: 1, bathrooms: 1, gros_sqm_total: 40, description: "STUDIO TYPE @40 SQM" },
+            { unit_number: 5304, floor: 3, block: "water", bedrooms: 1, bathrooms: 1, gros_sqm_total: 43, description: "STUDIO TYPE CORNER @43 SQM" },
+            { unit_number: 5401, floor: 4, block: "water", bedrooms: 1, bathrooms: 1, gros_sqm_total: 43, description: "STUDIO TYPE CORNER @43 SQM" },
+            { unit_number: 5402, floor: 4, block: "water", bedrooms: 1, bathrooms: 1, gros_sqm_total: 40, description: "STUDIO TYPE @40 SQM" },
+            { unit_number: 5403, floor: 4, block: "water", bedrooms: 1, bathrooms: 1, gros_sqm_total: 40, description: "STUDIO TYPE @40 SQM" },
+            { unit_number: 5404, floor: 4, block: "water", bedrooms: 1, bathrooms: 1, gros_sqm_total: 43, description: "STUDIO TYPE CORNER @43 SQM" },
+            { unit_number: 5501, floor: 5, block: "water", bedrooms: 2, bathrooms: 2, gros_sqm_total: 148, description: "2 BEDROOM TYPE CORNER @113 SQM" },
+            { unit_number: 5502, floor: 5, block: "water", bedrooms: 2, bathrooms: 2, gros_sqm_total: 148, description: "2 BEDROOM TYPE CORNER @113 SQM" },
+            { unit_number: 6101, floor: 1, block: "wind", bedrooms: 0, bathrooms: 1, gros_sqm_total: 88, description: "LOFT TYPE @88 SQM" },
+            { unit_number: 6102, floor: 1, block: "wind", bedrooms: 0, bathrooms: 1, gros_sqm_total: 88, description: "LOFT TYPE @88 SQM" },
+            { unit_number: 6103, floor: 1, block: "wind", bedrooms: 0, bathrooms: 1, gros_sqm_total: 88, description: "LOFT TYPE @88 SQM" },
+            { unit_number: 6104, floor: 1, block: "wind", bedrooms: 0, bathrooms: 1, gros_sqm_total: 88, description: "LOFT TYPE @88 SQM" },
+            { unit_number: 6105, floor: 1, block: "wind", bedrooms: 0, bathrooms: 1, gros_sqm_total: 88, description: "LOFT TYPE @88 SQM" },
+            { unit_number: 6106, floor: 1, block: "wind", bedrooms: 0, bathrooms: 1, gros_sqm_total: 88, description: "LOFT TYPE @88 SQM" },
+            { unit_number: 6107, floor: 1, block: "wind", bedrooms: 0, bathrooms: 1, gros_sqm_total: 88, description: "LOFT TYPE @88 SQM" },
+            { unit_number: 6108, floor: 1, block: "wind", bedrooms: 0, bathrooms: 1, gros_sqm_total: 88, description: "LOFT TYPE @88 SQM" },
+            { unit_number: 6109, floor: 1, block: "wind", bedrooms: 0, bathrooms: 1, gros_sqm_total: 88, description: "LOFT TYPE @88 SQM" },
+            { unit_number: 6110, floor: 1, block: "wind", bedrooms: 0, bathrooms: 1, gros_sqm_total: 88, description: "LOFT TYPE @88 SQM" },
+            { unit_number: 6301, floor: 3, block: "wind", bedrooms: 1, bathrooms: 1, gros_sqm_total: 43, description: "STUDIO TYPE CORNER @43 SQM" },
+            { unit_number: 6302, floor: 3, block: "wind", bedrooms: 1, bathrooms: 1, gros_sqm_total: 40, description: "STUDIO TYPE @40 SQM" },
+            { unit_number: 6303, floor: 3, block: "wind", bedrooms: 1, bathrooms: 1, gros_sqm_total: 40, description: "STUDIO TYPE @40 SQM" },
+            { unit_number: 6304, floor: 3, block: "wind", bedrooms: 1, bathrooms: 1, gros_sqm_total: 40, description: "STUDIO TYPE @40 SQM" },
+            { unit_number: 6305, floor: 3, block: "wind", bedrooms: 1, bathrooms: 1, gros_sqm_total: 43, description: "STUDIO TYPE CORNER @43 SQM" },
+            { unit_number: 6306, floor: 3, block: "wind", bedrooms: 1, bathrooms: 1, gros_sqm_total: 43, description: "STUDIO TYPE CORNER @43 SQM" },
+            { unit_number: 6307, floor: 3, block: "wind", bedrooms: 1, bathrooms: 1, gros_sqm_total: 40, description: "STUDIO TYPE @40 SQM" },
+            { unit_number: 6308, floor: 3, block: "wind", bedrooms: 1, bathrooms: 1, gros_sqm_total: 40, description: "STUDIO TYPE @40 SQM" },
+            { unit_number: 6309, floor: 3, block: "wind", bedrooms: 1, bathrooms: 1, gros_sqm_total: 40, description: "STUDIO TYPE @40 SQM" },
+            { unit_number: 6310, floor: 3, block: "wind", bedrooms: 1, bathrooms: 1, gros_sqm_total: 43, description: "STUDIO TYPE CORNER @43 SQM" },
+            { unit_number: 6401, floor: 4, block: "wind", bedrooms: 1, bathrooms: 1, gros_sqm_total: 43, description: "STUDIO TYPE CORNER @43 SQM" },
+            { unit_number: 6402, floor: 4, block: "wind", bedrooms: 1, bathrooms: 1, gros_sqm_total: 40, description: "STUDIO TYPE @40 SQM" },
+            { unit_number: 6403, floor: 4, block: "wind", bedrooms: 1, bathrooms: 1, gros_sqm_total: 40, description: "STUDIO TYPE @40 SQM" },
+            { unit_number: 6404, floor: 4, block: "wind", bedrooms: 1, bathrooms: 1, gros_sqm_total: 40, description: "STUDIO TYPE @40 SQM" },
+            { unit_number: 6405, floor: 4, block: "wind", bedrooms: 1, bathrooms: 1, gros_sqm_total: 43, description: "STUDIO TYPE CORNER @43 SQM" },
+            { unit_number: 6406, floor: 4, block: "wind", bedrooms: 1, bathrooms: 1, gros_sqm_total: 43, description: "STUDIO TYPE CORNER @43 SQM" },
+            { unit_number: 6407, floor: 4, block: "wind", bedrooms: 1, bathrooms: 1, gros_sqm_total: 40, description: "STUDIO TYPE @40 SQM" },
+            { unit_number: 6408, floor: 4, block: "wind", bedrooms: 1, bathrooms: 1, gros_sqm_total: 40, description: "STUDIO TYPE @40 SQM" },
+            { unit_number: 6409, floor: 4, block: "wind", bedrooms: 1, bathrooms: 1, gros_sqm_total: 40, description: "STUDIO TYPE @40 SQM" },
+            { unit_number: 6410, floor: 4, block: "wind", bedrooms: 1, bathrooms: 1, gros_sqm_total: 43, description: "STUDIO TYPE CORNER @43 SQM" },
+            { unit_number: 6501, floor: 5, block: "wind", bedrooms: 2, bathrooms: 2, gros_sqm_total: 148, description: "2 BEDROOM TYPE CORNER @113 SQM" },
+            { unit_number: 6503, floor: 5, block: "wind", bedrooms: 2, bathrooms: 2, gros_sqm_total: 157, description: "2 BEDROOM TYPE @107 SQM" },
+            { unit_number: 6502, floor: 5, block: "wind", bedrooms: 1, bathrooms: 1, gros_sqm_total: 62, description: "STUDIO TYPE ROOFTOP @62SQM" },
+            { unit_number: 6504, floor: 5, block: "wind", bedrooms: 2, bathrooms: 2, gros_sqm_total: 148, description: "2 BEDROOM TYPE CORNER @113 SQM" },
+            { unit_number: 6506, floor: 5, block: "wind", bedrooms: 2, bathrooms: 2, gros_sqm_total: 157, description: "2 BEDROOM TYPE @107 SQM" },
+            { unit_number: 6505, floor: 5, block: "wind", bedrooms: 1, bathrooms: 1, gros_sqm_total: 62, description: "STUDIO TYPE ROOFTOP @62SQM" }
+        ];
+
+
+        $(document).ready(function () {
+            applyFiltersFromURL();
+
+            // Fungsi untuk mengubah URL tanpa refresh
+            function changeURL(url, judul) {
+                // Ambil query params saat ini
+                let currentParams = new URLSearchParams(window.location.search);
+                let currentBlock = currentParams.get('block');
+                let currentFloor = currentParams.get('floor');
+                let currentUnitNumber = currentParams.get('unit_number');
+
+                // Parse query params dari URL baru
+                let newParams = new URLSearchParams(url.split('?')[1] || '');
+                let newBlock = newParams.get('block');
+                let newFloor = newParams.get('floor');
+                let newUnitNumber = newParams.get('unit_number');
+
+                // Cek apakah hanya block atau floor yang berubah
+                let onlyBlockOrFloorChanged = (
+                    (newBlock !== currentBlock || newFloor !== currentFloor) && // Block atau floor berubah
+                    (!newUnitNumber || newUnitNumber === currentUnitNumber)     // Unit number tidak berubah atau tidak ada
+                );
+
+                // Jika hanya block atau floor yang berubah, hilangkan unit_number
+                if (onlyBlockOrFloorChanged) {
+                    newParams.delete('unit_number');
+                    url = newParams.toString() ? `?${newParams.toString()}` : window.location.pathname;
+                }
+
+                // Terapkan perubahan URL
+                window.history.pushState({}, judul || document.title, url);
+                // Panggil fungsi untuk menerapkan filter setiap kali URL berubah
+                applyFiltersFromURL();
+                loadFromQueryParams();
+            }
+
+            // Fungsi untuk menerapkan filter berdasarkan URL saat ini
+            function applyFiltersFromURL() {
+                var urlObj = new URL(window.location.href);
+                var searchParams = urlObj.searchParams;
+
+                console.log("Menerapkan filter dari URL:", urlObj.search);
+
+                // Menerapkan filter block
+                if (searchParams.has("block")) {
+                    var blockValue = searchParams.get("block");
+                    // Reset semua tombol block terlebih dahulu
+                    $(".btn-filter.btn-block").removeClass("active");
+                    // Set tombol yang sesuai dengan nilai di URL sebagai aktif
+                    $(".btn-filter.btn-block[data-id='" + blockValue + "']").addClass("active");
+                    // Di sini tambahkan kode untuk menerapkan filter block ke konten
+                    console.log("Filter block diterapkan:", blockValue);
+                }
+
+                // Menerapkan filter floor
+                if (searchParams.has("floor")) {
+                    var floorValue = searchParams.get("floor");
+                    // Reset semua tombol floor terlebih dahulu
+                    $(".btn-filter.btn-floor").removeClass("active");
+                    // Set tombol yang sesuai dengan nilai di URL sebagai aktif
+                    $(".btn-filter.btn-floor[data-floor='" + floorValue + "']").addClass("active");
+                    // Di sini tambahkan kode untuk menerapkan filter floor ke konten
+                    console.log("Filter floor diterapkan:", floorValue);
+                }
+
+                // Menerapkan slide
+                if (searchParams.has("slide")) {
+                    var slideValue = searchParams.get("slide");
+                    // Reset semua slide terlebih dahulu
+                    $(".slide").removeClass("active");
+                    // Set slide yang sesuai dengan nilai di URL sebagai aktif
+                    $(".slide[data-id='" + slideValue + "']").addClass("active");
+                    // Di sini tambahkan kode untuk menerapkan slide ke konten
+                    console.log("Slide diterapkan:", slideValue);
+                }
+                // Tambahkan logika filter lainnya di sini jika ada
+            }
+
+            // Menangani perubahan URL (browser back/forward)
+            $(window).on("popstate", function (event) {
+                // Jangan gunakan preventDefault() di sini - itu menyebabkan masalah dengan event popstate
+                console.log('popstate terpicu');
+                console.log("URL berubah:", window.location.pathname + window.location.search);
+
+                // Terapkan filter berdasarkan URL saat ini
+                applyFiltersFromURL();
+            });
+
+            // Filter JS - btn block
+            $(".btn-filter.btn-block").click(function () {
+                var blockValue = $(this).data("id");
+                var currentURL = window.location.href;
+                var urlObj = new URL(currentURL);
+                var searchParams = urlObj.searchParams;
+
+                if (searchParams.has("block")) {
+                    searchParams.set("block", blockValue);
+                } else {
+                    searchParams.append("block", blockValue);
+                }
+
+                urlObj.search = searchParams.toString();
+                var newURL = urlObj.toString();
+
+                // Update UI terlebih dahulu
+                $(".btn-filter.btn-block").removeClass("active");
+                $(this).addClass("active");
+
+                // Ubah URL (ini juga akan memicu applyFiltersFromURL)
+                changeURL(newURL);
+            });
+
+            // Filter JS - btn floor
+            $(".btn-filter.btn-floor").click(function () {
+                var floorValue = $(this).data("floor");
+                var currentURL = window.location.href;
+                var urlObj = new URL(currentURL);
+                var searchParams = urlObj.searchParams;
+
+                if (searchParams.has("floor")) {
+                    searchParams.set("floor", floorValue);
+                } else {
+                    searchParams.append("floor", floorValue);
+                }
+
+                urlObj.search = searchParams.toString();
+                var newURL = urlObj.toString();
+
+                // Update UI terlebih dahulu
+                $(".btn-filter.btn-floor").removeClass("active");
+                $(this).addClass("active");
+
+                // Ubah URL (ini juga akan memicu applyFiltersFromURL)
+                changeURL(newURL);
+            });
+
+            // End General JS
+
+            // featured js
+            $('.box-info-block').hide();
+
+            // Add event handlers to each path with class s0
+            $('.s0').hover(
+                // mouseenter function
+                function () {
+                    // Get data from the path
+                    var title = $(this).attr('data-title');
+                    var desc = $(this).attr('data-desc');
+
+                    // Update the info box content
+                    $('.title-block').text(title);
+                    $('.description-block').text(desc);
+
+                    // Show the info box
+                    $('.box-info-block').show();
+
+                    // Make the path visible on hover
+                    $(this).css('opacity', 0.7);
+                },
+                // mouseleave function
+                function () {
+                    // Hide the info box
+                    $('.box-info-block').hide();
+
+                    // Reset path opacity
+                    $(this).css('opacity', 0);
+                }
+            );
+
+            // Click handler for SVG paths
+            $('.s0').click(function () {
+                // Get data attributes
+                var blockValue = $(this).attr('data-block');
+                var slideValue = $(this).attr('data-slide');
+
+                // Get current URL and create URL object
+                var currentURL = window.location.href;
+                var urlObj = new URL(currentURL);
+                var searchParams = urlObj.searchParams;
+
+                // Update or add block parameter
+                if (searchParams.has("block")) {
+                    searchParams.set("block", blockValue);
+                } else {
+                    searchParams.append("block", blockValue);
+                }
+
+                // Update or add slide parameter
+                if (searchParams.has("slide")) {
+                    searchParams.set("slide", slideValue);
+                } else {
+                    searchParams.append("slide", slideValue);
+                }
+
+                // Update URL search parameters
+                urlObj.search = searchParams.toString();
+                var newURL = urlObj.toString();
+
+                // Update UI - you might need to adjust this part
+                // to match your UI structure for highlighting active elements
+                $(".s0").css('opacity', 0); // Reset all paths
+                $(this).css('opacity', 0.7); // Highlight clicked path
+
+                // Scroll to the filter div
+                $('html, body').animate({
+                    scrollTop: $("#filter").offset().top
+                }, 800); // 800ms animation duration, adjust as needed
+
+                // Change URL using your existing function
+                changeURL(newURL);
+            });
+
+            //end featured js
+
+
+
+            // Slider js 
+            let currentSlide = 0;
+            const slides = $('.slide');
+            const totalSlides = slides.length;
+            const dotsContainer = $('.dots-container');
+
+            // Create dots for each slide
+            for (let i = 0; i < totalSlides; i++) {
+                dotsContainer.append('<div class="dot"></div>');
+            }
+
+            // Set first dot as active
+            $('.dot').first().addClass('active');
+
+            // Function to show a specific slide with fade effect
+            function showSlide(index) {
+                if (index < 0) {
+                    index = totalSlides - 1;
+                } else if (index >= totalSlides) {
+                    index = 0;
+                }
+
+                // Remove active class from all slides and add to selected slide
+                slides.removeClass('active');
+                $(slides[index]).addClass('active');
+
+                // Update current slide index
+                currentSlide = index;
+
+                // Update active dot
+                $('.dot').removeClass('active').eq(index).addClass('active');
+            }
+
+            // Function to show the next slide
+            function nextSlide() {
+                showSlide(currentSlide + 1);
+            }
+
+            // Function to show the previous slide
+            function prevSlide() {
+                showSlide(currentSlide - 1);
+            }
+
+            // Set up click event for next button
+            $('.next').click(function () {
+                nextSlide();
+            });
+
+            // Set up click event for previous button
+            $('.prev').click(function () {
+                prevSlide();
+            });
+
+            // Set up click event for dots
+            $('.dots-container').on('click', '.dot', function () {
+                const dotIndex = $(this).index();
+                showSlide(dotIndex);
+            });
+
+            // Add keyboard arrow key support
+            $(document).keydown(function (e) {
+                if (e.keyCode === 37) { // Left arrow key
+                    prevSlide();
+                } else if (e.keyCode === 39) { // Right arrow key
+                    nextSlide();
+                }
+            });
+
+            // Optional: Auto slideshow
+            // setInterval(nextSlide, 5000); // Change slide every 5 seconds
+
+            // Slider js 
+
+
+            //table js
+            // Fungsi untuk menampilkan data
+            function displayData(filteredData) {
+                let tbody = $('#dataTable tbody');
+                tbody.empty();
+
+                // Pastikan filteredData adalah array sebelum forEach
+                if (Array.isArray(filteredData) && filteredData.length > 0) {
+                    filteredData.forEach(item => {
+                        tbody.append(`
+                            <tr data-unit="${item.unit_number}" data-floor="${item.floor}" data-block="${item.block}">
+                                <td>${item.unit_number}</td>
+                                <td>${item.floor}</td>
+                                <td>${item.block}</td>
+                                <td>${item.bedrooms}</td>
+                                <td>${item.bathrooms}</td>
+                                <td>${item.gros_sqm_total}</td>
+                            </tr>
+                        `);
+                    });
+                } else {
+                    // Tampilkan pesan jika tidak ada data
+                    tbody.append(`
+                        <tr>
+                            <td colspan="6">Tidak ada data yang ditemukan</td>
+                        </tr>
+                    `);
+                }
+
+                // Tambahkan event click pada setiap baris
+                $('tbody tr').on('click', function () {
+                    // Hapus class active dari semua baris
+                    $('tbody tr').removeClass('active');
+                    // Tambahkan class active pada baris yang diklik
+                    $(this).addClass('active');
+
+                    // Ambil data dari baris yang diklik
+                    let unitNumber = $(this).data('unit');
+                    let floor = $(this).data('floor'); // Kolom floor (indeks 1)
+                    let block = $(this).data('block'); // Kolom block (indeks 2)
+
+                    // Buat URL baru dengan semua parameter
+                    let params = new URLSearchParams();
+                    params.set('unit_number', unitNumber);
+                    params.set('floor', floor);
+                    params.set('block', block);
+                    let newUrl = `?${params.toString()}`;
+
+                    // Gunakan fungsi changeURL
+                    changeURL(newUrl, `Unit ${unitNumber}`);
+                });
+            }
+
+            // Membaca query params saat halaman dimuat
+            function loadFromQueryParams() {
+                let params = new URLSearchParams(window.location.search);
+                let block = params.get('block');
+                let floor = params.get('floor');
+                let unit_number = params.get('unit_number');
+
+                // Filter data langsung dari query params
+                let filteredData = data.filter(item => {
+                    let blockMatch = !block || item.block === block;
+                    let floorMatch = !floor || item.floor === parseInt(floor);
+                    let unitMatch = !unit_number || item.unit_number === parseInt(unit_number);
+                    return blockMatch && floorMatch && unitMatch;
+                });
+
+                console.log(filteredData);
+
+
+                // Tampilkan data yang sudah difilter
+                displayData(filteredData);
+
+                // Set nilai select option sesuai query params
+                if (block) $('#blockFilter').val(block);
+                if (floor) $('#floorFilter').val(floor);
+                if (unit_number) {
+                    $('#unitFilter').val(unit_number);
+                    // Tandai baris dengan unit_number dari query params sebagai active
+                    setTimeout(() => {
+                        $(`tr[data-unit="${unit_number}"]`).addClass('active');
+                    }, 0);
+                }
+            }
+
+            // Event listener untuk perubahan filter
+            // $('#blockFilter, #floorFilter, #unitFilter').on('change', filterData);
+
+            // Load data awal dan terapkan filter dari query params jika ada
+            loadFromQueryParams();
+
+
+            //end table js
+        });
+    </script>
+</body>
+
+</html>

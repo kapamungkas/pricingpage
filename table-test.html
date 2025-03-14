@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Tabel Filter Apartemen</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin-top: 20px;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        .filter-container {
+            margin-bottom: 20px;
+        }
+        select {
+            margin-right: 10px;
+        }
+        /* Styling untuk hover dan active */
+        tbody tr:hover {
+            background-color: #ffe5cc; /* Warna saat hover (orange muda) */
+            cursor: pointer;
+        }
+        tbody tr.active {
+            background-color: #ff9800; /* Warna saat active (orange) */
+        }
+    </style>
+</head>
+<body>
+    <div class="filter-container">
+        <label>Block: </label>
+        <select id="blockFilter">
+            <option value="all">Semua</option>
+        </select>
+
+        <label>Floor: </label>
+        <select id="floorFilter">
+            <option value="all">Semua</option>
+        </select>
+
+        <label>Unit Number: </label>
+        <select id="unitFilter">
+            <option value="all">Semua</option>
+        </select>
+    </div>
+
+    <table id="dataTable">
+        <thead>
+            <tr>
+                <th>Unit Number</th>
+                <th>Floor</th>
+                <th>Block</th>
+                <th>Bedrooms</th>
+                <th>Bathrooms</th>
+                <th>Gross SQM</th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+
+    <script>
+        // Data awal
+        const data = [
+            {unit_number: 123, floor: 1, block: "wind", bedrooms: 3, bathrooms: 2, gros_sqm_total: 75},
+            {unit_number: 124, floor: 1, block: "wind", bedrooms: 2, bathrooms: 1, gros_sqm_total: 65},
+            {unit_number: 201, floor: 2, block: "fire", bedrooms: 3, bathrooms: 2, gros_sqm_total: 80},
+            {unit_number: 202, floor: 2, block: "fire", bedrooms: 4, bathrooms: 3, gros_sqm_total: 90},
+            {unit_number: 301, floor: 3, block: "water", bedrooms: 2, bathrooms: 2, gros_sqm_total: 70}
+        ];
+
+        $(document).ready(function() {
+            // Mengisi opsi filter block
+            let blockOptions = new Set(data.map(item => item.block));
+            blockOptions.forEach(block => {
+                $('#blockFilter').append(`<option value="${block}">${block}</option>`);
+            });
+
+            // Mengisi opsi filter floor
+            let floorOptions = new Set(data.map(item => item.floor));
+            floorOptions.forEach(floor => {
+                $('#floorFilter').append(`<option value="${floor}">${floor}</option>`);
+            });
+
+            // Mengisi opsi filter unit_number
+            let unitOptions = new Set(data.map(item => item.unit_number));
+            unitOptions.forEach(unit => {
+                $('#unitFilter').append(`<option value="${unit}">${unit}</option>`);
+            });
+
+            // Fungsi untuk menampilkan data
+            function displayData(filteredData) {
+                let tbody = $('#dataTable tbody');
+                tbody.empty();
+                
+                filteredData.forEach(item => {
+                    tbody.append(`
+                        <tr data-unit="${item.unit_number}">
+                            <td>${item.unit_number}</td>
+                            <td>${item.floor}</td>
+                            <td>${item.block}</td>
+                            <td>${item.bedrooms}</td>
+                            <td>${item.bathrooms}</td>
+                            <td>${item.gros_sqm_total}</td>
+                        </tr>
+                    `);
+                });
+
+                // Tambahkan event click pada setiap baris
+                $('tbody tr').on('click', function() {
+                    // Hapus class active dari semua baris
+                    $('tbody tr').removeClass('active');
+                    // Tambahkan class active pada baris yang diklik
+                    $(this).addClass('active');
+                    
+                    // Update URL dengan unit_number yang diklik
+                    let unitNumber = $(this).data('unit');
+                    let params = new URLSearchParams(window.location.search);
+                    params.set('unit_number', unitNumber);
+                    window.history.pushState({}, '', `?${params.toString()}`);
+                });
+            }
+
+            // Fungsi filter
+            function filterData() {
+                let selectedBlock = $('#blockFilter').val();
+                let selectedFloor = $('#floorFilter').val();
+                let selectedUnit = $('#unitFilter').val();
+
+                let filteredData = data.filter(item => {
+                    let blockMatch = selectedBlock === 'all' || item.block === selectedBlock;
+                    let floorMatch = selectedFloor === 'all' || item.floor === parseInt(selectedFloor);
+                    let unitMatch = selectedUnit === 'all' || item.unit_number === parseInt(selectedUnit);
+                    return blockMatch && floorMatch && unitMatch;
+                });
+
+                displayData(filteredData);
+
+                // Update URL dengan query params dari filter
+                let params = new URLSearchParams();
+                if (selectedBlock !== 'all') params.set('block', selectedBlock);
+                if (selectedFloor !== 'all') params.set('floor', selectedFloor);
+                if (selectedUnit !== 'all') params.set('unit_number', selectedUnit);
+                window.history.pushState({}, '', params.toString() ? `?${params.toString()}` : window.location.pathname);
+            }
+
+            // Membaca query params saat halaman dimuat
+            function loadFromQueryParams() {
+                let params = new URLSearchParams(window.location.search);
+                let block = params.get('block');
+                let floor = params.get('floor');
+                let unit_number = params.get('unit_number');
+
+                // Filter data langsung dari query params
+                let filteredData = data.filter(item => {
+                    let blockMatch = !block || item.block === block;
+                    let floorMatch = !floor || item.floor === parseInt(floor);
+                    let unitMatch = !unit_number || item.unit_number === parseInt(unit_number);
+                    return blockMatch && floorMatch && unitMatch;
+                });
+
+                console.log(filteredData);
+                
+
+                // Tampilkan data yang sudah difilter
+                displayData("tes",filteredData);
+
+                // Set nilai select option sesuai query params
+                if (block) $('#blockFilter').val(block);
+                if (floor) $('#floorFilter').val(floor);
+                if (unit_number) {
+                    $('#unitFilter').val(unit_number);
+                    // Tandai baris dengan unit_number dari query params sebagai active
+                    setTimeout(() => {
+                        $(`tr[data-unit="${unit_number}"]`).addClass('active');
+                    }, 0);
+                }
+            }
+
+            // Event listener untuk perubahan filter
+            $('#blockFilter, #floorFilter, #unitFilter').on('change', filterData);
+
+            // Load data awal dan terapkan filter dari query params jika ada
+            loadFromQueryParams();
+        });
+    </script>
+</body>
+</html>
