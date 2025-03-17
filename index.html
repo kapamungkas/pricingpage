@@ -185,8 +185,8 @@
 
         .slide img {
             width: 100%;
-            height: 100%;
-            object-fit: cover;
+            /* height: 100%; */
+            object-fit: fill;
         }
 
         .slider-nav {
@@ -242,13 +242,18 @@
         }
 
         .peta {
-            width: 200px !important;
             position: absolute;
             height: auto !important;
             opacity: 1;
             z-index: 999;
-            top: 20px;
-            right: 20px;
+            max-width: 100%;
+            top: 0;
+            left: 0;
+        }
+
+        .unit.active,
+        .unit.hover {
+            opacity: 0.4 !important;
         }
     </style>
     <!-- End Slider css -->
@@ -328,8 +333,32 @@
                         <div class="title-block">Wind Block</div>
                         <div class="description-block">19 Available</div>
                     </div>
-                    <img src="image/featured.jpg" alt="Gambar 1" width="100%">
-                    <svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1706 990" width="1706"
+                    <img src="image/featured.webp" alt="All Block Image" width="100%">
+                    <svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2750 1908" width="2750"
+                        height="1908">
+                        <title>21</title>
+                        <style>
+                            .s0 {
+                                opacity: 0;
+                                fill: #f7b34b;
+                                transition: opacity 0.3s ease;
+                                cursor: pointer;
+                            }
+                        </style>
+                        <path id="fire" data-title="Fire Block" data-desc="19 Available" data-block="fire"
+                            data-slidecategory="fire" class="s0"
+                            d="m1618 1443l650 334 183-94-106-64-1-62 32-13-9-31-1-73-22-13 33-20-1-12-2-22-16-8 42-24-96-57-1-34-53-34-37-22 4-7-84-49-42 24-30-17v-48l-82-46-33-13-56-27-2 30h-6l-40-22-199 111 27 14-3 60 49 26-37 22 2 34 32 17-33 21 1 24 14 10 1 25-75 34z" />
+                        <path id="earth" data-title="earth Block" data-desc="19 Available" data-block="earth"
+                            data-slidecategory="earth" class="s0"
+                            d="m1506 1442l-344-199 63-35 36 20 3-70-27-16 1-26 36-21-37-21 1-32 23-13-48-29-2-58-19-15 149-87 2-58-2-139 8-11 110-65 21 14 116-60 538 313-28 20 4 54-47 23 24 13 3 34-38 19 35 22v25l-20 11-3 45-84-49-7 4-29-16-54-27-2 30-45-21-199 109 27 16-3 59 47 26-35 21-1 32 34 18-34 21 1 9-147 83-1 21-10 7-9-4z" />
+                        <path id="water" data-title="water Block" data-desc="19 Available" data-block="water"
+                            data-slidecategory="water_wind" class="s0"
+                            d="m990 840l-8-262-80-46 71-72 35 18 94-55-13-12 119-69 15 10 54-27 2 18 39-22 266 153-30 16 3 49-80 39-23-14-107 65-10 18 1 190-146 90 15 17-4 17z" />
+                        <path id="wind" data-title="wind Block" data-desc="19 Available" data-block="wind"
+                            data-slidecategory="water_wind" class="s0"
+                            d="m306 722l-9-165-26-21 2-123-30-13 179-102-5-17 40-22 10 8 12-8-1-20 80-46 12 9 127-64-3-15 39-20 11 8 62-34 439 255-26 17-10-4-114 69 13 11-104 50-28-14-70 75 75 41 7 167-71 43c0 0-0.1 28.3-31 36-30.9 7.7-6 30-6 30l-35 24-27-9-24 13-24-14-51 30 14 15-106 59-324-178-8-31 27-19 8 5 10-5z" />
+                    </svg>
+                    <!-- <svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1706 990" width="1706"
                         height="990">
                         <title>featured</title>
                         <style>
@@ -354,7 +383,7 @@
                         <path id="Layer 5" class="s0" data-title="Wind Block" data-desc="19 Available" data-block="wind"
                             data-slide="5"
                             d="m1278 840v-51l-11-5 14-10-15-5 1-41 14-10 1-5-28-7v-38l-10-4 37-24 1-27 30-15 11 2 55-29 35 6 17-12 3 5 5 1 15-8 38 8 7-4 21 3 1 14 29-9 2 13 18 4 6-5 33 5 2 16 9-1 50 15-18 13 1 7 10-2 2 19-17 12 1 12 15 3 5 18-18 9v10l14 4 3 14-14 8-3 7 1 31-134 104-15 1z" />
-                    </svg>
+                    </svg> -->
                 </div>
             </div>
         </div>
@@ -363,14 +392,14 @@
                 <h3>Block</h3>
             </div>
             <div class="my-col-8">
-                <span class="btn-filter btn-block" data-id="">ALL BLOCK</span>
-                <span class="btn-filter btn-block" data-id="wind">BLOCK WIND</span>
+                <span class="btn-filter btn-block" data-id="" data-slidecategory="all">ALL BLOCK</span>
+                <span class="btn-filter btn-block" data-id="wind" data-slidecategory="water_wind">BLOCK WIND</span>
 
-                <span class="btn-filter btn-block" data-id="water">BLOCK WATER</span>
+                <span class="btn-filter btn-block" data-id="water" data-slidecategory="water_wind">BLOCK WATER</span>
 
-                <span class="btn-filter btn-block" data-id="earth">BLOCK EARTH</span>
+                <span class="btn-filter btn-block" data-id="earth" data-slidecategory="earth">BLOCK EARTH</span>
 
-                <span class="btn-filter btn-block" data-id="fire">BLOCK FIRE</span>
+                <span class="btn-filter btn-block" data-id="fire" data-slidecategory="fire">BLOCK FIRE</span>
             </div>
         </div>
         <div class="my-row filter-section">
@@ -383,6 +412,7 @@
                 <span class="btn-filter btn-floor" data-floor="2">2</span>
                 <span class="btn-filter btn-floor" data-floor="3">3</span>
                 <span class="btn-filter btn-floor" data-floor="4">4</span>
+                <span class="btn-filter btn-floor" data-floor="5">5</span>
             </div>
         </div>
         <div class="my-row" style="margin-top: 50px;">
@@ -391,37 +421,117 @@
                 <div class="slider-wrapper">
                     <div class="slider-container">
                         <!-- Slides -->
-                        <div class="slide active" data-id="1">
-                            <img src="image/pos1.webp" alt="Gambar 1">
-                            <img src="image/peta.png" alt="Gambar 1" class="peta">
+                        <div class="slide active" data-slidecategory="fire" data-id="1">
+                            <img src="image/fire_1.webp" alt="Gambar 1">
+                            <svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 1080" width="1080"
+                                height="1080" class="peta">
+                                <title>fire_1</title>
+                                <style>
+                                    .unit {
+                                        opacity: 0;
+                                        fill: #f7b34b
+                                    }
+                                </style>
+                                <path id="3501" class="unit 3501" data-unitnumber="3501"
+                                    d="m812 386.5l-272 1.1v-58.6l272.3 0.4z" />
+                                <path id="3302" class="unit 3302" data-unitnumber="3302"
+                                    d="m793.1 528.8l-250.1-1.8 0.4-59.7 250.1-1.1z" />
+                                <path id="3402" class="unit 3402" data-unitnumber="3402"
+                                    d="m792.7 463.2l-252.7 1.8v-67l253.2-3.1z" />
+                                <path id="3502" class="unit 3502" data-unitnumber="3502"
+                                    d="m221.1 331.4l210.6 2.2-1.7 57.4-209.4 5.8z" />
+                                <path id="3403" class="unit 3403" data-unitnumber="3403"
+                                    d="m221.1 398.4l210.6 2.2-1.7 57.4-209.4 5.8z" />
+                                <path id="3303" class="unit 3303" data-unitnumber="3303"
+                                    d="m223.1 465.4l210.6 2.2-1.7 57.4-209.4 5.8z" />
+                            </svg>
                         </div>
-                        <div class="slide" data-id="2">
-                            <img src="image/pos2.webp" alt="Gambar 2">
-                            <img src="image/peta.png" alt="Gambar 1" class="peta">
+                        <div class="slide" data-slidecategory="fire" data-id="2">
+                            <img src="image/fire_2.webp" alt="Gambar 2">
+                            <svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 1080" width="1080"
+                                height="1080"  class="peta">
+                                <title>fire_2_svg</title>
+                                <style>
+                                    .unit {
+                                        opacity: 0;
+                                        fill: #f7b34b
+                                    }
+                                </style>
+                                <path id="3502" class="unit 3502" data-unitnumber="3502"
+                                    d="m243 223l177 8 111.9-13.3 2.4 62.8-113.3 24.5-209-22 36-9zm231 21" />
+                                <path id="3402" class="unit 3402" data-unitnumber="3402"
+                                    d="m325 310v81l106 14 45-12-1-31-36.9 9.1-0.2-54.7-22.9 2.6z" />
+                                <path id="3401" class="unit 3401" data-unitnumber="3401"
+                                    d="m322 391l-98-16v-31l39-6v-35l63 7z" />
+                                <path id="3302" class="unit 3302" data-unitnumber="3302"
+                                    d="m326 405l-1 82 107 20 44-17 1-30-41 4 2-46-8 4z" />
+                                <path id="3301" class="unit 3301" data-unitnumber="3301"
+                                    d="m326 405l-2 83-99-17v-30l39-14v-32z" />
+                                <path id="3202" class="unit 3202" data-unitnumber="3202"
+                                    d="m329 501l-1 82 89 22 1-85z" />
+                                <path id="3201" class="unit 3201" data-unitnumber="3201"
+                                    d="m244 482l86 18-2 83-83-18z" />
+                                <path id="3501" class="unit 3501" data-unitnumber="3501"
+                                    d="m701 198l79-11v58l-85 19-1-59 8-1z" />
+                                <path id="3403" class="unit 3403" data-unitnumber="3403"
+                                    d="m753 252l-1 31 24 2-1 29-81 14-1-66z" />
+                                <path id="3303" class="unit 3303" data-unitnumber="3303"
+                                    d="m694 406l79-29 1-22-23-3v-35l-57 10zm-230-245" />
+                            </svg>
                         </div>
-                        <div class="slide" data-id="3">
-                            <img src="image/pos3.webp" alt="Gambar 3">
-                            <img src="image/peta.png" alt="Gambar 1" class="peta">
+                        <div class="slide" data-slidecategory="fire" data-id="3">
+                            <img src="image/fire_4.webp" alt="Gambar 3">
+                            <!-- <img src="image/peta.png" alt="Gambar 1" class="peta"> -->
                         </div>
-                        <div class="slide" data-id="4">
-                            <img src="image/pos4.webp" alt="Gambar 4">
-                            <img src="image/peta.png" alt="Gambar 1" class="peta">
+                        <div class="slide" data-slidecategory="fire" data-id="4">
+                            <img src="image/fire_6.webp" alt="Gambar 4">
+                            <!-- <img src="image/peta.png" alt="Gambar 1" class="peta"> -->
                         </div>
-                        <div class="slide" data-id="5">
-                            <img src="image/pos5.webp" alt="Gambar 5">
-                            <img src="image/peta.png" alt="Gambar 1" class="peta">
+                        <div class="slide" data-slidecategory="fire" data-id="5">
+                            <img src="image/fire_8.webp" alt="Gambar 5">
+                            <!-- <img src="image/peta.png" alt="Gambar 1" class="peta"> -->
                         </div>
-                        <div class="slide" data-id="6">
-                            <img src="image/pos6.webp" alt="Gambar 6">
-                            <img src="image/peta.png" alt="Gambar 1" class="peta">
+
+                        <div class="slide" data-slidecategory="earth" data-id="6">
+                            <img src="image/earth_1.webp" alt="Gambar 6">
+                            <!-- <img src="image/peta.png" alt="Gambar 1" class="peta"> -->
                         </div>
-                        <div class="slide" data-id="7">
-                            <img src="image/pos7.webp" alt="Gambar 7">
-                            <img src="image/peta.png" alt="Gambar 1" class="peta">
+                        <div class="slide" data-slidecategory="earth" data-id="7">
+                            <img src="image/earth_2.webp" alt="Gambar 7">
+                            <!-- <img src="image/peta.png" alt="Gambar 1" class="peta"> -->
                         </div>
-                        <div class="slide" data-id="8">
-                            <img src="image/pos8.webp" alt="Gambar 8">
-                            <img src="image/peta.png" alt="Gambar 1" class="peta">
+                        <div class="slide" data-slidecategory="earth" data-id="8">
+                            <img src="image/earth_4.webp" alt="Gambar 8">
+                            <!-- <img src="image/peta.png" alt="Gambar 1" class="peta"> -->
+                        </div>
+                        <div class="slide" data-slidecategory="earth" data-id="7">
+                            <img src="image/earth_6.webp" alt="Gambar 7">
+                            <!-- <img src="image/peta.png" alt="Gambar 1" class="peta"> -->
+                        </div>
+                        <div class="slide" data-slidecategory="earth" data-id="8">
+                            <img src="image/earth_8.webp" alt="Gambar 8">
+                            <!-- <img src="image/peta.png" alt="Gambar 1" class="peta"> -->
+                        </div>
+
+                        <div class="slide" data-slidecategory="water_wind" data-id="6">
+                            <img src="image/water_wind_1.webp" alt="Gambar 6">
+                            <!-- <img src="image/peta.png" alt="Gambar 1" class="peta"> -->
+                        </div>
+                        <div class="slide" data-slidecategory="water_wind" data-id="7">
+                            <img src="image/water_wind_2.webp" alt="Gambar 7">
+                            <!-- <img src="image/peta.png" alt="Gambar 1" class="peta"> -->
+                        </div>
+                        <div class="slide" data-slidecategory="water_wind" data-id="8">
+                            <img src="image/water_wind_4.webp" alt="Gambar 8">
+                            <!-- <img src="image/peta.png" alt="Gambar 1" class="peta"> -->
+                        </div>
+                        <div class="slide" data-slidecategory="water_wind" data-id="7">
+                            <img src="image/water_wind_6.webp" alt="Gambar 7">
+                            <!-- <img src="image/peta.png" alt="Gambar 1" class="peta"> -->
+                        </div>
+                        <div class="slide" data-slidecategory="water_wind" data-id="8">
+                            <img src="image/water_wind_8.webp" alt="Gambar 8">
+                            <!-- <img src="image/peta.png" alt="Gambar 1" class="peta"> -->
                         </div>
 
                         <!-- Dots for navigation (inside slider) -->
@@ -462,113 +572,113 @@
     <script>
         // Data awal
         const data = [
-            { unit_number: 3101, floor: 1, block: "fire", bedrooms: 1, bathrooms: 1, gros_sqm_total: 60, description: "1 BEDROOM TYPE (TERRACE) @60 SQM" },
-            { unit_number: 3102, floor: 1, block: "fire", bedrooms: 1, bathrooms: 1, gros_sqm_total: 60, description: "1 BEDROOM TYPE (TERRACE) @60 SQM" },
-            { unit_number: 3103, floor: 1, block: "fire", bedrooms: 1, bathrooms: 1, gros_sqm_total: 60, description: "1 BEDROOM TYPE (TERRACE) @60 SQM" },
-            { unit_number: 3104, floor: 1, block: "fire", bedrooms: 1, bathrooms: 1, gros_sqm_total: 60, description: "1 BEDROOM TYPE (TERRACE) @60 SQM" },
-            { unit_number: 3201, floor: 2, block: "fire", bedrooms: 1, bathrooms: 1, gros_sqm_total: 50, description: "1 BEDROOM TYPE (BALCONY) @50SQM" },
-            { unit_number: 3202, floor: 2, block: "fire", bedrooms: 1, bathrooms: 1, gros_sqm_total: 50, description: "1 BEDROOM TYPE (BALCONY) @50SQM" },
-            { unit_number: 3203, floor: 2, block: "fire", bedrooms: 1, bathrooms: 1, gros_sqm_total: 50, description: "1 BEDROOM TYPE (BALCONY) @50SQM" },
-            { unit_number: 3204, floor: 2, block: "fire", bedrooms: 1, bathrooms: 1, gros_sqm_total: 50, description: "1 BEDROOM TYPE (BALCONY) @50SQM" },
-            { unit_number: 3301, floor: 3, block: "fire", bedrooms: 1, bathrooms: 1, gros_sqm_total: 43, description: "STUDIO TYPE CORNER @43 SQM" },
-            { unit_number: 3302, floor: 3, block: "fire", bedrooms: 1, bathrooms: 1, gros_sqm_total: 43, description: "STUDIO TYPE CORNER @43 SQM" },
-            { unit_number: 3303, floor: 3, block: "fire", bedrooms: 1, bathrooms: 1, gros_sqm_total: 43, description: "STUDIO TYPE CORNER @43 SQM" },
-            { unit_number: 3304, floor: 3, block: "fire", bedrooms: 1, bathrooms: 1, gros_sqm_total: 43, description: "STUDIO TYPE CORNER @43 SQM" },
-            { unit_number: 3401, floor: 4, block: "fire", bedrooms: 1, bathrooms: 1, gros_sqm_total: 43, description: "STUDIO TYPE CORNER @43 SQM" },
-            { unit_number: 3402, floor: 4, block: "fire", bedrooms: 1, bathrooms: 1, gros_sqm_total: 43, description: "STUDIO TYPE CORNER @43 SQM" },
-            { unit_number: 3403, floor: 4, block: "fire", bedrooms: 1, bathrooms: 1, gros_sqm_total: 43, description: "STUDIO TYPE CORNER @43 SQM" },
-            { unit_number: 3404, floor: 4, block: "fire", bedrooms: 1, bathrooms: 1, gros_sqm_total: 43, description: "STUDIO TYPE CORNER @43 SQM" },
-            { unit_number: 3501, floor: 5, block: "fire", bedrooms: 2, bathrooms: 2, gros_sqm_total: 148, description: "2 BEDROOM TYPE CORNER @113 SQM" },
-            { unit_number: 3502, floor: 5, block: "fire", bedrooms: 2, bathrooms: 2, gros_sqm_total: 148, description: "2 BEDROOM TYPE CORNER @113 SQM" },
-            { unit_number: 4101, floor: 1, block: "earth", bedrooms: 1, bathrooms: 1, gros_sqm_total: 88, description: "LOFT TYPE @88 SQM" },
-            { unit_number: 4102, floor: 1, block: "earth", bedrooms: 1, bathrooms: 1, gros_sqm_total: 88, description: "LOFT TYPE @88 SQM" },
-            { unit_number: 4103, floor: 1, block: "earth", bedrooms: 1, bathrooms: 1, gros_sqm_total: 88, description: "LOFT TYPE @88 SQM" },
-            { unit_number: 4104, floor: 1, block: "earth", bedrooms: 1, bathrooms: 1, gros_sqm_total: 88, description: "LOFT TYPE @88 SQM" },
-            { unit_number: 4105, floor: 1, block: "earth", bedrooms: 1, bathrooms: 1, gros_sqm_total: 88, description: "LOFT TYPE @88 SQM" },
-            { unit_number: 4106, floor: 1, block: "earth", bedrooms: 1, bathrooms: 1, gros_sqm_total: 88, description: "LOFT TYPE @88 SQM" },
-            { unit_number: 4107, floor: 1, block: "earth", bedrooms: 1, bathrooms: 1, gros_sqm_total: 88, description: "LOFT TYPE @88 SQM" },
-            { unit_number: 4108, floor: 1, block: "earth", bedrooms: 1, bathrooms: 1, gros_sqm_total: 88, description: "LOFT TYPE @88 SQM" },
-            { unit_number: 4109, floor: 1, block: "earth", bedrooms: 1, bathrooms: 1, gros_sqm_total: 88, description: "LOFT TYPE @88 SQM" },
-            { unit_number: 4110, floor: 1, block: "earth", bedrooms: 1, bathrooms: 1, gros_sqm_total: 88, description: "LOFT TYPE @88 SQM" },
-            { unit_number: 4301, floor: 3, block: "earth", bedrooms: 1, bathrooms: 1, gros_sqm_total: 43, description: "STUDIO TYPE CORNER @43 SQM" },
-            { unit_number: 4302, floor: 3, block: "earth", bedrooms: 1, bathrooms: 1, gros_sqm_total: 40, description: "STUDIO TYPE @40 SQM" },
-            { unit_number: 4303, floor: 3, block: "earth", bedrooms: 1, bathrooms: 1, gros_sqm_total: 40, description: "STUDIO TYPE @40 SQM" },
-            { unit_number: 4304, floor: 3, block: "earth", bedrooms: 1, bathrooms: 1, gros_sqm_total: 43, description: "STUDIO TYPE CORNER @43 SQM" },
-            { unit_number: 4305, floor: 3, block: "earth", bedrooms: 1, bathrooms: 1, gros_sqm_total: 43, description: "STUDIO TYPE CORNER @43 SQM" },
-            { unit_number: 4306, floor: 3, block: "earth", bedrooms: 1, bathrooms: 1, gros_sqm_total: 40, description: "STUDIO TYPE @40 SQM" },
-            { unit_number: 4307, floor: 3, block: "earth", bedrooms: 1, bathrooms: 1, gros_sqm_total: 40, description: "STUDIO TYPE @40 SQM" },
-            { unit_number: 4308, floor: 3, block: "earth", bedrooms: 1, bathrooms: 1, gros_sqm_total: 40, description: "STUDIO TYPE @40 SQM" },
-            { unit_number: 4309, floor: 3, block: "earth", bedrooms: 1, bathrooms: 1, gros_sqm_total: 40, description: "STUDIO TYPE @40 SQM" },
-            { unit_number: 4310, floor: 3, block: "earth", bedrooms: 1, bathrooms: 1, gros_sqm_total: 43, description: "STUDIO TYPE CORNER @43 SQM" },
-            { unit_number: 4301, floor: 4, block: "earth", bedrooms: 1, bathrooms: 1, gros_sqm_total: 43, description: "STUDIO TYPE CORNER @43 SQM" },
-            { unit_number: 4304, floor: 4, block: "earth", bedrooms: 1, bathrooms: 1, gros_sqm_total: 43, description: "STUDIO TYPE CORNER @43 SQM" },
-            { unit_number: 4305, floor: 4, block: "earth", bedrooms: 1, bathrooms: 1, gros_sqm_total: 43, description: "STUDIO TYPE CORNER @43 SQM" },
-            { unit_number: 4310, floor: 4, block: "earth", bedrooms: 1, bathrooms: 1, gros_sqm_total: 43, description: "STUDIO TYPE CORNER @43 SQM" },
-            { unit_number: 4402, floor: 4, block: "earth", bedrooms: 1, bathrooms: 1, gros_sqm_total: 40, description: "STUDIO TYPE @40 SQM" },
-            { unit_number: 4403, floor: 4, block: "earth", bedrooms: 1, bathrooms: 1, gros_sqm_total: 40, description: "STUDIO TYPE @40 SQM" },
-            { unit_number: 4406, floor: 4, block: "earth", bedrooms: 1, bathrooms: 1, gros_sqm_total: 40, description: "STUDIO TYPE @40 SQM" },
-            { unit_number: 4407, floor: 4, block: "earth", bedrooms: 1, bathrooms: 1, gros_sqm_total: 40, description: "STUDIO TYPE @40 SQM" },
-            { unit_number: 4408, floor: 4, block: "earth", bedrooms: 1, bathrooms: 1, gros_sqm_total: 40, description: "STUDIO TYPE @40 SQM" },
-            { unit_number: 4409, floor: 4, block: "earth", bedrooms: 1, bathrooms: 1, gros_sqm_total: 40, description: "STUDIO TYPE @40 SQM" },
-            { unit_number: 4501, floor: 5, block: "earth", bedrooms: 2, bathrooms: 2, gros_sqm_total: 148, description: "2 BEDROOM TYPE CORNER @113 SQM" },
-            { unit_number: 4502, floor: 5, block: "earth", bedrooms: 2, bathrooms: 2, gros_sqm_total: 148, description: "2 BEDROOM TYPE CORNER @113 SQM" },
-            { unit_number: 4503, floor: 5, block: "earth", bedrooms: 2, bathrooms: 2, gros_sqm_total: 148, description: "2 BEDROOM TYPE CORNER @113 SQM" },
-            { unit_number: 4504, floor: 5, block: "earth", bedrooms: 2, bathrooms: 2, gros_sqm_total: 157, description: "2 BEDROOM TYPE @107 SQM" },
-            { unit_number: 4505, floor: 5, block: "earth", bedrooms: 2, bathrooms: 2, gros_sqm_total: 148, description: "2 BEDROOM TYPE CORNER @113 SQM" },
-            { unit_number: 5101, floor: 1, block: "water", bedrooms: 1, bathrooms: 1, gros_sqm_total: 60, description: "1 BEDROOM TYPE (TERRACE) @60 SQM" },
-            { unit_number: 5102, floor: 1, block: "water", bedrooms: 1, bathrooms: 1, gros_sqm_total: 60, description: "1 BEDROOM TYPE (TERRACE) @60 SQM" },
-            { unit_number: 5103, floor: 1, block: "water", bedrooms: 1, bathrooms: 1, gros_sqm_total: 60, description: "1 BEDROOM TYPE (TERRACE) @60 SQM" },
-            { unit_number: 5104, floor: 1, block: "water", bedrooms: 1, bathrooms: 1, gros_sqm_total: 60, description: "1 BEDROOM TYPE (TERRACE) @60 SQM" },
-            { unit_number: 5201, floor: 2, block: "water", bedrooms: 1, bathrooms: 1, gros_sqm_total: 50, description: "1 BEDROOM TYPE (BALCONY) @50SQM" },
-            { unit_number: 5202, floor: 2, block: "water", bedrooms: 1, bathrooms: 1, gros_sqm_total: 50, description: "1 BEDROOM TYPE (BALCONY) @50SQM" },
-            { unit_number: 5203, floor: 2, block: "water", bedrooms: 1, bathrooms: 1, gros_sqm_total: 50, description: "1 BEDROOM TYPE (BALCONY) @50SQM" },
-            { unit_number: 5204, floor: 2, block: "water", bedrooms: 1, bathrooms: 1, gros_sqm_total: 50, description: "1 BEDROOM TYPE (BALCONY) @50SQM" },
-            { unit_number: 5301, floor: 3, block: "water", bedrooms: 1, bathrooms: 1, gros_sqm_total: 43, description: "STUDIO TYPE CORNER @43 SQM" },
-            { unit_number: 5302, floor: 3, block: "water", bedrooms: 1, bathrooms: 1, gros_sqm_total: 40, description: "STUDIO TYPE @40 SQM" },
-            { unit_number: 5303, floor: 3, block: "water", bedrooms: 1, bathrooms: 1, gros_sqm_total: 40, description: "STUDIO TYPE @40 SQM" },
-            { unit_number: 5304, floor: 3, block: "water", bedrooms: 1, bathrooms: 1, gros_sqm_total: 43, description: "STUDIO TYPE CORNER @43 SQM" },
-            { unit_number: 5401, floor: 4, block: "water", bedrooms: 1, bathrooms: 1, gros_sqm_total: 43, description: "STUDIO TYPE CORNER @43 SQM" },
-            { unit_number: 5402, floor: 4, block: "water", bedrooms: 1, bathrooms: 1, gros_sqm_total: 40, description: "STUDIO TYPE @40 SQM" },
-            { unit_number: 5403, floor: 4, block: "water", bedrooms: 1, bathrooms: 1, gros_sqm_total: 40, description: "STUDIO TYPE @40 SQM" },
-            { unit_number: 5404, floor: 4, block: "water", bedrooms: 1, bathrooms: 1, gros_sqm_total: 43, description: "STUDIO TYPE CORNER @43 SQM" },
-            { unit_number: 5501, floor: 5, block: "water", bedrooms: 2, bathrooms: 2, gros_sqm_total: 148, description: "2 BEDROOM TYPE CORNER @113 SQM" },
-            { unit_number: 5502, floor: 5, block: "water", bedrooms: 2, bathrooms: 2, gros_sqm_total: 148, description: "2 BEDROOM TYPE CORNER @113 SQM" },
-            { unit_number: 6101, floor: 1, block: "wind", bedrooms: 0, bathrooms: 1, gros_sqm_total: 88, description: "LOFT TYPE @88 SQM" },
-            { unit_number: 6102, floor: 1, block: "wind", bedrooms: 0, bathrooms: 1, gros_sqm_total: 88, description: "LOFT TYPE @88 SQM" },
-            { unit_number: 6103, floor: 1, block: "wind", bedrooms: 0, bathrooms: 1, gros_sqm_total: 88, description: "LOFT TYPE @88 SQM" },
-            { unit_number: 6104, floor: 1, block: "wind", bedrooms: 0, bathrooms: 1, gros_sqm_total: 88, description: "LOFT TYPE @88 SQM" },
-            { unit_number: 6105, floor: 1, block: "wind", bedrooms: 0, bathrooms: 1, gros_sqm_total: 88, description: "LOFT TYPE @88 SQM" },
-            { unit_number: 6106, floor: 1, block: "wind", bedrooms: 0, bathrooms: 1, gros_sqm_total: 88, description: "LOFT TYPE @88 SQM" },
-            { unit_number: 6107, floor: 1, block: "wind", bedrooms: 0, bathrooms: 1, gros_sqm_total: 88, description: "LOFT TYPE @88 SQM" },
-            { unit_number: 6108, floor: 1, block: "wind", bedrooms: 0, bathrooms: 1, gros_sqm_total: 88, description: "LOFT TYPE @88 SQM" },
-            { unit_number: 6109, floor: 1, block: "wind", bedrooms: 0, bathrooms: 1, gros_sqm_total: 88, description: "LOFT TYPE @88 SQM" },
-            { unit_number: 6110, floor: 1, block: "wind", bedrooms: 0, bathrooms: 1, gros_sqm_total: 88, description: "LOFT TYPE @88 SQM" },
-            { unit_number: 6301, floor: 3, block: "wind", bedrooms: 1, bathrooms: 1, gros_sqm_total: 43, description: "STUDIO TYPE CORNER @43 SQM" },
-            { unit_number: 6302, floor: 3, block: "wind", bedrooms: 1, bathrooms: 1, gros_sqm_total: 40, description: "STUDIO TYPE @40 SQM" },
-            { unit_number: 6303, floor: 3, block: "wind", bedrooms: 1, bathrooms: 1, gros_sqm_total: 40, description: "STUDIO TYPE @40 SQM" },
-            { unit_number: 6304, floor: 3, block: "wind", bedrooms: 1, bathrooms: 1, gros_sqm_total: 40, description: "STUDIO TYPE @40 SQM" },
-            { unit_number: 6305, floor: 3, block: "wind", bedrooms: 1, bathrooms: 1, gros_sqm_total: 43, description: "STUDIO TYPE CORNER @43 SQM" },
-            { unit_number: 6306, floor: 3, block: "wind", bedrooms: 1, bathrooms: 1, gros_sqm_total: 43, description: "STUDIO TYPE CORNER @43 SQM" },
-            { unit_number: 6307, floor: 3, block: "wind", bedrooms: 1, bathrooms: 1, gros_sqm_total: 40, description: "STUDIO TYPE @40 SQM" },
-            { unit_number: 6308, floor: 3, block: "wind", bedrooms: 1, bathrooms: 1, gros_sqm_total: 40, description: "STUDIO TYPE @40 SQM" },
-            { unit_number: 6309, floor: 3, block: "wind", bedrooms: 1, bathrooms: 1, gros_sqm_total: 40, description: "STUDIO TYPE @40 SQM" },
-            { unit_number: 6310, floor: 3, block: "wind", bedrooms: 1, bathrooms: 1, gros_sqm_total: 43, description: "STUDIO TYPE CORNER @43 SQM" },
-            { unit_number: 6401, floor: 4, block: "wind", bedrooms: 1, bathrooms: 1, gros_sqm_total: 43, description: "STUDIO TYPE CORNER @43 SQM" },
-            { unit_number: 6402, floor: 4, block: "wind", bedrooms: 1, bathrooms: 1, gros_sqm_total: 40, description: "STUDIO TYPE @40 SQM" },
-            { unit_number: 6403, floor: 4, block: "wind", bedrooms: 1, bathrooms: 1, gros_sqm_total: 40, description: "STUDIO TYPE @40 SQM" },
-            { unit_number: 6404, floor: 4, block: "wind", bedrooms: 1, bathrooms: 1, gros_sqm_total: 40, description: "STUDIO TYPE @40 SQM" },
-            { unit_number: 6405, floor: 4, block: "wind", bedrooms: 1, bathrooms: 1, gros_sqm_total: 43, description: "STUDIO TYPE CORNER @43 SQM" },
-            { unit_number: 6406, floor: 4, block: "wind", bedrooms: 1, bathrooms: 1, gros_sqm_total: 43, description: "STUDIO TYPE CORNER @43 SQM" },
-            { unit_number: 6407, floor: 4, block: "wind", bedrooms: 1, bathrooms: 1, gros_sqm_total: 40, description: "STUDIO TYPE @40 SQM" },
-            { unit_number: 6408, floor: 4, block: "wind", bedrooms: 1, bathrooms: 1, gros_sqm_total: 40, description: "STUDIO TYPE @40 SQM" },
-            { unit_number: 6409, floor: 4, block: "wind", bedrooms: 1, bathrooms: 1, gros_sqm_total: 40, description: "STUDIO TYPE @40 SQM" },
-            { unit_number: 6410, floor: 4, block: "wind", bedrooms: 1, bathrooms: 1, gros_sqm_total: 43, description: "STUDIO TYPE CORNER @43 SQM" },
-            { unit_number: 6501, floor: 5, block: "wind", bedrooms: 2, bathrooms: 2, gros_sqm_total: 148, description: "2 BEDROOM TYPE CORNER @113 SQM" },
-            { unit_number: 6503, floor: 5, block: "wind", bedrooms: 2, bathrooms: 2, gros_sqm_total: 157, description: "2 BEDROOM TYPE @107 SQM" },
-            { unit_number: 6502, floor: 5, block: "wind", bedrooms: 1, bathrooms: 1, gros_sqm_total: 62, description: "STUDIO TYPE ROOFTOP @62SQM" },
-            { unit_number: 6504, floor: 5, block: "wind", bedrooms: 2, bathrooms: 2, gros_sqm_total: 148, description: "2 BEDROOM TYPE CORNER @113 SQM" },
-            { unit_number: 6506, floor: 5, block: "wind", bedrooms: 2, bathrooms: 2, gros_sqm_total: 157, description: "2 BEDROOM TYPE @107 SQM" },
-            { unit_number: 6505, floor: 5, block: "wind", bedrooms: 1, bathrooms: 1, gros_sqm_total: 62, description: "STUDIO TYPE ROOFTOP @62SQM" }
+            { unit_number: 3101, floor: 1, block: "fire", slidecategory: "fire", bedrooms: 1, bathrooms: 1, gros_sqm_total: 60, description: "1 BEDROOM TYPE (TERRACE) @60 SQM" },
+            { unit_number: 3102, floor: 1, block: "fire", slidecategory: "fire", bedrooms: 1, bathrooms: 1, gros_sqm_total: 60, description: "1 BEDROOM TYPE (TERRACE) @60 SQM" },
+            { unit_number: 3103, floor: 1, block: "fire", slidecategory: "fire", bedrooms: 1, bathrooms: 1, gros_sqm_total: 60, description: "1 BEDROOM TYPE (TERRACE) @60 SQM" },
+            { unit_number: 3104, floor: 1, block: "fire", slidecategory: "fire", bedrooms: 1, bathrooms: 1, gros_sqm_total: 60, description: "1 BEDROOM TYPE (TERRACE) @60 SQM" },
+            { unit_number: 3201, floor: 2, block: "fire", slidecategory: "fire", bedrooms: 1, bathrooms: 1, gros_sqm_total: 50, description: "1 BEDROOM TYPE (BALCONY) @50SQM" },
+            { unit_number: 3202, floor: 2, block: "fire", slidecategory: "fire", bedrooms: 1, bathrooms: 1, gros_sqm_total: 50, description: "1 BEDROOM TYPE (BALCONY) @50SQM" },
+            { unit_number: 3203, floor: 2, block: "fire", slidecategory: "fire", bedrooms: 1, bathrooms: 1, gros_sqm_total: 50, description: "1 BEDROOM TYPE (BALCONY) @50SQM" },
+            { unit_number: 3204, floor: 2, block: "fire", slidecategory: "fire", bedrooms: 1, bathrooms: 1, gros_sqm_total: 50, description: "1 BEDROOM TYPE (BALCONY) @50SQM" },
+            { unit_number: 3301, floor: 3, block: "fire", slidecategory: "fire", bedrooms: 1, bathrooms: 1, gros_sqm_total: 43, description: "STUDIO TYPE CORNER @43 SQM" },
+            { unit_number: 3302, floor: 3, block: "fire", slidecategory: "fire", bedrooms: 1, bathrooms: 1, gros_sqm_total: 43, description: "STUDIO TYPE CORNER @43 SQM" },
+            { unit_number: 3303, floor: 3, block: "fire", slidecategory: "fire", bedrooms: 1, bathrooms: 1, gros_sqm_total: 43, description: "STUDIO TYPE CORNER @43 SQM" },
+            { unit_number: 3304, floor: 3, block: "fire", slidecategory: "fire", bedrooms: 1, bathrooms: 1, gros_sqm_total: 43, description: "STUDIO TYPE CORNER @43 SQM" },
+            { unit_number: 3401, floor: 4, block: "fire", slidecategory: "fire", bedrooms: 1, bathrooms: 1, gros_sqm_total: 43, description: "STUDIO TYPE CORNER @43 SQM" },
+            { unit_number: 3402, floor: 4, block: "fire", slidecategory: "fire", bedrooms: 1, bathrooms: 1, gros_sqm_total: 43, description: "STUDIO TYPE CORNER @43 SQM" },
+            { unit_number: 3403, floor: 4, block: "fire", slidecategory: "fire", bedrooms: 1, bathrooms: 1, gros_sqm_total: 43, description: "STUDIO TYPE CORNER @43 SQM" },
+            { unit_number: 3404, floor: 4, block: "fire", slidecategory: "fire", bedrooms: 1, bathrooms: 1, gros_sqm_total: 43, description: "STUDIO TYPE CORNER @43 SQM" },
+            { unit_number: 3501, floor: 5, block: "fire", slidecategory: "fire", bedrooms: 2, bathrooms: 2, gros_sqm_total: 148, description: "2 BEDROOM TYPE CORNER @113 SQM" },
+            { unit_number: 3502, floor: 5, block: "fire", slidecategory: "fire", bedrooms: 2, bathrooms: 2, gros_sqm_total: 148, description: "2 BEDROOM TYPE CORNER @113 SQM" },
+            { unit_number: 4101, floor: 1, block: "earth", slidecategory: "earth", bedrooms: 1, bathrooms: 1, gros_sqm_total: 88, description: "LOFT TYPE @88 SQM" },
+            { unit_number: 4102, floor: 1, block: "earth", slidecategory: "earth", bedrooms: 1, bathrooms: 1, gros_sqm_total: 88, description: "LOFT TYPE @88 SQM" },
+            { unit_number: 4103, floor: 1, block: "earth", slidecategory: "earth", bedrooms: 1, bathrooms: 1, gros_sqm_total: 88, description: "LOFT TYPE @88 SQM" },
+            { unit_number: 4104, floor: 1, block: "earth", slidecategory: "earth", bedrooms: 1, bathrooms: 1, gros_sqm_total: 88, description: "LOFT TYPE @88 SQM" },
+            { unit_number: 4105, floor: 1, block: "earth", slidecategory: "earth", bedrooms: 1, bathrooms: 1, gros_sqm_total: 88, description: "LOFT TYPE @88 SQM" },
+            { unit_number: 4106, floor: 1, block: "earth", slidecategory: "earth", bedrooms: 1, bathrooms: 1, gros_sqm_total: 88, description: "LOFT TYPE @88 SQM" },
+            { unit_number: 4107, floor: 1, block: "earth", slidecategory: "earth", bedrooms: 1, bathrooms: 1, gros_sqm_total: 88, description: "LOFT TYPE @88 SQM" },
+            { unit_number: 4108, floor: 1, block: "earth", slidecategory: "earth", bedrooms: 1, bathrooms: 1, gros_sqm_total: 88, description: "LOFT TYPE @88 SQM" },
+            { unit_number: 4109, floor: 1, block: "earth", slidecategory: "earth", bedrooms: 1, bathrooms: 1, gros_sqm_total: 88, description: "LOFT TYPE @88 SQM" },
+            { unit_number: 4110, floor: 1, block: "earth", slidecategory: "earth", bedrooms: 1, bathrooms: 1, gros_sqm_total: 88, description: "LOFT TYPE @88 SQM" },
+            { unit_number: 4301, floor: 3, block: "earth", slidecategory: "earth", bedrooms: 1, bathrooms: 1, gros_sqm_total: 43, description: "STUDIO TYPE CORNER @43 SQM" },
+            { unit_number: 4302, floor: 3, block: "earth", slidecategory: "earth", bedrooms: 1, bathrooms: 1, gros_sqm_total: 40, description: "STUDIO TYPE @40 SQM" },
+            { unit_number: 4303, floor: 3, block: "earth", slidecategory: "earth", bedrooms: 1, bathrooms: 1, gros_sqm_total: 40, description: "STUDIO TYPE @40 SQM" },
+            { unit_number: 4304, floor: 3, block: "earth", slidecategory: "earth", bedrooms: 1, bathrooms: 1, gros_sqm_total: 43, description: "STUDIO TYPE CORNER @43 SQM" },
+            { unit_number: 4305, floor: 3, block: "earth", slidecategory: "earth", bedrooms: 1, bathrooms: 1, gros_sqm_total: 43, description: "STUDIO TYPE CORNER @43 SQM" },
+            { unit_number: 4306, floor: 3, block: "earth", slidecategory: "earth", bedrooms: 1, bathrooms: 1, gros_sqm_total: 40, description: "STUDIO TYPE @40 SQM" },
+            { unit_number: 4307, floor: 3, block: "earth", slidecategory: "earth", bedrooms: 1, bathrooms: 1, gros_sqm_total: 40, description: "STUDIO TYPE @40 SQM" },
+            { unit_number: 4308, floor: 3, block: "earth", slidecategory: "earth", bedrooms: 1, bathrooms: 1, gros_sqm_total: 40, description: "STUDIO TYPE @40 SQM" },
+            { unit_number: 4309, floor: 3, block: "earth", slidecategory: "earth", bedrooms: 1, bathrooms: 1, gros_sqm_total: 40, description: "STUDIO TYPE @40 SQM" },
+            { unit_number: 4310, floor: 3, block: "earth", slidecategory: "earth", bedrooms: 1, bathrooms: 1, gros_sqm_total: 43, description: "STUDIO TYPE CORNER @43 SQM" },
+            { unit_number: 4301, floor: 4, block: "earth", slidecategory: "earth", bedrooms: 1, bathrooms: 1, gros_sqm_total: 43, description: "STUDIO TYPE CORNER @43 SQM" },
+            { unit_number: 4304, floor: 4, block: "earth", slidecategory: "earth", bedrooms: 1, bathrooms: 1, gros_sqm_total: 43, description: "STUDIO TYPE CORNER @43 SQM" },
+            { unit_number: 4305, floor: 4, block: "earth", slidecategory: "earth", bedrooms: 1, bathrooms: 1, gros_sqm_total: 43, description: "STUDIO TYPE CORNER @43 SQM" },
+            { unit_number: 4310, floor: 4, block: "earth", slidecategory: "earth", bedrooms: 1, bathrooms: 1, gros_sqm_total: 43, description: "STUDIO TYPE CORNER @43 SQM" },
+            { unit_number: 4402, floor: 4, block: "earth", slidecategory: "earth", bedrooms: 1, bathrooms: 1, gros_sqm_total: 40, description: "STUDIO TYPE @40 SQM" },
+            { unit_number: 4403, floor: 4, block: "earth", slidecategory: "earth", bedrooms: 1, bathrooms: 1, gros_sqm_total: 40, description: "STUDIO TYPE @40 SQM" },
+            { unit_number: 4406, floor: 4, block: "earth", slidecategory: "earth", bedrooms: 1, bathrooms: 1, gros_sqm_total: 40, description: "STUDIO TYPE @40 SQM" },
+            { unit_number: 4407, floor: 4, block: "earth", slidecategory: "earth", bedrooms: 1, bathrooms: 1, gros_sqm_total: 40, description: "STUDIO TYPE @40 SQM" },
+            { unit_number: 4408, floor: 4, block: "earth", slidecategory: "earth", bedrooms: 1, bathrooms: 1, gros_sqm_total: 40, description: "STUDIO TYPE @40 SQM" },
+            { unit_number: 4409, floor: 4, block: "earth", slidecategory: "earth", bedrooms: 1, bathrooms: 1, gros_sqm_total: 40, description: "STUDIO TYPE @40 SQM" },
+            { unit_number: 4501, floor: 5, block: "earth", slidecategory: "earth", bedrooms: 2, bathrooms: 2, gros_sqm_total: 148, description: "2 BEDROOM TYPE CORNER @113 SQM" },
+            { unit_number: 4502, floor: 5, block: "earth", slidecategory: "earth", bedrooms: 2, bathrooms: 2, gros_sqm_total: 148, description: "2 BEDROOM TYPE CORNER @113 SQM" },
+            { unit_number: 4503, floor: 5, block: "earth", slidecategory: "earth", bedrooms: 2, bathrooms: 2, gros_sqm_total: 148, description: "2 BEDROOM TYPE CORNER @113 SQM" },
+            { unit_number: 4504, floor: 5, block: "earth", slidecategory: "earth", bedrooms: 2, bathrooms: 2, gros_sqm_total: 157, description: "2 BEDROOM TYPE @107 SQM" },
+            { unit_number: 4505, floor: 5, block: "earth", slidecategory: "earth", bedrooms: 2, bathrooms: 2, gros_sqm_total: 148, description: "2 BEDROOM TYPE CORNER @113 SQM" },
+            { unit_number: 5101, floor: 1, block: "water", slidecategory: "water_wind", bedrooms: 1, bathrooms: 1, gros_sqm_total: 60, description: "1 BEDROOM TYPE (TERRACE) @60 SQM" },
+            { unit_number: 5102, floor: 1, block: "water", slidecategory: "water_wind", bedrooms: 1, bathrooms: 1, gros_sqm_total: 60, description: "1 BEDROOM TYPE (TERRACE) @60 SQM" },
+            { unit_number: 5103, floor: 1, block: "water", slidecategory: "water_wind", bedrooms: 1, bathrooms: 1, gros_sqm_total: 60, description: "1 BEDROOM TYPE (TERRACE) @60 SQM" },
+            { unit_number: 5104, floor: 1, block: "water", slidecategory: "water_wind", bedrooms: 1, bathrooms: 1, gros_sqm_total: 60, description: "1 BEDROOM TYPE (TERRACE) @60 SQM" },
+            { unit_number: 5201, floor: 2, block: "water", slidecategory: "water_wind", bedrooms: 1, bathrooms: 1, gros_sqm_total: 50, description: "1 BEDROOM TYPE (BALCONY) @50SQM" },
+            { unit_number: 5202, floor: 2, block: "water", slidecategory: "water_wind", bedrooms: 1, bathrooms: 1, gros_sqm_total: 50, description: "1 BEDROOM TYPE (BALCONY) @50SQM" },
+            { unit_number: 5203, floor: 2, block: "water", slidecategory: "water_wind", bedrooms: 1, bathrooms: 1, gros_sqm_total: 50, description: "1 BEDROOM TYPE (BALCONY) @50SQM" },
+            { unit_number: 5204, floor: 2, block: "water", slidecategory: "water_wind", bedrooms: 1, bathrooms: 1, gros_sqm_total: 50, description: "1 BEDROOM TYPE (BALCONY) @50SQM" },
+            { unit_number: 5301, floor: 3, block: "water", slidecategory: "water_wind", bedrooms: 1, bathrooms: 1, gros_sqm_total: 43, description: "STUDIO TYPE CORNER @43 SQM" },
+            { unit_number: 5302, floor: 3, block: "water", slidecategory: "water_wind", bedrooms: 1, bathrooms: 1, gros_sqm_total: 40, description: "STUDIO TYPE @40 SQM" },
+            { unit_number: 5303, floor: 3, block: "water", slidecategory: "water_wind", bedrooms: 1, bathrooms: 1, gros_sqm_total: 40, description: "STUDIO TYPE @40 SQM" },
+            { unit_number: 5304, floor: 3, block: "water", slidecategory: "water_wind", bedrooms: 1, bathrooms: 1, gros_sqm_total: 43, description: "STUDIO TYPE CORNER @43 SQM" },
+            { unit_number: 5401, floor: 4, block: "water", slidecategory: "water_wind", bedrooms: 1, bathrooms: 1, gros_sqm_total: 43, description: "STUDIO TYPE CORNER @43 SQM" },
+            { unit_number: 5402, floor: 4, block: "water", slidecategory: "water_wind", bedrooms: 1, bathrooms: 1, gros_sqm_total: 40, description: "STUDIO TYPE @40 SQM" },
+            { unit_number: 5403, floor: 4, block: "water", slidecategory: "water_wind", bedrooms: 1, bathrooms: 1, gros_sqm_total: 40, description: "STUDIO TYPE @40 SQM" },
+            { unit_number: 5404, floor: 4, block: "water", slidecategory: "water_wind", bedrooms: 1, bathrooms: 1, gros_sqm_total: 43, description: "STUDIO TYPE CORNER @43 SQM" },
+            { unit_number: 5501, floor: 5, block: "water", slidecategory: "water_wind", bedrooms: 2, bathrooms: 2, gros_sqm_total: 148, description: "2 BEDROOM TYPE CORNER @113 SQM" },
+            { unit_number: 5502, floor: 5, block: "water", slidecategory: "water_wind", bedrooms: 2, bathrooms: 2, gros_sqm_total: 148, description: "2 BEDROOM TYPE CORNER @113 SQM" },
+            { unit_number: 6101, floor: 1, block: "wind", slidecategory: "water_wind", bedrooms: 0, bathrooms: 1, gros_sqm_total: 88, description: "LOFT TYPE @88 SQM" },
+            { unit_number: 6102, floor: 1, block: "wind", slidecategory: "water_wind", bedrooms: 0, bathrooms: 1, gros_sqm_total: 88, description: "LOFT TYPE @88 SQM" },
+            { unit_number: 6103, floor: 1, block: "wind", slidecategory: "water_wind", bedrooms: 0, bathrooms: 1, gros_sqm_total: 88, description: "LOFT TYPE @88 SQM" },
+            { unit_number: 6104, floor: 1, block: "wind", slidecategory: "water_wind", bedrooms: 0, bathrooms: 1, gros_sqm_total: 88, description: "LOFT TYPE @88 SQM" },
+            { unit_number: 6105, floor: 1, block: "wind", slidecategory: "water_wind", bedrooms: 0, bathrooms: 1, gros_sqm_total: 88, description: "LOFT TYPE @88 SQM" },
+            { unit_number: 6106, floor: 1, block: "wind", slidecategory: "water_wind", bedrooms: 0, bathrooms: 1, gros_sqm_total: 88, description: "LOFT TYPE @88 SQM" },
+            { unit_number: 6107, floor: 1, block: "wind", slidecategory: "water_wind", bedrooms: 0, bathrooms: 1, gros_sqm_total: 88, description: "LOFT TYPE @88 SQM" },
+            { unit_number: 6108, floor: 1, block: "wind", slidecategory: "water_wind", bedrooms: 0, bathrooms: 1, gros_sqm_total: 88, description: "LOFT TYPE @88 SQM" },
+            { unit_number: 6109, floor: 1, block: "wind", slidecategory: "water_wind", bedrooms: 0, bathrooms: 1, gros_sqm_total: 88, description: "LOFT TYPE @88 SQM" },
+            { unit_number: 6110, floor: 1, block: "wind", slidecategory: "water_wind", bedrooms: 0, bathrooms: 1, gros_sqm_total: 88, description: "LOFT TYPE @88 SQM" },
+            { unit_number: 6301, floor: 3, block: "wind", slidecategory: "water_wind", bedrooms: 1, bathrooms: 1, gros_sqm_total: 43, description: "STUDIO TYPE CORNER @43 SQM" },
+            { unit_number: 6302, floor: 3, block: "wind", slidecategory: "water_wind", bedrooms: 1, bathrooms: 1, gros_sqm_total: 40, description: "STUDIO TYPE @40 SQM" },
+            { unit_number: 6303, floor: 3, block: "wind", slidecategory: "water_wind", bedrooms: 1, bathrooms: 1, gros_sqm_total: 40, description: "STUDIO TYPE @40 SQM" },
+            { unit_number: 6304, floor: 3, block: "wind", slidecategory: "water_wind", bedrooms: 1, bathrooms: 1, gros_sqm_total: 40, description: "STUDIO TYPE @40 SQM" },
+            { unit_number: 6305, floor: 3, block: "wind", slidecategory: "water_wind", bedrooms: 1, bathrooms: 1, gros_sqm_total: 43, description: "STUDIO TYPE CORNER @43 SQM" },
+            { unit_number: 6306, floor: 3, block: "wind", slidecategory: "water_wind", bedrooms: 1, bathrooms: 1, gros_sqm_total: 43, description: "STUDIO TYPE CORNER @43 SQM" },
+            { unit_number: 6307, floor: 3, block: "wind", slidecategory: "water_wind", bedrooms: 1, bathrooms: 1, gros_sqm_total: 40, description: "STUDIO TYPE @40 SQM" },
+            { unit_number: 6308, floor: 3, block: "wind", slidecategory: "water_wind", bedrooms: 1, bathrooms: 1, gros_sqm_total: 40, description: "STUDIO TYPE @40 SQM" },
+            { unit_number: 6309, floor: 3, block: "wind", slidecategory: "water_wind", bedrooms: 1, bathrooms: 1, gros_sqm_total: 40, description: "STUDIO TYPE @40 SQM" },
+            { unit_number: 6310, floor: 3, block: "wind", slidecategory: "water_wind", bedrooms: 1, bathrooms: 1, gros_sqm_total: 43, description: "STUDIO TYPE CORNER @43 SQM" },
+            { unit_number: 6401, floor: 4, block: "wind", slidecategory: "water_wind", bedrooms: 1, bathrooms: 1, gros_sqm_total: 43, description: "STUDIO TYPE CORNER @43 SQM" },
+            { unit_number: 6402, floor: 4, block: "wind", slidecategory: "water_wind", bedrooms: 1, bathrooms: 1, gros_sqm_total: 40, description: "STUDIO TYPE @40 SQM" },
+            { unit_number: 6403, floor: 4, block: "wind", slidecategory: "water_wind", bedrooms: 1, bathrooms: 1, gros_sqm_total: 40, description: "STUDIO TYPE @40 SQM" },
+            { unit_number: 6404, floor: 4, block: "wind", slidecategory: "water_wind", bedrooms: 1, bathrooms: 1, gros_sqm_total: 40, description: "STUDIO TYPE @40 SQM" },
+            { unit_number: 6405, floor: 4, block: "wind", slidecategory: "water_wind", bedrooms: 1, bathrooms: 1, gros_sqm_total: 43, description: "STUDIO TYPE CORNER @43 SQM" },
+            { unit_number: 6406, floor: 4, block: "wind", slidecategory: "water_wind", bedrooms: 1, bathrooms: 1, gros_sqm_total: 43, description: "STUDIO TYPE CORNER @43 SQM" },
+            { unit_number: 6407, floor: 4, block: "wind", slidecategory: "water_wind", bedrooms: 1, bathrooms: 1, gros_sqm_total: 40, description: "STUDIO TYPE @40 SQM" },
+            { unit_number: 6408, floor: 4, block: "wind", slidecategory: "water_wind", bedrooms: 1, bathrooms: 1, gros_sqm_total: 40, description: "STUDIO TYPE @40 SQM" },
+            { unit_number: 6409, floor: 4, block: "wind", slidecategory: "water_wind", bedrooms: 1, bathrooms: 1, gros_sqm_total: 40, description: "STUDIO TYPE @40 SQM" },
+            { unit_number: 6410, floor: 4, block: "wind", slidecategory: "water_wind", bedrooms: 1, bathrooms: 1, gros_sqm_total: 43, description: "STUDIO TYPE CORNER @43 SQM" },
+            { unit_number: 6501, floor: 5, block: "wind", slidecategory: "water_wind", bedrooms: 2, bathrooms: 2, gros_sqm_total: 148, description: "2 BEDROOM TYPE CORNER @113 SQM" },
+            { unit_number: 6503, floor: 5, block: "wind", slidecategory: "water_wind", bedrooms: 2, bathrooms: 2, gros_sqm_total: 157, description: "2 BEDROOM TYPE @107 SQM" },
+            { unit_number: 6502, floor: 5, block: "wind", slidecategory: "water_wind", bedrooms: 1, bathrooms: 1, gros_sqm_total: 62, description: "STUDIO TYPE ROOFTOP @62SQM" },
+            { unit_number: 6504, floor: 5, block: "wind", slidecategory: "water_wind", bedrooms: 2, bathrooms: 2, gros_sqm_total: 148, description: "2 BEDROOM TYPE CORNER @113 SQM" },
+            { unit_number: 6506, floor: 5, block: "wind", slidecategory: "water_wind", bedrooms: 2, bathrooms: 2, gros_sqm_total: 157, description: "2 BEDROOM TYPE @107 SQM" },
+            { unit_number: 6505, floor: 5, block: "wind", slidecategory: "water_wind", bedrooms: 1, bathrooms: 1, gros_sqm_total: 62, description: "STUDIO TYPE ROOFTOP @62SQM" }
         ];
 
 
@@ -606,6 +716,7 @@
                 // Panggil fungsi untuk menerapkan filter setiap kali URL berubah
                 applyFiltersFromURL();
                 loadFromQueryParams();
+                filterSlides()
             }
 
             // Fungsi untuk menerapkan filter berdasarkan URL saat ini
@@ -663,6 +774,7 @@
             // Filter JS - btn block
             $(".btn-filter.btn-block").click(function () {
                 var blockValue = $(this).data("id");
+                var slideCategory = $(this).data("slidecategory");
                 var currentURL = window.location.href;
                 var urlObj = new URL(currentURL);
                 var searchParams = urlObj.searchParams;
@@ -671,6 +783,12 @@
                     searchParams.set("block", blockValue);
                 } else {
                     searchParams.append("block", blockValue);
+                }
+
+                if (searchParams.has("slidecategory")) {
+                    searchParams.set("slidecategory", slideCategory);
+                } else {
+                    searchParams.append("slidecategory", slideCategory);
                 }
 
                 urlObj.search = searchParams.toString();
@@ -745,7 +863,7 @@
             $('.s0').click(function () {
                 // Get data attributes
                 var blockValue = $(this).attr('data-block');
-                var slideValue = $(this).attr('data-slide');
+                var slideCategory = $(this).attr('data-slidecategory');
 
                 // Get current URL and create URL object
                 var currentURL = window.location.href;
@@ -760,10 +878,10 @@
                 }
 
                 // Update or add slide parameter
-                if (searchParams.has("slide")) {
-                    searchParams.set("slide", slideValue);
+                if (searchParams.has("slidecategory")) {
+                    searchParams.set("slidecategory", slideCategory);
                 } else {
-                    searchParams.append("slide", slideValue);
+                    searchParams.append("slidecategory", slideCategory);
                 }
 
                 // Update URL search parameters
@@ -788,37 +906,72 @@
 
 
 
-            // Slider js 
+            // Slider js
+
+            function getQueryParam(param) {
+                const urlParams = new URLSearchParams(window.location.search);
+                return urlParams.get(param);
+            }
+
             let currentSlide = 0;
             const slides = $('.slide');
             const totalSlides = slides.length;
             const dotsContainer = $('.dots-container');
+            let currentCategory = 'all';
 
             // Create dots for each slide
-            for (let i = 0; i < totalSlides; i++) {
-                dotsContainer.append('<div class="dot"></div>');
+            function createDots() {
+                dotsContainer.empty();
+                const visibleSlides = $('.slide:not(.hidden)');
+                visibleSlides.each(function (index) {
+                    dotsContainer.append(`<div class="dot" data-index="${index}"></div>`);
+                });
+                $('.dot').first().addClass('active');
             }
-
-            // Set first dot as active
-            $('.dot').first().addClass('active');
 
             // Function to show a specific slide with fade effect
             function showSlide(index) {
-                if (index < 0) {
-                    index = totalSlides - 1;
-                } else if (index >= totalSlides) {
-                    index = 0;
+                const visibleSlides = $('.slide:not(.hidden)');
+                let visibleIndex = index;
+
+                if (visibleSlides.length === 0) return;
+
+                if (visibleIndex < 0) {
+                    visibleIndex = visibleSlides.length - 1;
+                } else if (visibleIndex >= visibleSlides.length) {
+                    visibleIndex = 0;
                 }
 
-                // Remove active class from all slides and add to selected slide
                 slides.removeClass('active');
-                $(slides[index]).addClass('active');
+                $(visibleSlides[visibleIndex]).addClass('active');
 
-                // Update current slide index
-                currentSlide = index;
+                currentSlide = visibleIndex;
+                $('.dot').removeClass('active').eq(visibleIndex).addClass('active');
+            }
 
-                // Update active dot
-                $('.dot').removeClass('active').eq(index).addClass('active');
+            function filterSlides() {
+                // Jika category tidak diberikan (misalnya saat inisialisasi), ambil dari query param
+                const queryCategory = getQueryParam('slidecategory');
+                currentCategory = queryCategory || 'all'; // Prioritas: argumen > query > default 'all'
+
+                if (currentCategory === 'all') {
+                    slides.removeClass('hidden');
+                } else {
+                    slides.each(function () {
+                        console.log(this); // Cek elemen apa yang sedang diproses
+                        const slideCategory = $(this).data('slidecategory');
+                        console.log(slideCategory);
+                        if (slideCategory === currentCategory) {
+                            $(this).removeClass('hidden');
+                        } else {
+                            $(this).addClass('hidden');
+                        }
+                    });
+                }
+
+                // Reset slider setelah filter
+                createDots();
+                showSlide(0);
             }
 
             // Function to show the next slide
@@ -831,23 +984,19 @@
                 showSlide(currentSlide - 1);
             }
 
-            // Set up click event for next button
-            $('.next').click(function () {
-                nextSlide();
-            });
+            // Initial setup
+            createDots();
+            filterSlides();
 
-            // Set up click event for previous button
-            $('.prev').click(function () {
-                prevSlide();
-            });
+            // Event handlers
+            $('.next').click(nextSlide);
+            $('.prev').click(prevSlide);
 
-            // Set up click event for dots
             $('.dots-container').on('click', '.dot', function () {
-                const dotIndex = $(this).index();
+                const dotIndex = $(this).data('index');
                 showSlide(dotIndex);
             });
 
-            // Add keyboard arrow key support
             $(document).keydown(function (e) {
                 if (e.keyCode === 37) { // Left arrow key
                     prevSlide();
@@ -856,10 +1005,42 @@
                 }
             });
 
-            // Optional: Auto slideshow
-            // setInterval(nextSlide, 5000); // Change slide every 5 seconds
+            // Event handler untuk hover pada elemen dengan class .unit
+            $('.unit').on({
+                mouseenter: function () {
+                    // Ambil data-unitnumber dari elemen yang di-hover
+                    let unitNumber = $(this).data('unitnumber');
+                    // Tambah class hover
+                    $(this).addClass('hover');
 
-            // Slider js 
+                    if (unitNumber) {
+                        // Cari tbody tr dengan data-unit yang sama dan ubah background-color
+                        $(`tbody tr[data-unit="${unitNumber}"]`).css('background-color', '#ffe5cc');
+                    }
+                },
+                mouseleave: function () {
+                    // Saat tidak di-hover, hapus class hover
+                    let unitNumber = $(this).data('unitnumber');
+                    $(this).removeClass('hover');
+
+                    if (unitNumber) {
+                        $(`tbody tr[data-unit="${unitNumber}"]`).css('background-color', '');
+                    }
+                },
+                click: function () {
+                    // Ambil data-unitnumber dari elemen yang diklik
+                    let unitNumber = $(this).data('unitnumber');
+
+                    if (unitNumber) {
+                        // Trigger event click pada tbody tr dengan data-unitnumber yang sama
+                        $(`tbody tr[data-unit="${unitNumber}"]`).trigger('click');
+                    }
+                }
+            });
+
+            // Optional: Auto slideshow
+            // setInterval(nextSlide, 5000);
+            //end slider js
 
 
             //table js
@@ -872,7 +1053,7 @@
                 if (Array.isArray(filteredData) && filteredData.length > 0) {
                     filteredData.forEach(item => {
                         tbody.append(`
-                            <tr data-unit="${item.unit_number}" data-floor="${item.floor}" data-block="${item.block}">
+                            <tr data-unit="${item.unit_number}" data-floor="${item.floor}" data-block="${item.block}" data-slidecategory="${item.slidecategory}">
                                 <td>${item.unit_number}</td>
                                 <td>${item.floor}</td>
                                 <td>${item.block}</td>
@@ -891,28 +1072,72 @@
                     `);
                 }
 
-                // Tambahkan event click pada setiap baris
+                // Event handler untuk klik
                 $('tbody tr').on('click', function () {
+                    let isActive = $(this).hasClass('active'); // Cek apakah baris sudah active
+                    let unitNumber = $(this).data('unit'); // Ambil unitNumber
+                    let targetElement = $(`.${unitNumber}`); // Cari elemen target
+
                     // Hapus class active dari semua baris
                     $('tbody tr').removeClass('active');
-                    // Tambahkan class active pada baris yang diklik
-                    $(this).addClass('active');
+                    // Hapus class active dari semua target elements (jika ada multiple)
+                    $('.active').not('tbody tr').removeClass('active');
 
                     // Ambil data dari baris yang diklik
-                    let unitNumber = $(this).data('unit');
                     let floor = $(this).data('floor'); // Kolom floor (indeks 1)
                     let block = $(this).data('block'); // Kolom block (indeks 2)
+                    let slideCategory = $(this).data('slidecategory'); // Ambil slidecategory
 
-                    // Buat URL baru dengan semua parameter
+                    // Buat URL baru dengan parameter
                     let params = new URLSearchParams();
-                    params.set('unit_number', unitNumber);
-                    params.set('floor', floor);
-                    params.set('block', block);
-                    let newUrl = `?${params.toString()}`;
 
-                    // Gunakan fungsi changeURL
-                    changeURL(newUrl, `Unit ${unitNumber}`);
+                    if (isActive) {
+                        // Klik kedua (uncheck): Hilangkan unit_number, pertahankan floor dan block, tambahkan slidecategory
+                        params.set('floor', floor);
+                        params.set('block', block);
+                        if (slideCategory) {
+                            params.set('slidecategory', slideCategory);
+                        }
+                        let newUrl = `?${params.toString()}`;
+                        changeURL(newUrl, `Category ${slideCategory || 'All'}`);
+                        // targetElement.css('opacity', '0'); // Dihapus
+                        targetElement.removeClass('active'); // Hapus class active
+                    } else {
+                        // Klik pertama (check): Tambahkan active dan semua parameter tanpa slidecategory
+                        $(this).addClass('active');
+                        params.set('unit_number', unitNumber);
+                        params.set('floor', floor);
+                        params.set('block', block);
+                        let newUrl = `?${params.toString()}`;
+                        changeURL(newUrl, `Unit ${unitNumber}`);
+                        // targetElement.css('opacity', '0.8'); // Dihapus
+                        targetElement.addClass('active'); // Tambahkan class active
+                    }
                 });
+
+                // Event handler terpisah untuk hover dan opacity
+                $('tbody tr').on({
+                    mouseenter: function () {
+                        // Saat di-hover
+                        let unitNumber = $(this).data('unit');
+                        let targetElement = $(`.${unitNumber}`);
+                        targetElement.css('opacity', '0.4');
+                    },
+                    mouseleave: function () {
+                        // Saat tidak di-hover
+                        let unitNumber = $(this).data('unit');
+                        let isActive = $(this).hasClass('active');
+                        let targetElement = $(`.${unitNumber}`);
+
+                        // Jika tidak ada class active, set opacity ke 0
+                        if (!isActive) {
+                            targetElement.css('opacity', '0');
+                        }
+                        // Jika ada class active, opacity tetap 0.4
+                    }
+                });
+
+
             }
 
             // Membaca query params saat halaman dimuat
@@ -929,8 +1154,6 @@
                     let unitMatch = !unit_number || item.unit_number === parseInt(unit_number);
                     return blockMatch && floorMatch && unitMatch;
                 });
-
-                console.log(filteredData);
 
 
                 // Tampilkan data yang sudah difilter
