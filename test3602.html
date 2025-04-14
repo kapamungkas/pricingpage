@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>360 Degree Slider</title>
+    <style>
+        .slider-container {
+            width: 600px;
+            height: 400px;
+            margin: 50px auto;
+            perspective: 1000px;
+            position: relative;
+        }
+
+        .slider {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            transform-style: preserve-3d;
+            transition: transform 1s;
+        }
+
+        .slide {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+        }
+
+        .slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .prev, .next {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 30px;
+            cursor: pointer;
+            background: rgba(0,0,0,0.5);
+            color: white;
+            padding: 10px;
+        }
+
+        .prev { left: 10px; }
+        .next { right: 10px; }
+    </style>
+</head>
+<body>
+    <div class="slider-container">
+        <div class="slider">
+            <div class="slide"><img src="image/earth_1.webp" alt="Slide 1"></div>
+            <div class="slide"><img src="image/earth_2.webp" alt="Slide 1"></div>
+            <div class="slide"><img src="image/earth_3.webp" alt="Slide 1"></div>
+            <div class="slide"><img src="image/earth_4.webp" alt="Slide 1"></div>
+            <div class="slide"><img src="image/earth_5.webp" alt="Slide 1"></div>
+            <div class="slide"><img src="image/earth_6.webp" alt="Slide 1"></div>
+            <div class="slide"><img src="image/earth_7.webp" alt="Slide 1"></div>
+            <div class="slide"><img src="image/earth_8.webp" alt="Slide 1"></div>
+        </div>
+        <div class="prev">❮</div>
+        <div class="next">❯</div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            let currentIndex = 0;
+            const slides = $('.slide');
+            const totalSlides = slides.length;
+            let angle = 0;
+
+            // Atur posisi awal setiap slide
+            slides.each(function(index) {
+                $(this).css({
+                    'transform': `rotateY(${index * (360 / totalSlides)}deg) translateZ(300px)`
+                });
+            });
+
+            function updateSlider() {
+                $('.slider').css({
+                    'transform': `rotateY(${angle}deg)`
+                });
+            }
+
+            $('.next').click(function() {
+                angle -= 360 / totalSlides;
+                updateSlider();
+                currentIndex = (currentIndex + 1) % totalSlides;
+            });
+
+            $('.prev').click(function() {
+                angle += 360 / totalSlides;
+                updateSlider();
+                currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
+            });
+
+            // Auto rotate (opsional)
+            setInterval(function() {
+                $('.next').click();
+            }, 3000);
+        });
+    </script>
+</body>
+</html>

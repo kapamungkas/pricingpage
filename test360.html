@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Super Tiny 360 Degree Product Viewer</title>
+    <style>
+        body {
+            background: #f0f0f0;
+        }
+
+        .slider-container {
+            width: 800px;
+            height: 600px;
+            margin: 50px auto;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .product-viewer {
+            width: 100%;
+            height: 100%;
+            position: relative;
+        }
+
+        .product-viewer img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            position: absolute;
+            top: 0;
+            left: 0;
+            display: none;
+        }
+
+        .product-viewer img.active {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="slider-container">
+        <div class="product-viewer" id="product-viewer">
+            <img src="image/earth_1.webp" alt="Slide 1">
+            <img src="image/earth_2.webp" alt="Slide 2">
+            <img src="image/earth_3.webp" alt="Slide 3">
+            <img src="image/earth_4.webp" alt="Slide 4">
+            <img src="image/earth_5.webp" alt="Slide 5">
+            <img src="image/earth_6.webp" alt="Slide 6">
+            <img src="image/earth_7.webp" alt="Slide 7">
+            <img src="image/earth_8.webp" alt="Slide 8">
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        // Super Tiny jQuery 360 Degrees Product Image Viewer
+        (function($) {
+            $.fn.rotate = function() {
+                var $imgs = this.find('img'),
+                    total = $imgs.length,
+                    current = 0;
+
+                $imgs.eq(current).addClass('active');
+
+                this.mousemove(function(e) {
+                    var $this = $(this),
+                        offset = $this.offset(),
+                        width = $this.width(),
+                        x = e.pageX - offset.left,
+                        index = Math.floor((x / width) * total);
+
+                    index = Math.min(Math.max(index, 0), total - 1);
+
+                    if (index !== current) {
+                        $imgs.removeClass('active');
+                        $imgs.eq(index).addClass('active');
+                        current = index;
+                    }
+                });
+
+                return this;
+            };
+        })(jQuery);
+
+        $(document).ready(function() {
+            $('#product-viewer').rotate();
+        });
+    </script>
+</body>
+</html>
