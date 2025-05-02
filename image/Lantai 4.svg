@@ -1,0 +1,37 @@
+<svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" width="1920" height="1080">
+	<title>Lantai 4</title>
+	<style>
+		tspan { white-space:pre } 
+		.s0 { opacity: .23;fill: #000000 } 
+	</style>
+	<g id="planning">
+		<path id="5404" fill-rule="evenodd" class="s0" d="m722 273v60h-184v-60z"/>
+		<path id="5403" fill-rule="evenodd" class="s0" d="m722 334v60h-184v-60z"/>
+		<path id="5402" fill-rule="evenodd" class="s0" d="m723 394v60h-184v-60z"/>
+		<path id="5401" fill-rule="evenodd" class="s0" d="m723 455v60h-184v-60z"/>
+		<path id="4410" fill-rule="evenodd" class="s0" d="m883 303v178h-59v-178z"/>
+		<path id="4409" fill-rule="evenodd" class="s0" d="m942 303v178h-59v-178z"/>
+		<path id="4408" fill-rule="evenodd" class="s0" d="m1003 303v178h-59v-178z"/>
+		<path id="4407" fill-rule="evenodd" class="s0" d="m1064 303v178h-59v-178z"/>
+		<path id="4406" fill-rule="evenodd" class="s0" d="m1124 302v178h-59v-178z"/>
+		<path id="4405" fill-rule="evenodd" class="s0" d="m1183 302v178h-59v-178z"/>
+		<path id="6410" fill-rule="evenodd" class="s0" d="m223 281v194h-58v-194z"/>
+		<path id="6409" fill-rule="evenodd" class="s0" d="m284 281v194h-58v-194z"/>
+		<path id="6408" fill-rule="evenodd" class="s0" d="m343 281v194h-58v-194z"/>
+		<path id="6407" fill-rule="evenodd" class="s0" d="m404 281v194h-58v-194z"/>
+		<path id="6406" fill-rule="evenodd" class="s0" d="m461 281v194h-58v-194z"/>
+		<path id="6405" fill-rule="evenodd" class="s0" d="m222 522v194h-58v-194z"/>
+		<path id="6404" fill-rule="evenodd" class="s0" d="m283 522v194h-58v-194z"/>
+		<path id="6403" fill-rule="evenodd" class="s0" d="m342 522v194h-58v-194z"/>
+		<path id="6402" fill-rule="evenodd" class="s0" d="m403 522v194h-58v-194z"/>
+		<path id="6401" fill-rule="evenodd" class="s0" d="m460 522v194h-58v-194z"/>
+		<path id="4404" fill-rule="evenodd" class="s0" d="m1002 528v174h-60v-174z"/>
+		<path id="4403" fill-rule="evenodd" class="s0" d="m1066 528v174h-60v-174z"/>
+		<path id="4402" fill-rule="evenodd" class="s0" d="m1127 528v174h-60v-174z"/>
+		<path id="4401" fill-rule="evenodd" class="s0" d="m1187 528v174h-60v-174z"/>
+		<path id="3404" fill-rule="evenodd" class="s0" d="m1465 581v58h-173v-58z"/>
+		<path id="3403" fill-rule="evenodd" class="s0" d="m1465 640v58h-173v-58z"/>
+		<path id="3401" fill-rule="evenodd" class="s0" d="m1686 581v58h-173v-58z"/>
+		<path id="3402" fill-rule="evenodd" class="s0" d="m1686 640v58h-173v-58z"/>
+	</g>
+</svg>

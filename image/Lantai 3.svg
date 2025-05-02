@@ -1,0 +1,41 @@
+<svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" width="1920" height="1080">
+	<title>Lantai 3</title>
+	<defs>
+		<image  width="1920" height="1080" id="img1" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAB4AAAAQ4AQMAAADSHVMAAAAAAXNSR0IB2cksfwAAAANQTFRF////p8QbyAAABJhJREFUeJztzwENACAMwDDu3zQuTlJWBducz8zrgG0N6xrWNaxrWNewrmFdw7qGdQ3rGtY1rGtY17CuYV3DuoZ1Desa1jWsa1jXsK5hXcO6hnUN6xrWNaxrWNewrmFdw7qGdQ3rGtY1rGtY17CuYV3DuoZ1Desa1jWsa1jXsK5hXcO6hnUN6xrWNaxrWNewrmFdw7qGdQ3rGtY1rGtY17CuYV3DuoZ1Desa1jWsa1jXsK5hXcO6hnUN6xrWNaxrWNewrmFdw7qGdQ3rGtY1rGtY17CuYV3DuoZ1Desa1jWsa1jXsK5hXcO6hnUN6xrWNaxrWNewrmFdw7qGdQ3rGtY1rGtY17CuYV3DuoZ1Desa1jWsa1jXsK5hXcO6hnUN6xrWNaxrWNewrmFdw7qGdQ3rGtY1rGtY17CuYV3DuoZ1Desa1jWsa1jXsK5hXcO6hnUN6xrWNaxrWNewrmFdw7qGdQ3rGtY1rGtY17CuYV3DuoZ1Desa1jWsa1jXsK5hXcO6hnUN6xrWNaxrWNewrmFdw7qGdQ3rGtY1rGtY17CuYV3DuoZ1Desa1jWsa1jXsK5hXcO6hnUN6xrWNaxrWNewrmFdw7qGdQ3rGtY1rGtY17CuYV3DuoZ1Desa1jWsa1jXsK5hXcO6hnUN6xrWNaxrWNewrmFdw7qGdQ3rGtY1rGtY17CuYV3DuoZ1Desa1jWsa1jXsK5hXcO6hnUN6xrWNaxrWNewrmFdw7qGdQ3rGtY1rGtY17CuYV3DuoZ1Desa1jWsa1jXsK5hXcO6hnUN6xrWNaxrWNewrmFdw7qGdQ3rGtY1rGtY17CuYV3DuoZ1Desa1jWsa1jXsK5hXcO6hnUN6xrWNaxrWNewrmFdw7qGdQ3rGtY1rGtY17CuYV3DuoZ1Desa1jWsa1jXsK5hXcO6hnUN6xrWNaxrWNewrmFdw7qGdQ3rGtY1rGtY17CuYV3DuoZ1Desa1jWsa1jXsK5hXcO6hnUN6xrWNaxrWNewrmFdw7qGdQ3rGtY1rGtY17CuYV3DuoZ1Desa1jWsa1jXsK5hXcO6hnUN6xrWNaxrWNewrmFdw7qGdQ3rGtY1rGtY17CuYV3DuoZ1Desa1jWsa1jXsK5hXcO6hnUN6xrWNaxrWNewrmFdw7qGdQ3rGtY1rGtY17CuYV3DuoZ1Desa1jWsa1jXsK5hXcO6hnUN6xrWNaxrWNewrmFdw7qGdQ3rGtY1rGtY17CuYV3DuoZ1Desa1jWsa1jXsK5hXcO6hnUN6xrWNaxrWNewrmFdw7qGdQ3rGtY1rGtY17CuYV3DuoZ1Desa1jWsa1jXsK5hXcO6hnUN6xrWNaxrWNewrmFdw7qGdQ3rGtY1rGtY17CuYV3DuoZ1Desa1jWsa1jXsK5hXcO6hnUN6xrWNaxrWNewrmFdw7qGdQ3rGtY1rGtY17CuYV3DuoZ1Desa1jWsa1jXsK5hXcO6hnUN6xrWNaxrWNewrmFdw7qGdQ3rGtY1rGtY17CuYV3DuoZ1Desa1jWsa1jXsK5hXcO6hnUN6xrWNaxrWNewrmFdw7qGdQ3rGtY1rLsXPQQ5U8N4bAAAAABJRU5ErkJggg=="/>
+	</defs>
+	<style>
+		tspan { white-space:pre } 
+		.s0 { opacity: .23;fill: #000000 } 
+	</style>
+	<use id="Background" href="#img1" x="0" y="0"/>
+	<g id="planning">
+		<path id="5304" fill-rule="evenodd" class="s0" d="m722 273v60h-184v-60z"/>
+		<path id="5303" fill-rule="evenodd" class="s0" d="m722 334v60h-184v-60z"/>
+		<path id="5302" fill-rule="evenodd" class="s0" d="m723 394v60h-184v-60z"/>
+		<path id="5301" fill-rule="evenodd" class="s0" d="m723 455v60h-184v-60z"/>
+		<path id="4310" fill-rule="evenodd" class="s0" d="m883 303v178h-59v-178z"/>
+		<path id="4309" fill-rule="evenodd" class="s0" d="m942 303v178h-59v-178z"/>
+		<path id="4308" fill-rule="evenodd" class="s0" d="m1003 303v178h-59v-178z"/>
+		<path id="4307" fill-rule="evenodd" class="s0" d="m1064 303v178h-59v-178z"/>
+		<path id="4306" fill-rule="evenodd" class="s0" d="m1124 302v178h-59v-178z"/>
+		<path id="4305" fill-rule="evenodd" class="s0" d="m1183 302v178h-59v-178z"/>
+		<path id="6310" fill-rule="evenodd" class="s0" d="m223 281v194h-58v-194z"/>
+		<path id="6309" fill-rule="evenodd" class="s0" d="m284 281v194h-58v-194z"/>
+		<path id="6308" fill-rule="evenodd" class="s0" d="m343 281v194h-58v-194z"/>
+		<path id="6307" fill-rule="evenodd" class="s0" d="m404 281v194h-58v-194z"/>
+		<path id="6306" fill-rule="evenodd" class="s0" d="m461 281v194h-58v-194z"/>
+		<path id="6305" fill-rule="evenodd" class="s0" d="m222 522v194h-58v-194z"/>
+		<path id="6304" fill-rule="evenodd" class="s0" d="m283 522v194h-58v-194z"/>
+		<path id="6303" fill-rule="evenodd" class="s0" d="m342 522v194h-58v-194z"/>
+		<path id="6302" fill-rule="evenodd" class="s0" d="m403 522v194h-58v-194z"/>
+		<path id="6301" fill-rule="evenodd" class="s0" d="m460 522v194h-58v-194z"/>
+		<path id="4304" fill-rule="evenodd" class="s0" d="m1002 528v174h-60v-174z"/>
+		<path id="4303" fill-rule="evenodd" class="s0" d="m1066 528v174h-60v-174z"/>
+		<path id="4302" fill-rule="evenodd" class="s0" d="m1127 528v174h-60v-174z"/>
+		<path id="4301" fill-rule="evenodd" class="s0" d="m1187 528v174h-60v-174z"/>
+		<path id="3304" fill-rule="evenodd" class="s0" d="m1465 581v58h-173v-58z"/>
+		<path id="3303" fill-rule="evenodd" class="s0" d="m1465 640v58h-173v-58z"/>
+		<path id="3301" fill-rule="evenodd" class="s0" d="m1686 581v58h-173v-58z"/>
+		<path id="3302" fill-rule="evenodd" class="s0" d="m1686 640v58h-173v-58z"/>
+	</g>
+</svg>

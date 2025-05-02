@@ -371,6 +371,95 @@
         }
     </style>
 
+    <style>
+        @media screen and (max-width: 768px) {
+            .my-container {
+                padding: 0 15px;
+                /* Sedikit pengurangan padding container */
+            }
+
+            /* Featured Section */
+            .box-info-block {
+                width: 100%;
+                /* Lebar info block menyesuaikan layar */
+                padding: 10px 15px;
+                /* Padding lebih kecil */
+                text-align: center;
+                /* Teks di tengah lebih baik untuk mobile */
+            }
+
+            .box-info-block .title-block {
+                font-size: 24px;
+                /* Ukuran font judul lebih kecil */
+            }
+
+            .box-info-block .description-block {
+                font-size: 16px;
+                /* Ukuran font deskripsi lebih kecil */
+            }
+
+            /* Filter Section */
+            .filter-section {
+                padding: 20px 0;
+                /* Padding vertikal lebih kecil */
+            }
+
+            .filter-section h3 {
+                font-size: 20px;
+                /* Ukuran font judul filter lebih kecil */
+                margin-bottom: 10px;
+            }
+
+            .filter-section .my-col-4,
+            .filter-section .my-col-8 {
+                margin-bottom: 10px;
+                /* Memberi jarak antar kolom filter */
+            }
+
+            .filter-section .btn-filter,
+            .filter-section .btn-floor {
+                display: inline-block;
+                /* Tombol filter jadi inline-block */
+                margin-right: 5px;
+                /* Sedikit jarak antar tombol */
+                margin-bottom: 5px;
+                padding: 10px 15px;
+                /* Padding tombol lebih kecil */
+                font-size: 14px;
+                /* Ukuran font tombol lebih kecil */
+                border-radius: 50px;
+                /* Lebih bulat terlihat baik pada mobile */
+            }
+
+            /* Slider Section */
+            .slider-container {
+                height: 300px;
+                /* Tinggi slider lebih kecil */
+            }
+
+            .dots-container {
+                display: flex;
+                /* Tampilkan dots pada mobile */
+            }
+
+            .nav-button {
+                width: 30px;
+                /* Ukuran tombol navigasi lebih kecil */
+                height: 30px;
+                font-size: 14px;
+            }
+
+            /* Table Section */
+            th,
+            td {
+                padding: 6px;
+                /* Padding sel tabel lebih kecil */
+                font-size: 12px;
+                /* Ukuran font tabel lebih kecil */
+            }
+        }
+    </style>
+
 </head>
 
 <body>
@@ -946,22 +1035,38 @@
                                     d="m682.9 484.4l4.3 56.5 195.4-12.9-2.1-53 21.9-2-67.1-80.2-31.6-3.4-0.7-12.4-9.1-11.1-16.9 0.6-0.6-4.6-52.1 1.9-11.5-19.1-39.1 0.5 14.3 23z" />
                                 <path id="5501" class="unit 5501" data-unitnumber="5501"
                                     d="m490.7 490.4l0.1 57.2 196.1-7.6-3.5-55.2 3.7-51 2.3-64.1-16.7-24.7-77.5 4.2-1 19.5-69.1 1.5-72.6 31.4z" />
-                                <path id="5404" class="unit 5404" data-unitnumber="5404" d="m761.2 536.3l4.3 57.9 114.2-7-3.5-58.7z" />
-                                <path id="5403" class="unit 5403" data-unitnumber="5403" d="m683.4 541.3l4.3 62.3 75.9-5-2.3-61.4z" />
-                                <path id="5402" class="unit 5402" data-unitnumber="5402" d="m614.4 543.1l-1.5 62.1 76.7-2.2-0.5-63z" />
-                                <path id="5401" class="unit 5401" data-unitnumber="5401" d="m504.6 551.4l7.4 63.7 96.3-6.3 3-62.9z" />
-                                <path id="5304" class="unit 5304" data-unitnumber="5304" d="m768.6 598.3l1 58.1 95.2-7.5 1.7-56.7z" />
-                                <path id="5303" class="unit 5303" data-unitnumber="5303" d="m686.5 603.7l2.8 58.1 79.3-5.5-4.2-57z" />
-                                <path id="5302" class="unit 5302" data-unitnumber="5302" d="m606.9 608.9l6.6 59 74.5-6.7-2.2-56.8z" />
-                                <path id="5301" class="unit 5301" data-unitnumber="5301" d="m514.6 611.1l2.1 58.1 89.7-5.8-0.6-53.8z" />
-                                <path id="5204" class="unit 5204" data-unitnumber="5204" d="m741.8 659.4l1.5 50.3 97.7-4.6-5.6-49.6z" />
-                                <path id="5203" class="unit 5203" data-unitnumber="5203" d="m671.3 662.9l3 53.3 67.2-2.8-1.6-53.6z" />
-                                <path id="5202" class="unit 5202" data-unitnumber="5202" d="m602.6 668.7l3.9 52 66.4-3.7-4.7-54.7z" />
-                                <path id="5201" class="unit 5201" data-unitnumber="5201" d="m532.4 667.8l4.8 59.9 69.6-5.6-5.6-56.2z" />
-                                <path id="5104" class="unit 5104" data-unitnumber="5104" d="m787.1 712.2l3.7 49.7 64.6-3.5-0.2-48z" />
-                                <path id="5103" class="unit 5103" data-unitnumber="5103" d="m702.6 719.6l-0.1 48.8 58.2-4.3 0.3-46.8z" />
-                                <path id="5102" class="unit 5102" data-unitnumber="5102" d="m632.4 721.9l4 53.7 65.9-5.1 0.2-53.4z" />
-                                <path id="5101" class="unit 5101" data-unitnumber="5101" d="m538.8 728.4l1.6 47.7 80.9-2.3-3.3-50.4z" />
+                                <path id="5404" class="unit 5404" data-unitnumber="5404"
+                                    d="m761.2 536.3l4.3 57.9 114.2-7-3.5-58.7z" />
+                                <path id="5403" class="unit 5403" data-unitnumber="5403"
+                                    d="m683.4 541.3l4.3 62.3 75.9-5-2.3-61.4z" />
+                                <path id="5402" class="unit 5402" data-unitnumber="5402"
+                                    d="m614.4 543.1l-1.5 62.1 76.7-2.2-0.5-63z" />
+                                <path id="5401" class="unit 5401" data-unitnumber="5401"
+                                    d="m504.6 551.4l7.4 63.7 96.3-6.3 3-62.9z" />
+                                <path id="5304" class="unit 5304" data-unitnumber="5304"
+                                    d="m768.6 598.3l1 58.1 95.2-7.5 1.7-56.7z" />
+                                <path id="5303" class="unit 5303" data-unitnumber="5303"
+                                    d="m686.5 603.7l2.8 58.1 79.3-5.5-4.2-57z" />
+                                <path id="5302" class="unit 5302" data-unitnumber="5302"
+                                    d="m606.9 608.9l6.6 59 74.5-6.7-2.2-56.8z" />
+                                <path id="5301" class="unit 5301" data-unitnumber="5301"
+                                    d="m514.6 611.1l2.1 58.1 89.7-5.8-0.6-53.8z" />
+                                <path id="5204" class="unit 5204" data-unitnumber="5204"
+                                    d="m741.8 659.4l1.5 50.3 97.7-4.6-5.6-49.6z" />
+                                <path id="5203" class="unit 5203" data-unitnumber="5203"
+                                    d="m671.3 662.9l3 53.3 67.2-2.8-1.6-53.6z" />
+                                <path id="5202" class="unit 5202" data-unitnumber="5202"
+                                    d="m602.6 668.7l3.9 52 66.4-3.7-4.7-54.7z" />
+                                <path id="5201" class="unit 5201" data-unitnumber="5201"
+                                    d="m532.4 667.8l4.8 59.9 69.6-5.6-5.6-56.2z" />
+                                <path id="5104" class="unit 5104" data-unitnumber="5104"
+                                    d="m787.1 712.2l3.7 49.7 64.6-3.5-0.2-48z" />
+                                <path id="5103" class="unit 5103" data-unitnumber="5103"
+                                    d="m702.6 719.6l-0.1 48.8 58.2-4.3 0.3-46.8z" />
+                                <path id="5102" class="unit 5102" data-unitnumber="5102"
+                                    d="m632.4 721.9l4 53.7 65.9-5.1 0.2-53.4z" />
+                                <path id="5101" class="unit 5101" data-unitnumber="5101"
+                                    d="m538.8 728.4l1.6 47.7 80.9-2.3-3.3-50.4z" />
                             </svg>
                         </div>
                         <div class="slide skip" data-slidecategory="water_wind" data-id="57">
@@ -1719,6 +1824,51 @@
 
                             $('.text-description').each(function () {
                                 $(this).text(params.get('description') || '');
+                            });
+
+                            // Ambil unit_number dari parameter URL
+                            var unit_number = params.get('unit_number');
+
+                            // Fungsi untuk reset semua class active dan hide semua .lantai
+                            function resetPlanning() {
+                                console.log('reset planning');
+                                // Ambil semua elemen .planning-position
+                                jQuery('.planning-position').each(function () {
+                                    console.log('reset planning each');
+                                    // Dapatkan semua class kecuali 'planning-position'
+                                    var classes = jQuery(this).attr('class').split(' ').filter(cls => cls !== 'planning-position');
+                                    // Hapus semua class kecuali 'planning-position'
+                                    jQuery(this).removeClass(classes.join(' '));
+                                    // Tambahkan kembali class 'planning-position' jika diperlukan
+                                    jQuery(this).addClass('planning-position');
+                                });
+                                // Sembunyikan semua .lantai
+                                jQuery('.lantai').hide();
+
+                                // Jika unit_number ada, cari elemen dengan data-id yang sesuai di dalam .lantai
+                                if (unit_number) {
+                                    console.log('reset planning unit number isi');
+                                    jQuery('.lantai').each(function () {
+                                        console.log(jQuery(this).find('[data-id="' + unit_number + '"]'));
+                                        if (jQuery(this).find('[data-id="' + unit_number + '"]').length > 0) {
+                                            jQuery(this).show(); // Tampilkan parent .lantai
+                                            jQuery('[data-id="' + unit_number + '"]').addClass('active'); // Tambahkan class active ke elemen dengan data-id
+                                        }
+                                    });
+                                }
+                            }
+
+                            resetPlanning();
+
+
+                            //custom button book value
+                            $('.custom_title').each(function () {
+                                $(this).val("Booking For Unit Number :" + params.get('unit_number'));
+                            });
+
+                            //custom button book value
+                            $('.order_unit_number').each(function () {
+                                $(this).val(params.get('unit_number'));
                             });
                         }
 
