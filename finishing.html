@@ -1,0 +1,73 @@
+<style>
+    .active a{
+     /* Gaya untuk button yang aktif, sesuaikan sesuai kebutuhan */
+     background-color: #B39468 !important;
+     color: white  !important;
+ }
+ 
+ /* Sembunyikan semua box dan image secara default */
+ .windbox, .waterbox, .earthbox, .firebox,
+ .windimage, .waterimage, .earthimage, .fireimage {
+     display: none;
+ } 
+ </style>
+ <script>
+     jQuery(document).ready(function() {
+         // Set default state saat halaman dimuat
+         jQuery('.btnwind').addClass('active');
+         jQuery('.windbox').css('display', 'flex');
+         jQuery('.windimage').css('display', 'flex');
+ 
+         // Sembunyikan elemen lain secara default
+         jQuery('.btnwater, .btnearth, .btnfire').removeClass('active');
+         jQuery('.waterbox, .earthbox, .firebox').hide();
+         jQuery('.waterimage, .earthimage, .fireimage').hide();
+ 
+         // Event click untuk btnwind
+         jQuery('.btnwind').click(function() {
+             // Hapus class active dari semua button
+             jQuery('.btnwind, .btnwater, .btnearth, .btnfire').removeClass('active');
+             // Tambahkan class active ke button yang diklik
+             jQuery(this).addClass('active');
+ 
+             // Show wind elements dengan flex dan hide yang lain
+             jQuery('.windbox').css('display', 'flex');
+             jQuery('.windimage').css('display', 'flex');
+             jQuery('.waterbox, .earthbox, .firebox').hide();
+             jQuery('.waterimage, .earthimage, .fireimage').hide();
+         });
+ 
+         // Event click untuk btnwater
+         jQuery('.btnwater').click(function() {
+             jQuery('.btnwind, .btnwater, .btnearth, .btnfire').removeClass('active');
+             jQuery(this).addClass('active');
+ 
+             jQuery('.waterbox').css('display', 'flex');
+             jQuery('.waterimage').css('display', 'flex');
+             jQuery('.windbox, .earthbox, .firebox').hide();
+             jQuery('.windimage, .earthimage, .fireimage').hide();
+         });
+ 
+         // Event click untuk btnearth
+         jQuery('.btnearth').click(function() {
+             jQuery('.btnwind, .btnwater, .btnearth, .btnfire').removeClass('active');
+             jQuery(this).addClass('active');
+ 
+             jQuery('.earthbox').css('display', 'flex');
+             jQuery('.earthimage').css('display', 'flex');
+             jQuery('.windbox, .waterbox, .firebox').hide();
+             jQuery('.windimage, .waterimage, .fireimage').hide();
+         });
+ 
+         // Event click untuk btnfire
+         jQuery('.btnfire').click(function() {
+             jQuery('.btnwind, .btnwater, .btnearth, .btnfire').removeClass('active');
+             jQuery(this).addClass('active');
+ 
+             jQuery('.firebox').css('display', 'flex');
+             jQuery('.fireimage').css('display', 'flex');
+             jQuery('.windbox, .waterbox, .earthbox').hide();
+             jQuery('.windimage, .waterimage, .earthimage').hide();
+         });
+     });
+ </script>

@@ -4,7 +4,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Image Slider dengan Efek Fade</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <!-- general style  -->
     <style>
@@ -472,9 +471,10 @@
                 </div>
                 <img src="https://pellago.com/elements/wp-content/uploads/2025/03/featured.webp" alt="All Block Image"
                     width="100%">
+                <img src="https://pellago.com/elements/wp-content/uploads/2025/05/comingsoonhover.webp" alt="All Block Image" width="100%"
+                    style="position: absolute; top: 0; left: 0; opacity: 0.8;">
                 <svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2750 1908" width="2750"
                     height="1908">
-                    <title>21</title>
                     <style>
                         .s0 {
                             opacity: 0;
@@ -483,12 +483,12 @@
                             cursor: pointer;
                         }
                     </style>
-                    <path id="fire" data-title="Fire Block" data-desc="18 Units Available" data-block="fire"
+                    <!-- <path id="fire" data-title="Fire Block" data-desc="18 Units Available" data-block="fire"
                         data-slidecategory="fire" class="s0"
                         d="m1618 1443l650 334 183-94-106-64-1-62 32-13-9-31-1-73-22-13 33-20-1-12-2-22-16-8 42-24-96-57-1-34-53-34-37-22 4-7-84-49-42 24-30-17v-48l-82-46-33-13-56-27-2 30h-6l-40-22-199 111 27 14-3 60 49 26-37 22 2 34 32 17-33 21 1 24 14 10 1 25-75 34z" />
                     <path id="earth" data-title="Earth Block" data-desc="35 Units Available" data-block="earth"
                         data-slidecategory="earth" class="s0"
-                        d="m1506 1442l-344-199 63-35 36 20 3-70-27-16 1-26 36-21-37-21 1-32 23-13-48-29-2-58-19-15 149-87 2-58-2-139 8-11 110-65 21 14 116-60 538 313-28 20 4 54-47 23 24 13 3 34-38 19 35 22v25l-20 11-3 45-84-49-7 4-29-16-54-27-2 30-45-21-199 109 27 16-3 59 47 26-35 21-1 32 34 18-34 21 1 9-147 83-1 21-10 7-9-4z" />
+                        d="m1506 1442l-344-199 63-35 36 20 3-70-27-16 1-26 36-21-37-21 1-32 23-13-48-29-2-58-19-15 149-87 2-58-2-139 8-11 110-65 21 14 116-60 538 313-28 20 4 54-47 23 24 13 3 34-38 19 35 22v25l-20 11-3 45-84-49-7 4-29-16-54-27-2 30-45-21-199 109 27 16-3 59 47 26-35 21-1 32 34 18-34 21 1 9-147 83-1 21-10 7-9-4z" /> -->
                     <path id="water" data-title="Water Block" data-desc="18 Units Available" data-block="water_wind"
                         data-slidecategory="water_wind" class="s0"
                         d="m990 840l-8-262-80-46 71-72 35 18 94-55-13-12 119-69 15 10 54-27 2 18 39-22 266 153-30 16 3 49-80 39-23-14-107 65-10 18 1 190-146 90 15 17-4 17z" />
@@ -496,32 +496,7 @@
                         data-slidecategory="water_wind" class="s0"
                         d="m306 722l-9-165-26-21 2-123-30-13 179-102-5-17 40-22 10 8 12-8-1-20 80-46 12 9 127-64-3-15 39-20 11 8 62-34 439 255-26 17-10-4-114 69 13 11-104 50-28-14-70 75 75 41 7 167-71 43c0 0-0.1 28.3-31 36-30.9 7.7-6 30-6 30l-35 24-27-9-24 13-24-14-51 30 14 15-106 59-324-178-8-31 27-19 8 5 10-5z" />
                 </svg>
-                <!-- <svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1706 990" width="1706"
-                height="990">
-                <title>featured</title>
-                <style>
-                    .s0 {
-                        opacity: 0;
-                        fill: #f7b34b;
-                        transition: opacity 0.3s ease;
-                    }
-                </style>
-                <path id="Layer 1" class="s0" data-title="Fire Block" data-desc="19 Available" data-block="fire"
-                    data-slide="1"
-                    d="m38 436l1-10 27-6-1-104-19-15 112-33 25-23 92 17 6 13 25-9 134 27 1 18 72 17-7 10 6 99-55 19 1 46-34 12z" />
-                <path id="Layer 2" class="s0" data-title="Fire Block" data-desc="19 Available" data-block="fire"
-                    data-slide="2"
-                    d="m601 551v-29h-9l2-52 13-3-1-13-18-3-2-36 33-12 4-16 20 5 46-19 15 3-2 11 29 9 10-4 6 9 8-8-1-11 18-1 14 3 3 16 76 11 3 15 36 12-4 34-79 30 1 10-13 5v9l-47 27-11-2 11 31z" />
-                <path id="Layer 3" class="s0" data-title="Earth Block" data-desc="19 Available"
-                    data-block="earth" data-slide="3"
-                    d="m772 658v-68l-11-4 1-36 48-24 1-12 79-41 34 4 26-15 99 22 26 1 2 10h11l44 12-8 6-3 89-62 38-2 119-34 20-247-57 6-58z" />
-                <path id="Layer 4" class="s0" data-title="Water Block" data-desc="19 Available"
-                    data-block="water" data-slide="4"
-                    d="m1184 572l32 3-1-10 14-6 19 3v15l27 6-1 10 20-10 2 11 16 4-31 16 1 25-28 17-10 9 11 5-1 37 28 5v7l-13 10-2 40 14 5-14 11 11 3 1 12-46 29-149-34v-36l-9-2 2-75-9-3-1-38-12-2z" />
-                <path id="Layer 5" class="s0" data-title="Wind Block" data-desc="19 Available" data-block="wind"
-                    data-slide="5"
-                    d="m1278 840v-51l-11-5 14-10-15-5 1-41 14-10 1-5-28-7v-38l-10-4 37-24 1-27 30-15 11 2 55-29 35 6 17-12 3 5 5 1 15-8 38 8 7-4 21 3 1 14 29-9 2 13 18 4 6-5 33 5 2 16 9-1 50 15-18 13 1 7 10-2 2 19-17 12 1 12 15 3 5 18-18 9v10l14 4 3 14-14 8-3 7 1 31-134 104-15 1z" />
-            </svg> -->
+
             </div>
         </div>
     </div>
@@ -531,15 +506,17 @@
                 <h3>Block</h3>
             </div>
             <div class="my-col-8">
-                <span class="btn-filter btn-block" data-id="" data-slidecategory="all">ALL BLOCK</span>
+                <!-- <span class="btn-filter btn-block" data-id="" data-slidecategory="all">ALL BLOCK</span> -->
                 <span class="btn-filter btn-block" data-id="water_wind" data-slidecategory="water_wind">BLOCK WIND &
                     WATER</span>
 
                 <!-- <span class="btn-filter btn-block" data-id="water_wind" data-slidecategory="water_wind">BLOCK WATER</span> -->
 
-                <span class="btn-filter btn-block" data-id="earth" data-slidecategory="earth">BLOCK EARTH</span>
+                <span class="btn-filter btn-block" data-id="earth" data-slidecategory="earth"
+                    style="background: grey; color: #eee; cursor: not-allowed;">BLOCK EARTH</span>
 
-                <span class="btn-filter btn-block" data-id="fire" data-slidecategory="fire">BLOCK FIRE</span>
+                <span class="btn-filter btn-block" data-id="fire" data-slidecategory="fire"
+                    style="background: grey; color: #eee; cursor: not-allowed;">BLOCK FIRE</span>
             </div>
         </div>
         <div class="my-row filter-section">
@@ -566,7 +543,6 @@
                                 alt="Gambar 2">
                             <svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2176 2176" width="2176"
                                 height="2176" class="peta">
-                                <title>fire_17</title>
                                 <path id="3502" class="unit 3502" data-unitnumber="3502"
                                     d="m434 687l10 111 540 28 38.8-395.4-379.9 12.4-6.8 81.8-155.7 19.4-75.6 125.7z" />
                                 <path id="3501" class="unit 3501" data-unitnumber="3501"
@@ -606,7 +582,6 @@
                                 alt="Gambar 2">
                             <svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 1080" width="1080"
                                 height="1080" class="peta">
-                                <title>fire_3_svg</title>
                                 <path id="3502" class="unit 3502" data-unitnumber="3502"
                                     d="m413.2 236.3l242.2 2.2-22.4 101.9-28 3.3-1.8 39.9-27.9 33.2-2.4 65.3-223.7-4-1.7-70.3-20.1-1.4z" />
                                 <path id="3403" class="unit 3403" data-unitnumber="3403"
@@ -668,7 +643,6 @@
                                 alt="Gambar 2">
                             <svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 1080" width="1080"
                                 height="1080" class="peta">
-                                <title>fire_7_svg</title>
                                 <path id="3501" class="unit 3501" data-unitnumber="3501"
                                     d="m508.5 241.9l0.4 22.3-55 30 36.4 96.7-1.1 65.6 234.6-3.2 2.9-68.5 14.3-0.7-46.7-78.5-0.6-22.9-18.6-33.1 0.3-6.6-15.6-30.4-71.8 3.7 7.7 21.8z" />
                                 <path id="3401" class="unit 3401" data-unitnumber="3401"
@@ -709,7 +683,6 @@
                                 alt="Gambar 2">
                             <svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 1080" width="1080"
                                 height="1080" class="peta">
-                                <title>earth_1_svg</title>
                                 <path id="4502" class="unit 4502" data-unitnumber="4502"
                                     d="m596.1 303.4l1.1 154.5-187.2 2.7 0.7-56.2-16.7-0.3 2.5-34.7 46.7-16.7 2.8-33 78.7-0.7 1.6-15.9z" />
                                 <path id="4501" class="unit 4501" data-unitnumber="4501"
@@ -765,7 +738,6 @@
                                 alt="Gambar 2">
                             <svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 1080" width="1080"
                                 height="1080" class="peta">
-                                <title>earth_3_svg</title>
                                 <path id="4504" class="unit 4504" data-unitnumber="4504"
                                     d="m573.8 281.1l-0.2 74 90.6 2.4-1.2 65.4 168 2.8v-47.9l-8-2.8-28.2-68.4-51.6-8.5-1.1-9.5-6.5-5.3-34.6-1.3-5.7-10.8h-65.4l-0.2 9.4z" />
                                 <path id="4404" class="unit 4404" data-unitnumber="4404"
@@ -801,7 +773,6 @@
                                 alt="Gambar 2">
                             <svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 1080" width="1080"
                                 class="peta" height="1080">
-                                <title>earth_6_svg</title>
                                 <path id="4503" class="unit 4503" data-unitnumber="4503"
                                     d="m262.4 391.7l16.8 0.5-0.4 66.1 198.4 1.3-0.1-123.7-24.5-52.9-70.4 2.4-1.9 26.9-63.8-0.1-76.3 37.9z" />
                                 <path id="4504" class="unit 4504" data-unitnumber="4504"
@@ -889,7 +860,6 @@
                                 alt="Gambar 2">
                             <svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 1080" width="1080"
                                 height="1080" class="peta">
-                                <title>water_wind_2_svg</title>
                                 <path id="6101" class="unit 6101" data-unitnumber="6101"
                                     d="m448.8 627.1l-8 92.5 70.9 3.4 6.4-91.8z" />
                                 <path id="6102" class="unit 6102" data-unitnumber="6102"
@@ -969,7 +939,6 @@
                                 alt="Gambar 2">
                             <svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 1080" width="1080"
                                 height="1080" class="peta">
-                                <title>water_wind_5</title>
                                 <path id="6106" class="unit 6106" data-unitnumber="6106"
                                     d="m834 745.3l-0.4-103.8 71-1 1.4 102.8z" />
                                 <path id="6107" class="unit 6107" data-unitnumber="6107"
@@ -1089,7 +1058,6 @@
                         <button class="nav-button prev">&#10094;</button>
                         <svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1824 716" width="600"
                             height="236" style="max-width: 300px;">
-                            <title>Screenshot 2025-04-03 at 09</title>
                             <style>
                                 .map {
                                     fill: none;
@@ -1176,7 +1144,10 @@
                                     description: item.description,
                                     total_price_idr_000: item.total_price_idr_000,
                                     total_price_usd: item.total_price_usd,
-                                    block: item.block
+                                    block: item.block,
+                                    status: item.status,
+                                    price_during_construction: item.price_during_construction,
+                                    price_after_handover: item.price_after_handover,
                                 };
                             });
                             console.log("Data berhasil diambil:", data);
@@ -1620,16 +1591,42 @@
                         // Pastikan filteredData adalah array sebelum forEach
                         if (Array.isArray(filteredData) && filteredData.length > 0) {
                             filteredData.forEach((item, index) => {
-                                tbody.append(`
-                            <tr ${Object.entries(item).map(([key, value]) => `data-${key}="${value}"`).join(' ')}>
-                                <td>${index + 1}</td>
-                                <td>${item.unit_number}</td>
-                                <td>${item.floor}</td>
-                                <td>${item.bedrooms}</td>
-                                <td>${item.gros_sqm_total}</td>
-                                <td><b>${item.total_price_idr_000}</b><br><span style="font-size:12px;">${item.total_price_usd}</span></td>
-                            </tr>
-                        `);
+                                let rowContent;
+                                if (item.status == 'booked') {
+                                    rowContent = `
+                                         <tr style="pointer-events: none;" ${Object.entries(item).map(([key, value]) => `data-${key}="${value}"`).join(' ')}>
+                                             <td>${index + 1}</td>
+                                             <td>${item.unit_number}</td>
+                                             <td>${item.floor}</td>
+                                             <td>${item.bedrooms}</td>
+                                             <td>${item.gros_sqm_total}</td>
+                                             <td style="background-color: black; color: white;text-align:center;"><b>BOOKED</b></td>
+                                         </tr>
+                                     `;
+                                } else if (item.status == 'comingsoon') {
+                                    // rowContent = `
+                                    //      <tr style="pointer-events: none;" ${Object.entries(item).map(([key, value]) => `data-${key}="${value}"`).join(' ')}>
+                                    //          <td>${index + 1}</td>
+                                    //          <td>${item.unit_number}</td>
+                                    //          <td>${item.floor}</td>
+                                    //          <td>${item.bedrooms}</td>
+                                    //          <td>${item.gros_sqm_total}</td>
+                                    //          <td style="background-color: grey; color: white;text-align:center;"><b>COMING SOON</b></td>
+                                    //      </tr>
+                                    //  `;
+                                } else {
+                                    rowContent = `
+                                         <tr ${Object.entries(item).map(([key, value]) => `data-${key}="${value}"`).join(' ')}>
+                                             <td>${index + 1}</td>
+                                             <td>${item.unit_number}</td>
+                                             <td>${item.floor}</td>
+                                             <td>${item.bedrooms}</td>
+                                             <td>${item.gros_sqm_total}</td>
+                                             <td><b>${item.total_price_idr_000}</b><br><span style="font-size:12px;">${item.total_price_usd}</span></td>
+                                         </tr>
+                                     `;
+                                }
+                                tbody.append(rowContent);
                             });
                         } else {
                             // Tampilkan pesan jika tidak ada data
@@ -1658,6 +1655,9 @@
                             let plan_type = $(this).data('plan_type');
                             let total_price_idr_000 = $(this).data('total_price_idr_000');
                             let total_price_usd = $(this).data('total_price_usd');
+                            let status = $(this).data('status');
+                            let price_during_construction = $(this).data('price_during_construction');
+                            let price_after_handover = $(this).data('price_after_handover');
 
                             let isActive = $(this).hasClass('active');
                             let targetElement = $(`.${unitNumber}`);
@@ -1696,6 +1696,9 @@
                                 params.delete('plan_type');
                                 params.delete('total_price_idr_000');
                                 params.delete('total_price_usd');
+                                params.delete('status');
+                                params.delete('price_during_construction');
+                                params.delete('price_after_handover');
 
 
                                 let newUrl = `?${params.toString()}`;
@@ -1731,6 +1734,9 @@
                                 params.set('plan_type', plan_type);
                                 params.set('total_price_idr_000', total_price_idr_000);
                                 params.set('total_price_usd', total_price_usd);
+                                params.set('status', status);
+                                params.set('price_during_construction', price_during_construction);
+                                params.set('price_after_handover', price_after_handover);
 
                                 let newUrl = `?${params.toString()}`;
                                 changeURL(newUrl, `Unit ${unitNumber}`);
@@ -1824,6 +1830,14 @@
 
                             $('.text-description').each(function () {
                                 $(this).text(params.get('description') || '');
+                            });
+                            
+                            $('.text-during-constructuion h2').each(function () {
+                                $(this).text(params.get('price_during_construction') || '');
+                            });
+
+                            $('.text-after-constructuion  h2').each(function () {
+                                $(this).text(params.get('price_after_handover') || '');
                             });
 
                             // Ambil unit_number dari parameter URL
