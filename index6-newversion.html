@@ -19,12 +19,16 @@
         .label-box-block,
         .label-box-unit,
         .label-box-table {
-            background-color: #ffcc00;
-            color: #000;
+            background-color: #f8f9fa;
+            color: #333;
             text-align: center;
-            padding: 10px;
-            font-size: 14px;
-            font-weight: bold;
+            padding: 12px;
+            font-size: 16px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+            border-bottom: 2px solid #e0e0e0;
         }
 
         .body-pricing {
@@ -299,38 +303,119 @@
         table {
             border-collapse: collapse;
             width: 100%;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            border-radius: 8px;
+            overflow: hidden;
         }
 
         thead {
             position: sticky;
             top: 0;
-            background-color: white;
-            /* Pastikan background agar tidak transparan */
+            background-color: #f8f9fa;
+            color: #333;
             z-index: 10;
-        }
-
-        th,
-        td {
-            border: 1px solid #ddd;
-            padding: 3px 5px !important;
-            text-align: left;
-            vertical-align: middle;
+            border-bottom: 2px solid #e0e0e0;
         }
 
         th {
-            background-color: #f2f2f2;
+            background-color: #f8f9fa;
+            color: #333;
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 12px;
+            letter-spacing: 0.5px;
+            padding: 14px 12px;
+            text-align: left;
+        }
+
+        td {
+            padding: 12px 12px;
+            border-bottom: 1px solid #eee;
+        }
+
+        tbody tr {
+            transition: all 0.2s ease;
+        }
+
+        tbody tr:nth-child(even) {
+            background-color: #fafafa;
+        }
+
+        tbody tr:nth-child(odd) {
+            background-color: #ffffff;
         }
 
         /* Styling untuk hover dan active */
         tbody.tableunit tr:hover {
-            background-color: #ffe5cc;
-            /* Warna saat hover (orange muda) */
+            background-color: #f0f7ff;
+            transform: translateY(-1px);
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
             cursor: pointer;
         }
 
         tbody.tableunit tr.active {
-            background-color: #ff9800;
-            /* Warna saat active (orange) */
+            background-color: #e3f2fd;
+            color: #1976d2;
+            font-weight: 500;
+        }
+
+        tbody.tableunit tr.active td {
+            border-color: #bbdefb;
+        }
+
+        /* Status styling */
+        .status-booked {
+            background-color: #ffebee;
+            color: #c62828;
+            padding: 5px 10px;
+            border-radius: 15px;
+            font-weight: 500;
+            text-align: center;
+            font-size: 11px;
+            letter-spacing: 0.3px;
+        }
+
+        .price-column {
+            text-align: right;
+            font-weight: 600;
+        }
+
+        .price-column b {
+            color: #212121;
+        }
+
+        .price-column span {
+            font-size: 11px;
+            color: #757575;
+            font-weight: normal;
+        }
+
+        /* Scroll container improvements */
+        .my-col-12 {
+            /* border-radius: 8px;
+            border: 1px solid #eee;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+            background: white; */
+        }
+
+        /* Mobile improvements */
+        @media screen and (max-width: 768px) {
+
+            th,
+            td {
+                padding: 10px 8px;
+                font-size: 11px;
+            }
+
+            .price-column span {
+                font-size: 10px;
+            }
+
+            th {
+                font-size: 10px;
+                padding: 10px 8px;
+            }
         }
     </style>
     <!-- table css  -->
@@ -512,7 +597,8 @@
             .show-mobile {
                 display: block;
             }
-            .mobile-full-container{
+
+            .mobile-full-container {
                 padding: 0;
             }
         }
@@ -524,7 +610,7 @@
             display: none;
             padding: 20px;
             border: 1px solid #000;
-                /* Sembunyikan secara default */
+            /* Sembunyikan secara default */
         }
 
 
@@ -555,7 +641,7 @@
             </div>
             <div class="image-container">
                 <div class="box-info-block">
-                    <div class="title-block">Wind Block</div>
+                    <div class="title-block">Air Block</div>
                     <div class="description-block">46 Units Available</div>
                 </div>
                 <img src="https://elementbali.com/wp-content/uploads/2025/03/featured.webp" alt="All Block Image"
@@ -578,11 +664,11 @@
                     <path id="earth" data-title="Earth Block" data-desc="35 Units Available" data-block="earth"
                         data-slidecategory="earth" class="s0"
                         d="m1506 1442l-344-199 63-35 36 20 3-70-27-16 1-26 36-21-37-21 1-32 23-13-48-29-2-58-19-15 149-87 2-58-2-139 8-11 110-65 21 14 116-60 538 313-28 20 4 54-47 23 24 13 3 34-38 19 35 22v25l-20 11-3 45-84-49-7 4-29-16-54-27-2 30-45-21-199 109 27 16-3 59 47 26-35 21-1 32 34 18-34 21 1 9-147 83-1 21-10 7-9-4z" /> -->
-                    <path id="water" data-title="Water Block" data-desc="18 Units Available" data-block="water_wind"
-                        data-slidecategory="water_wind" class="s0"
+                    <path id="water" data-title="Water Block" data-desc="18 Units Available" data-block="water"
+                        data-slidecategory="water" class="s0"
                         d="m990 840l-8-262-80-46 71-72 35 18 94-55-13-12 119-69 15 10 54-27 2 18 39-22 266 153-30 16 3 49-80 39-23-14-107 65-10 18 1 190-146 90 15 17-4 17z" />
-                    <path id="wind" data-title="Wind Block" data-desc="36 Units Available" data-block="water_wind"
-                        data-slidecategory="water_wind" class="s0"
+                    <path id="air" data-title="Air Block" data-desc="36 Units Available" data-block="air"
+                        data-slidecategory="air" class="s0"
                         d="m306 722l-9-165-26-21 2-123-30-13 179-102-5-17 40-22 10 8 12-8-1-20 80-46 12 9 127-64-3-15 39-20 11 8 62-34 439 255-26 17-10-4-114 69 13 11-104 50-28-14-70 75 75 41 7 167-71 43c0 0-0.1 28.3-31 36-30.9 7.7-6 30-6 30l-35 24-27-9-24 13-24-14-51 30 14 15-106 59-324-178-8-31 27-19 8 5 10-5z" />
                 </svg>
 
@@ -598,12 +684,13 @@
                     <h3>Block</h3>
                 </div>
                 <div class="my-col-8">
-                    <span class="btn-filter btn-block" data-id="water_wind" data-slidecategory="water_wind">BLOCK WIND &
-                        WATER</span>
+                    <span class="btn-filter btn-block" data-id="" data-slidecategory="">All Block</span>
+                    <span class="btn-filter btn-block" data-id="air" data-slidecategory="air">Air</span>
+                    <span class="btn-filter btn-block" data-id="water" data-slidecategory="water">Water</span>
                     <span class="btn-filter btn-block" data-id="earth" data-slidecategory="earth"
-                        style="background: grey; color: #eee; cursor: not-allowed;">BLOCK EARTH (Coming Soon)</span>
+                        style="background: grey; color: #eee; cursor: not-allowed;">EARTH (Coming Soon)</span>
                     <span class="btn-filter btn-block" data-id="fire" data-slidecategory="fire"
-                        style="background: grey; color: #eee; cursor: not-allowed;">BLOCK FIRE (Coming Soon)</span>
+                        style="background: grey; color: #eee; cursor: not-allowed;">FIRE (Coming Soon)</span>
                 </div>
             </div>
             <div class="my-row filter-section">
@@ -619,522 +706,21 @@
                     <span class="btn-filter btn-floor" data-floor="5">5</span>
                 </div>
             </div>
+            <div class="my-row filter-section">
+                <div class="my-col-4">
+                    <h3>Unit Type</h3>
+                </div>
+                <div class="my-col-8">
+                    <span class="btn-filter btn-unit-type" data-unit-type="">ALL UNIT TYPE</span>
+                    <span class="btn-filter btn-unit-type" data-unit-type="1_BR">1 BEDROOM</span>
+                    <span class="btn-filter btn-unit-type" data-unit-type="2BR">2 BEDROOMS</span>
+                    <span class="btn-filter btn-unit-type" data-unit-type="LOFT">LOFT</span>
+                    <span class="btn-filter btn-unit-type" data-unit-type="STUDIO">STUDIO</span>
+                </div>
+            </div>
         </div>
         <div class="my-row row-slider-table">
-            <div class="my-col-6">
-                <!-- Slider html -->
-                <div class="label-box-unit">
-                    Click area/unit that you interested in
-                </div>
-                <div class="slider-wrapper">
-                    <div class="slider-container">
-                        <!-- Slides -->
-                        <div class="slide skip" data-slidecategory="water_wind" data-id="39">
-                            <img src="https://elementbali.com/wp-content/uploads/2025/03/water_wind_1.webp"
-                                alt="Gambar 2">
-                        </div>
-                        <div class="slide skip" data-slidecategory="water_wind" data-id="40">
-                            <img src="https://elementbali.com/wp-content/uploads/2025/03/water_wind_2.webp"
-                                alt="Gambar 2">
-                        </div>
-                        <div class="slide stop" data-slidecategory="water_wind" data-id="41">
-                            <img src="https://elementbali.com/wp-content/uploads/2025/03/water_wind_3.webp"
-                                alt="Gambar 2">
-                            <svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 1080" width="1080"
-                                height="1080" class="peta">
-                                <path id="6101" class="unit 6101" data-unitnumber="6101"
-                                    d="m448.8 627.1l-8 92.5 70.9 3.4 6.4-91.8z" />
-                                <path id="6102" class="unit 6102" data-unitnumber="6102"
-                                    d="m378.7 622.2l-4.9 102.6 67.7 6.2 7.2-102.4z" />
-                                <path id="6103" class="unit 6103" data-unitnumber="6103"
-                                    d="m307.2 617.2l-5.4 98.7 73.7 7.5 4.1-102.6z" />
-                                <path id="6104" class="unit 6104" data-unitnumber="6104"
-                                    d="m237.1 613.8l-4.5 97.3 69.9 6.4 3.8-98.1z" />
-                                <path id="6105" class="unit 6105" data-unitnumber="6105"
-                                    d="m166.6 605.1l-7.3 93.3 68.9 10.1 7.9-91.7z" />
-                                <path id="6301" class="unit 6301" data-unitnumber="6301"
-                                    d="m453.7 566.9l-4 58 63.9 5.2 6.4-58.6z" />
-                                <path id="6302" class="unit 6302" data-unitnumber="6302"
-                                    d="m381.4 562.6l-4.1 58 71.5 5.7 4.1-58.7z" />
-                                <path id="6303" class="unit 6303" data-unitnumber="6303"
-                                    d="m311.7 563.8l-5.2 52.6 71.5 5 2.2-52.1z" />
-                                <path id="6304" class="unit 6304" data-unitnumber="6304"
-                                    d="m239.4 559.5l-3.7 52 71.5 6.5 3.5-51.2z" />
-                                <path id="6305" class="unit 6305" data-unitnumber="6305"
-                                    d="m150 550.2l-3.9 55.8 91 7.8 2.4-55.8z" />
-                                <path id="6401" class="unit 6401" data-unitnumber="6401"
-                                    d="m456 512.6l-3.7 53.5 68.4 6.2 2.4-56.5z" />
-                                <path id="6402" class="unit 6402" data-unitnumber="6402"
-                                    d="m385.9 508.5l-3.9 55.7 70.8 5.7 3-55z" />
-                                <path id="6403" class="unit 6403" data-unitnumber="6403"
-                                    d="m314.9 507.3l-4.5 52.6 71.3 8.8 2.4-55.8z" />
-                                <path id="6404" class="unit 6404" data-unitnumber="6404"
-                                    d="m244.2 501.6l-5.3 54.1 72.8 8.1 4-58z" />
-                                <path id="6405" class="unit 6405" data-unitnumber="6405"
-                                    d="m159.5 489.6l-8.7 59.2 88.9 6.2 4-58z" />
-                                <path id="6503" class="unit 6503" data-unitnumber="6503"
-                                    d="m295 447.3l-1.9 52.7-136.6-11.3 0.7-43.3-32.2-7.8 80.2-68.5 0.4-21.3 9.9-10 19.6 2.3 20.9-19.5 95.9 4.6-43.2 49-1.5 34.2z" />
-                                <path id="6502" class="unit 6502" data-unitnumber="6502"
-                                    d="m291.6 496.3l93.7 10.6 1.9-55.5-9.3-38.7-0.7-35.7 12.8-8 0.1-9.7 12.3-16 25.4-0.2 11.5-11.2-87.4-7.5-43.6 47.9 0.2 35.2-13.8 40.9z" />
-                                <path id="6501" class="unit 6501" data-unitnumber="6501"
-                                    d="m386.8 506.3l138.7 8.1 22.3 1.8 12.2-20.5-0.1-29.9 19.8-30.4-60.8-25.8 21.1-23.6v-18.1l-68-4.9-1.6-17.6-68.6-3.2-11.7 17.9 0.1 7.5-13.5 9.7 2 33.4 7.9 43.8z" />
-                            </svg>
-                        </div>
-                        <div class="slide skip" data-slidecategory="water_wind" data-id="42">
-                            <img src="https://elementbali.com/wp-content/uploads/2025/03/water_wind_4.webp"
-                                alt="Gambar 2">
-                        </div>
-                        <div class="slide skip" data-slidecategory="water_wind" data-id="43">
-                            <img src="https://elementbali.com/wp-content/uploads/2025/03/water_wind_5.webp"
-                                alt="Gambar 2">
-                        </div>
-                        <div class="slide skip" data-slidecategory="water_wind" data-id="44">
-                            <img src="https://elementbali.com/wp-content/uploads/2025/03/water_wind_6.webp"
-                                alt="Gambar 2">
-                        </div>
-                        <div class="slide skip" data-slidecategory="water_wind" data-id="45">
-                            <img src="https://elementbali.com/wp-content/uploads/2025/03/water_wind_7.webp"
-                                alt="Gambar 2">
-                        </div>
-                        <div class="slide stop" data-slidecategory="water_wind" data-id="46">
-                            <img src="https://elementbali.com/wp-content/uploads/2025/03/water_wind_8.webp"
-                                alt="Gambar 2">
-                        </div>
-                        <div class="slide skip" data-slidecategory="water_wind" data-id="47">
-                            <img src="https://elementbali.com/wp-content/uploads/2025/03/water_wind_9.webp"
-                                alt="Gambar 2">
-                        </div>
-                        <div class="slide skip" data-slidecategory="water_wind" data-id="48">
-                            <img src="https://elementbali.com/wp-content/uploads/2025/03/water_wind_10.webp"
-                                alt="Gambar 2">
-                        </div>
-                        <div class="slide skip" data-slidecategory="water_wind" data-id="49">
-                            <img src="https://elementbali.com/wp-content/uploads/2025/03/water_wind_11.webp"
-                                alt="Gambar 2">
-                        </div>
-                        <div class="slide skip" data-slidecategory="water_wind" data-id="50">
-                            <img src="https://elementbali.com/wp-content/uploads/2025/03/water_wind_12.webp"
-                                alt="Gambar 2">
-                        </div>
-                        <div class="slide stop" data-slidecategory="water_wind" data-id="51">
-                            <img src="https://elementbali.com/wp-content/uploads/2025/03/water_wind_13.webp"
-                                alt="Gambar 2">
-                            <svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 1080" width="1080"
-                                height="1080" class="peta">
-                                <path id="6106" class="unit 6106" data-unitnumber="6106"
-                                    d="m834 745.3l-0.4-103.8 71-1 1.4 102.8z" />
-                                <path id="6107" class="unit 6107" data-unitnumber="6107"
-                                    d="m758.2 643l1.4 98.5 73.8-1.7 0.6-97.4z" />
-                                <path id="6108" class="unit 6108" data-unitnumber="6108"
-                                    d="m684 642.6l3.3 100.8 72.3 0.8 1.1-100z" />
-                                <path id="6109" class="unit 6109" data-unitnumber="6109"
-                                    d="m608.3 746.1l71.9 2.9 1.6-104.8-75.8-3.8z" />
-                                <path id="6110" class="unit 6110" data-unitnumber="6110"
-                                    d="m530 747.8l73.8-1.6 1.8-102-74.2-2.1z" />
-                                <path id="6306" class="unit 6306" data-unitnumber="6306"
-                                    d="m830.9 587.6l0.7 52.8 72.1-1.5 0.9-51.7z" />
-                                <path id="6307" class="unit 6307" data-unitnumber="6307"
-                                    d="m760.2 585.6l-0.4 57.8 72.6-2.4-2.1-56.5z" />
-                                <path id="6308" class="unit 6308" data-unitnumber="6308"
-                                    d="m684.7 586.5l0.3 54.4h73.5l0.3-54.6z" />
-                                <path id="6309" class="unit 6309" data-unitnumber="6309"
-                                    d="m607.1 587.5l0.9 54 75-1.5 0.6-52.8z" />
-                                <path id="6310" class="unit 6310" data-unitnumber="6310"
-                                    d="m512.7 587.4l1 54 91.9 1.9v-57z" />
-                                <path id="6406" class="unit 6406" data-unitnumber="6406"
-                                    d="m836.8 525.7l-0.6 56 69.7-0.5-2.1-59.3z" />
-                                <path id="6407" class="unit 6407" data-unitnumber="6407"
-                                    d="m758 525.6l0.5 58.2 75.4-0.1-0.8-58.9z" />
-                                <path id="6408" class="unit 6408" data-unitnumber="6408"
-                                    d="m684.7 526.8l-0.3 55.7 73.6-2.4-0.1-52.6z" />
-                                <path id="6409" class="unit 6409" data-unitnumber="6409"
-                                    d="m605.9 525.1l0.5 58.3 76.3-0.5-0.9-55.4z" />
-                                <path id="6410" class="unit 6410" data-unitnumber="6410"
-                                    d="m509.9 523l2.2 63 91.7-5.2v-57z" />
-                                <path id="6506" class="unit 6506" data-unitnumber="6506"
-                                    d="m745.8 336l19.7 54.1 0.5 132 148.6-1 0.3-55.9 28.5-3.4-30.4-66.8-14-9.6 21.8-1.9-8.6-20.5-28.2 1.1-24.9-14.8 0.4-15.2z" />
-                                <path id="6505" class="unit 6505" data-unitnumber="6505"
-                                    d="m764.7 522.2l-80.5 3.1 1.2-60.5-9.3-125.2 71.7-1 17.8 54.3-1.2 74.7z" />
-                                <path id="6504" class="unit 6504" data-unitnumber="6504"
-                                    d="m499.1 466.7l-2.5 56 188.6 2.3-0.1-59.9-2.1-114.1-69.9 0.2 1.1 17.8-58 1.1 1.1 43.7-35.2 10.5v12.9l-37.1 14.3 0.7 15.7z" />
-
-                            </svg>
-                        </div>
-                        <div class="slide skip" data-slidecategory="water_wind" data-id="52">
-                            <img src="https://elementbali.com/wp-content/uploads/2025/03/water_wind_14.webp"
-                                alt="Gambar 2">
-                        </div>
-                        <div class="slide skip" data-slidecategory="water_wind" data-id="53">
-                            <img src="https://elementbali.com/wp-content/uploads/2025/03/water_wind_15.webp"
-                                alt="Gambar 2">
-                        </div>
-                        <div class="slide skip" data-slidecategory="water_wind" data-id="54">
-                            <img src="https://elementbali.com/wp-content/uploads/2025/03/water_wind_16.webp"
-                                alt="Gambar 2">
-                        </div>
-                        <div class="slide skip" data-slidecategory="water_wind" data-id="55">
-                            <img src="https://elementbali.com/wp-content/uploads/2025/03/water_wind_17.webp"
-                                alt="Gambar 2">
-                        </div>
-                        <div class="slide stop" data-slidecategory="water_wind" data-id="56">
-                            <img src="https://elementbali.com/wp-content/uploads/2025/03/water_wind_18.webp"
-                                alt="Gambar 2">
-                            <svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 1080" width="1080"
-                                height="1080" class="peta">
-
-                                <path id="5502" class="unit 5502" data-unitnumber="5502"
-                                    d="m682.9 484.4l4.3 56.5 195.4-12.9-2.1-53 21.9-2-67.1-80.2-31.6-3.4-0.7-12.4-9.1-11.1-16.9 0.6-0.6-4.6-52.1 1.9-11.5-19.1-39.1 0.5 14.3 23z" />
-                                <path id="5501" class="unit 5501" data-unitnumber="5501"
-                                    d="m490.7 490.4l0.1 57.2 196.1-7.6-3.5-55.2 3.7-51 2.3-64.1-16.7-24.7-77.5 4.2-1 19.5-69.1 1.5-72.6 31.4z" />
-                                <path id="5404" class="unit 5404" data-unitnumber="5404"
-                                    d="m761.2 536.3l4.3 57.9 114.2-7-3.5-58.7z" />
-                                <path id="5403" class="unit 5403" data-unitnumber="5403"
-                                    d="m683.4 541.3l4.3 62.3 75.9-5-2.3-61.4z" />
-                                <path id="5402" class="unit 5402" data-unitnumber="5402"
-                                    d="m614.4 543.1l-1.5 62.1 76.7-2.2-0.5-63z" />
-                                <path id="5401" class="unit 5401" data-unitnumber="5401"
-                                    d="m504.6 551.4l7.4 63.7 96.3-6.3 3-62.9z" />
-                                <path id="5304" class="unit 5304" data-unitnumber="5304"
-                                    d="m768.6 598.3l1 58.1 95.2-7.5 1.7-56.7z" />
-                                <path id="5303" class="unit 5303" data-unitnumber="5303"
-                                    d="m686.5 603.7l2.8 58.1 79.3-5.5-4.2-57z" />
-                                <path id="5302" class="unit 5302" data-unitnumber="5302"
-                                    d="m606.9 608.9l6.6 59 74.5-6.7-2.2-56.8z" />
-                                <path id="5301" class="unit 5301" data-unitnumber="5301"
-                                    d="m514.6 611.1l2.1 58.1 89.7-5.8-0.6-53.8z" />
-                                <path id="5204" class="unit 5204" data-unitnumber="5204"
-                                    d="m741.8 659.4l1.5 50.3 97.7-4.6-5.6-49.6z" />
-                                <path id="5203" class="unit 5203" data-unitnumber="5203"
-                                    d="m671.3 662.9l3 53.3 67.2-2.8-1.6-53.6z" />
-                                <path id="5202" class="unit 5202" data-unitnumber="5202"
-                                    d="m602.6 668.7l3.9 52 66.4-3.7-4.7-54.7z" />
-                                <path id="5201" class="unit 5201" data-unitnumber="5201"
-                                    d="m532.4 667.8l4.8 59.9 69.6-5.6-5.6-56.2z" />
-                                <path id="5104" class="unit 5104" data-unitnumber="5104"
-                                    d="m787.1 712.2l3.7 49.7 64.6-3.5-0.2-48z" />
-                                <path id="5103" class="unit 5103" data-unitnumber="5103"
-                                    d="m702.6 719.6l-0.1 48.8 58.2-4.3 0.3-46.8z" />
-                                <path id="5102" class="unit 5102" data-unitnumber="5102"
-                                    d="m632.4 721.9l4 53.7 65.9-5.1 0.2-53.4z" />
-                                <path id="5101" class="unit 5101" data-unitnumber="5101"
-                                    d="m538.8 728.4l1.6 47.7 80.9-2.3-3.3-50.4z" />
-                            </svg>
-                        </div>
-                        <div class="slide skip" data-slidecategory="water_wind" data-id="57">
-                            <img src="https://elementbali.com/wp-content/uploads/2025/03/water_wind_19.webp"
-                                alt="Gambar 2">
-                        </div>
-                        <div class="slide skip" data-slidecategory="water_wind" data-id="58">
-                            <img src="https://elementbali.com/wp-content/uploads/2025/03/water_wind_20.webp"
-                                alt="Gambar 2">
-                        </div>
-                        <div class="slide stop" data-slidecategory="fire" data-id="1">
-                            <img src="https://elementbali.com/wp-content/uploads/2025/03/fire_17.webp" alt="Gambar 2">
-                            <svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2176 2176" width="2176"
-                                height="2176" class="peta">
-                                <path id="3502" class="unit 3502" data-unitnumber="3502"
-                                    d="m434 687l10 111 540 28 38.8-395.4-379.9 12.4-6.8 81.8-155.7 19.4-75.6 125.7z" />
-                                <path id="3501" class="unit 3501" data-unitnumber="3501"
-                                    d="m1179 433.7l-4 396.3 556 19 4.6-132.1 34-5.7-24.1-159.6-158.6-12.5-9.6-82.3z" />
-                                <path id="3403" class="unit 3403" data-unitnumber="3403"
-                                    d="m487 944l437 15-1-136-431-8z" />
-                                <path id="3402" class="unit 3402" data-unitnumber="3402"
-                                    d="m1178 840l-8 120 523 24 12-135z" />
-                                <path id="3303" class="unit 3303" data-unitnumber="3303"
-                                    d="m488 953l4 135h422l7-127z" />
-                                <path id="3302" class="unit 3302" data-unitnumber="3302"
-                                    d="m1179 967v121l497 26 2-128z" />
-                            </svg>
-                        </div>
-                        <div class="slide skip" data-slidecategory="fire" data-id="2">
-                            <img src="https://elementbali.com/wp-content/uploads/2025/03/fire_18.webp" alt="Gambar 2">
-                        </div>
-                        <div class="slide skip" data-slidecategory="fire" data-id="3">
-                            <img src="https://elementbali.com/wp-content/uploads/2025/03/fire_19.webp" alt="Gambar 2">
-                        </div>
-                        <div class="slide skip" data-slidecategory="fire" data-id="4">
-                            <img src="https://elementbali.com/wp-content/uploads/2025/03/fire_20.webp" alt="Gambar 2">
-                        </div>
-                        <div class="slide skip" data-slidecategory="fire" data-id="5">
-                            <img src="https://elementbali.com/wp-content/uploads/2025/03/fire_1.webp" alt="Gambar 2">
-                        </div>
-                        <div class="slide skip" data-slidecategory="fire" data-id="6">
-                            <img src="https://elementbali.com/wp-content/uploads/2025/03/fire_2.webp" alt="Gambar 2">
-                        </div>
-                        <div class="slide stop" data-slidecategory="fire" data-id="7">
-                            <img src="https://elementbali.com/wp-content/uploads/2025/03/fire_3.webp" alt="Gambar 2">
-                            <svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 1080" width="1080"
-                                height="1080" class="peta">
-                                <path id="3502" class="unit 3502" data-unitnumber="3502"
-                                    d="m413.2 236.3l242.2 2.2-22.4 101.9-28 3.3-1.8 39.9-27.9 33.2-2.4 65.3-223.7-4-1.7-70.3-20.1-1.4z" />
-                                <path id="3403" class="unit 3403" data-unitnumber="3403"
-                                    d="m465.7 562.8l-3.7-82.8 114.7 2.2 5.8 79.9z" />
-                                <path id="3404" class="unit 3404" data-unitnumber="3404"
-                                    d="m352 477l116 3-1.9 77.6-114.2-8.5z" />
-                                <path id="3303" class="unit 3303" data-unitnumber="3303"
-                                    d="m468.3 624.6l110.5 3.7 3.4-68.4-117.2 0.1z" />
-                                <path id="3304" class="unit 3304" data-unitnumber="3304"
-                                    d="m354.8 549.8l113.2 3.2-0.1 68.7-112.7-8.6z" />
-                                <path id="3203" class="unit 3203" data-unitnumber="3203"
-                                    d="m466.8 685l105 11.1 5.4-68.7-108.4-4.3z" />
-                                <path id="3204" class="unit 3204" data-unitnumber="3204"
-                                    d="m357.6 612.4l4.3 57.8 108.2 10.1-1.1-62.3z" />
-                                <path id="3103" class="unit 3103" data-unitnumber="3103"
-                                    d="m373.7 731.5l94.5 9.3 0.8-61.8-100.6-5.5z" />
-                                <path id="3104" class="unit 3104" data-unitnumber="3104"
-                                    d="m470.4 746l104 8.2-0.5-61.2-103.9-12z" />
-                            </svg>
-                        </div>
-                        <div class="slide skip" data-slidecategory="fire" data-id="8">
-                            <img src="https://elementbali.com/wp-content/uploads/2025/03/fire_4.webp" alt="Gambar 2">
-                        </div>
-                        <div class="slide skip" data-slidecategory="fire" data-id="9">
-                            <img src="https://elementbali.com/wp-content/uploads/2025/03/fire_5.webp" alt="Gambar 2">
-                        </div>
-                        <div class="slide  skip" data-slidecategory="fire" data-id="10">
-                            <img src="https://elementbali.com/wp-content/uploads/2025/03/fire_6.webp" alt="Gambar 2">
-                        </div>
-                        <div class="slide skip" data-slidecategory="fire" data-id="11">
-                            <img src="https://elementbali.com/wp-content/uploads/2025/03/fire_7.webp" alt="Gambar 2">
-                        </div>
-                        <div class="slide skip" data-slidecategory="fire" data-id="12">
-                            <img src="https://elementbali.com/wp-content/uploads/2025/03/fire_8.webp" alt="Gambar 2">
-                        </div>
-                        <div class="slide skip" data-slidecategory="fire" data-id="13">
-                            <img src="https://elementbali.com/wp-content/uploads/2025/03/fire_9.webp" alt="Gambar 2">
-                        </div>
-                        <div class="slide skip" data-slidecategory="fire" data-id="14">
-                            <img src="https://elementbali.com/wp-content/uploads/2025/03/fire_10.webp" alt="Gambar 2">
-                        </div>
-                        <div class="slide  skip" data-slidecategory="fire" data-id="15">
-                            <img src="https://elementbali.com/wp-content/uploads/2025/03/fire_11.webp" alt="Gambar 2">
-                        </div>
-                        <div class="slide skip" data-slidecategory="fire" data-id="16">
-                            <img src="https://elementbali.com/wp-content/uploads/2025/03/fire_12.webp" alt="Gambar 2">
-                        </div>
-                        <div class="slide stop" data-slidecategory="fire" data-id="17">
-                            <img src="https://elementbali.com/wp-content/uploads/2025/03/fire_13.webp" alt="Gambar 2">
-                            <svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 1080" width="1080"
-                                height="1080" class="peta">
-                                <path id="3501" class="unit 3501" data-unitnumber="3501"
-                                    d="m508.5 241.9l0.4 22.3-55 30 36.4 96.7-1.1 65.6 234.6-3.2 2.9-68.5 14.3-0.7-46.7-78.5-0.6-22.9-18.6-33.1 0.3-6.6-15.6-30.4-71.8 3.7 7.7 21.8z" />
-                                <path id="3401" class="unit 3401" data-unitnumber="3401"
-                                    d="m611.8 535.6l107.9-4.1 3.2-80.1-110.9 2.6z" />
-                                <path id="3402" class="unit 3402" data-unitnumber="3402"
-                                    d="m612 533.3l-118.5 1.2-1.4-77.7 118.9-0.8z" />
-                                <path id="3301" class="unit 3301" data-unitnumber="3301"
-                                    d="m610.4 597.6l110.2-8.7 0.5-57.3-110.1-0.6z" />
-                                <path id="3302" class="unit 3302" data-unitnumber="3302"
-                                    d="m610.3 596.7l-119.8 2.9 0.1-64.8 121.4-4.8z" />
-                                <path id="3201" class="unit 3201" data-unitnumber="3201"
-                                    d="m615.8 664.2l105.1-2 3.2-72.5-108.1 0.3z" />
-                                <path id="3202" class="unit 3202" data-unitnumber="3202"
-                                    d="m509.9 598.3l106.1-2.3 0.6 69.3-106.3 8.5z" />
-                                <path id="3101" class="unit 3101" data-unitnumber="3101"
-                                    d="m619.9 737.1l101.1-1.8 0.3-73.5-104.3 0.2z" />
-                                <path id="3102" class="unit 3102" data-unitnumber="3102"
-                                    d="m622 732.2l-109.2 8.7-4-68.7 109.2-6.9z" />
-                            </svg>
-                        </div>
-                        <div class="slide skip" data-slidecategory="fire" data-id="18">
-                            <img src="https://elementbali.com/wp-content/uploads/2025/03/fire_14.webp" alt="Gambar 2">
-                        </div>
-                        <div class="slide skip" data-slidecategory="fire" data-id="19">
-                            <img src="https://elementbali.com/wp-content/uploads/2025/03/fire_15.webp" alt="Gambar 2">
-                        </div>
-                        <div class="slide skip" data-slidecategory="fire" data-id="20">
-                            <img src="https://elementbali.com/wp-content/uploads/2025/03/fire_16.webp" alt="Gambar 2">
-                        </div>
-
-
-
-                        <div class="slide stop" data-slidecategory="earth" data-id="21">
-                            <img src="https://elementbali.com/wp-content/uploads/2025/03/earth_1.webp" alt="Gambar 2">
-                            <svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 1080" width="1080"
-                                height="1080" class="peta">
-                                <path id="4502" class="unit 4502" data-unitnumber="4502"
-                                    d="m596.1 303.4l1.1 154.5-187.2 2.7 0.7-56.2-16.7-0.3 2.5-34.7 46.7-16.7 2.8-33 78.7-0.7 1.6-15.9z" />
-                                <path id="4501" class="unit 4501" data-unitnumber="4501"
-                                    d="m597.2 458.6l184.4-2-0.7-53.6 24.9-0.6-12.4-31.4-68.4-28.3-19.2 0.9-1-28.3-41 1.8-3.2-13.8-64.9 0.8z" />
-                                <path id="4404" class="unit 4404" data-unitnumber="4404"
-                                    d="m520.5 460l0.7 66.4-98.3 1.4-0.7-66.5z" />
-                                <path id="4403" class="unit 4403" data-unitnumber="4403"
-                                    d="m522.6 526.4l73.2 0.7 1.4-68.5h-76.7z" />
-                                <path id="4402" class="unit 4402" data-unitnumber="4402"
-                                    d="m597.2 527.1h75.9l-1.3-69.2-74 0.7z" />
-                                <path id="4401" class="unit 4401" data-unitnumber="4401"
-                                    d="m674.5 527.1l98.3-0.7-3.4-68.5h-97z" />
-                                <path id="4303" class="unit 4303" data-unitnumber="4303"
-                                    d="m521.2 586.8l76-1.4-1.4-58.3h-75.9z" />
-                                <path id="4304" class="unit 4304" data-unitnumber="4304"
-                                    d="m422.9 528.5v59l96.3-0.7 2-58.3z" />
-                                <path id="4302" class="unit 4302" data-unitnumber="4302"
-                                    d="m599.2 583.4l73.2 2 1.4-58.3-77.3 1.4z" />
-                                <path id="4301" class="unit 4301" data-unitnumber="4301"
-                                    d="m675.1 585.4l96.3-2.7-2.7-54.9-94.9-0.7z" />
-                                <path id="4104" class="unit 4104" data-unitnumber="4104"
-                                    d="m441.9 585.4l-2.1 107.2 80.7-0.7 0.7-107.2z" />
-                                <path id="4103" class="unit 4103" data-unitnumber="4103"
-                                    d="m521.9 691.2l75.3 0.7-1.4-107.2h-74.6z" />
-                                <path id="4102" class="unit 4102" data-unitnumber="4102"
-                                    d="m597.2 691.9l77.9-1.4-2-105.1-77.3 0.7z" />
-                                <path id="4101" class="unit 4101" data-unitnumber="4101"
-                                    d="m674.5 690.5l77.3 0.7-0.7-106.5-78 0.7z" />
-                            </svg>
-                        </div>
-                        <div class="slide skip" data-slidecategory="earth" data-id="22">
-                            <img src="https://elementbali.com/wp-content/uploads/2025/03/earth_2.webp" alt="Gambar 2">
-                        </div>
-                        <div class="slide skip" data-slidecategory="earth" data-id="23">
-                            <img src="https://elementbali.com/wp-content/uploads/2025/03/earth_3.webp" alt="Gambar 2">
-                        </div>
-                        <div class="slide skip" data-slidecategory="earth" data-id="24">
-                            <img src="https://elementbali.com/wp-content/uploads/2025/03/earth_4.webp" alt="Gambar 2">
-                        </div>
-                        <div class="slide skip" data-slidecategory="earth" data-id="25">
-                            <img src="https://elementbali.com/wp-content/uploads/2025/03/earth_5.webp" alt="Gambar 2">
-                        </div>
-                        <div class="slide skip" data-slidecategory="earth" data-id="26">
-                            <img src="https://elementbali.com/wp-content/uploads/2025/03/earth_6.webp" alt="Gambar 2">
-                        </div>
-                        <div class="slide stop" data-slidecategory="earth" data-id="27">
-                            <img src="https://elementbali.com/wp-content/uploads/2025/03/earth_7.webp" alt="Gambar 2">
-                            <svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 1080" width="1080"
-                                height="1080" class="peta">
-                                <path id="4504" class="unit 4504" data-unitnumber="4504"
-                                    d="m573.8 281.1l-0.2 74 90.6 2.4-1.2 65.4 168 2.8v-47.9l-8-2.8-28.2-68.4-51.6-8.5-1.1-9.5-6.5-5.3-34.6-1.3-5.7-10.8h-65.4l-0.2 9.4z" />
-                                <path id="4404" class="unit 4404" data-unitnumber="4404"
-                                    d="m663 490l155 1.9-3-65.3-152-1.9z" />
-                                <path id="4304" class="unit 4304" data-unitnumber="4304"
-                                    d="m665 557.1l150 4.6 2-69.8-153-1.9z" />
-                                <path id="4104" class="unit 4104" data-unitnumber="4104"
-                                    d="m666 648.2l141 1.8 1-91.9-146-1.9z" />
-                                <path id="4510" class="unit 4510" data-unitnumber="4510"
-                                    d="m240 411l-9.6-0.9 31.5-60.8 62.3-35.4 41.3 0.9 3.7-9 129.1 0.8-1.3 63.1-102 2.6-1 88.2h-152.1z" />
-                                <path id="4410" class="unit 4410" data-unitnumber="4410"
-                                    d="m255 469.1l2 69.2 135.9 0.8 1.1-68.3z" />
-                                <path id="4310" class="unit 4310" data-unitnumber="4310"
-                                    d="m256 597.2l137.6 5.9 0.4-64-136-1.7z" />
-                                <path id="4110" class="unit 4110" data-unitnumber="4110"
-                                    d="m261 689.4l154 2.6-2.7-92.2h-155.3z" />
-                            </svg>
-                        </div>
-                        <div class="slide skip" data-slidecategory="earth" data-id="28">
-                            <img src="https://elementbali.com/wp-content/uploads/2025/03/earth_8.webp" alt="Gambar 2">
-                        </div>
-                        <div class="slide skip" data-slidecategory="earth" data-id="29">
-                            <img src="https://elementbali.com/wp-content/uploads/2025/03/earth_9.webp" alt="Gambar 2">
-                        </div>
-                        <div class="slide skip" data-slidecategory="earth" data-id="30">
-                            <img src="https://elementbali.com/wp-content/uploads/2025/03/earth_10.webp" alt="Gambar 2">
-                        </div>
-                        <div class="slide stop" data-slidecategory="earth" data-id="31">
-                            <img src="https://elementbali.com/wp-content/uploads/2025/03/earth_11.webp" alt="Gambar 2">
-                            <svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 1080" width="1080"
-                                class="peta" height="1080">
-                                <path id="4503" class="unit 4503" data-unitnumber="4503"
-                                    d="m262.4 391.7l16.8 0.5-0.4 66.1 198.4 1.3-0.1-123.7-24.5-52.9-70.4 2.4-1.9 26.9-63.8-0.1-76.3 37.9z" />
-                                <path id="4504" class="unit 4504" data-unitnumber="4504"
-                                    d="m479.4 450.2l168.5-2.1-1-63.2-48.1-55.2-31.3-38.1-46-9.3-67.4 1 27.1 106.9z" />
-                                <path id="4505" class="unit 4505" data-unitnumber="4505"
-                                    d="m650.1 445l189.6-2.2-0.9-63.5 20.3-6.4-35.5-30 5.4-23.9-36.5-27.8-48.8-0.6 0.6 18-62.9 0.8-1.1-31.7-77.4 1.4 5.7 16.2-42.2-6.3 81.8 97.2z" />
-                                <path id="4410" class="unit 4410" data-unitnumber="4410"
-                                    d="m730.2 444.8l0.6 70 98.8-5.1-2.4-70.1z" />
-                                <path id="4409" class="unit 4409" data-unitnumber="4409"
-                                    d="m641.5 450.1l-0.3 68.2 84.3 0.4 2.2-74.4z" />
-                                <path id="4408" class="unit 4408" data-unitnumber="4408"
-                                    d="m567.8 453.4l2.2 67.4 79.7 3.3 3-72.1z" />
-                                <path id="4407" class="unit 4407" data-unitnumber="4407"
-                                    d="m479.6 463.1l2.6 64.5 85.8-0.7 1.1-63.9z" />
-                                <path id="4406" class="unit 4406" data-unitnumber="4406"
-                                    d="m399.8 462.1l2.9 64.1 79.6-4.4-2.1-60.1z" />
-                                <path id="4405" class="unit 4405" data-unitnumber="4405"
-                                    d="m400.6 520.4l-86-0.8 0.1-62 84 2.1z" />
-                                <path id="4310" class="unit 4310" data-unitnumber="4310"
-                                    d="m731.6 516.3l3.3 71.1 80.8-0.7 0.3-68.7z" />
-                                <path id="4309" class="unit 4309" data-unitnumber="4309"
-                                    d="m641.8 522.2l1.2 57.7 92.1 0.6-0.7-59.5z" />
-                                <path id="4308" class="unit 4308" data-unitnumber="4308"
-                                    d="m560.7 523.1l4.9 59.9 80-2.6-2.4-60z" />
-                                <path id="4307" class="unit 4307" data-unitnumber="4307"
-                                    d="m480.5 523l2.2 57 85.4 0.3 0.1-57.1z" />
-                                <path id="4306" class="unit 4306" data-unitnumber="4306"
-                                    d="m400.7 521.4l1.2 59.6 78.8 1.5 0.6-60.9z" />
-                                <path id="4305" class="unit 4305" data-unitnumber="4305"
-                                    d="m399.8 578.3l-80.6 1.6-5.5-61.3 84.1 0.6z" />
-                                <path id="4110" class="unit 4110" data-unitnumber="4110"
-                                    d="m732 579l7.5 110.6 76.4 0.4-1.7-113.1z" />
-                                <path id="4109" class="unit 4109" data-unitnumber="4109"
-                                    d="m649.7 579.2l81.4-0.6 4.9 109.4-87.1 7.5z" />
-                                <path id="4108" class="unit 4108" data-unitnumber="4108"
-                                    d="m567.6 577.5l-1.2 122.5 84.1-1.8-5-119.4z" />
-                                <path id="4107" class="unit 4107" data-unitnumber="4107"
-                                    d="m483.2 578.7l-1.3 126.9 83.5-7.6v-118.2z" />
-                                <path id="4106" class="unit 4106" data-unitnumber="4106"
-                                    d="m403 581.8l-0.1 125.9 78-4.6 0.2-121.5z" />
-                                <path id="4105" class="unit 4105" data-unitnumber="4105"
-                                    d="m321.5 579.5l3.4 130.9 76-2.4-1.1-126.2z" />
-                            </svg>
-                        </div>
-                        <div class="slide skip" data-slidecategory="earth" data-id="32">
-                            <img src="https://elementbali.com/wp-content/uploads/2025/03/earth_12.webp" alt="Gambar 2">
-                        </div>
-                        <div class="slide skip" data-slidecategory="earth" data-id="33">
-                            <img src="https://elementbali.com/wp-content/uploads/2025/03/earth_13.webp" alt="Gambar 2">
-                        </div>
-                        <div class="slide stop" data-slidecategory="earth" data-id="34">
-                            <img src="https://elementbali.com/wp-content/uploads/2025/03/earth_14.webp" alt="Gambar 2">
-                        </div>
-                        <div class="slide skip" data-slidecategory="earth" data-id="35">
-                            <img src="https://elementbali.com/wp-content/uploads/2025/03/earth_15.webp" alt="Gambar 2">
-                        </div>
-                        <div class="slide skip" data-slidecategory="earth" data-id="36">
-                            <img src="https://elementbali.com/wp-content/uploads/2025/03/earth_16.webp" alt="Gambar 2">
-                        </div>
-                        <div class="slide skip" data-slidecategory="earth" data-id="37">
-                            <img src="https://elementbali.com/wp-content/uploads/2025/03/earth_17.webp" alt="Gambar 2">
-                        </div>
-                        <div class="slide skip" data-slidecategory="earth" data-id="38">
-                            <img src="https://elementbali.com/wp-content/uploads/2025/03/earth_18.webp" alt="Gambar 2">
-                        </div>
-
-
-
-
-
-                        <!-- Dots for navigation (inside slider) -->
-                        <div class="dots-container"></div>
-                    </div>
-
-                    <!-- Navigation Buttons (outside slider container) -->
-
-                    <div class="slider-nav">
-                        <button class="nav-button prev">&#10094;</button>
-                        <svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1824 716" width="600"
-                            height="100" style="max-width: 300px;" class="map-svg">
-                            <style>
-                                .map {
-                                    fill: none;
-                                    stroke: #000000;
-                                    stroke-miterlimit: 100;
-                                    stroke-width: 3
-                                }
-                            </style>
-                            <path id="mapfire" fill-rule="evenodd" class="map" data-id="fire"
-                                d="m1715 383v165h-518v-165z" />
-                            <path id="mapearth" fill-rule="evenodd" class="map" data-id="earth"
-                                d="m1164 55v516h-303l-2.7-285-117.3 2-2-233z" />
-                            <path id="mapwater" fill-rule="evenodd" class="map" data-id="water_wind"
-                                d="m705 65v252h-240v-252z" />
-                            <path id="mapwind" fill-rule="evenodd" class="map" data-id="water_wind"
-                                d="m417 48v508h-360v-508z" />
-                        </svg>
-                        <button class="nav-button next">&#10095;</button>
-                    </div>
-                </div>
-                <!-- End Slider html -->
-            </div>
-            <div class="my-col-6" style="overflow: scroll; max-height: 600px;">
+            <div class="my-col-12" style="overflow: scroll; max-height: 600px;">
                 <table id="dataTable">
                     <thead>
                         <tr>
@@ -1144,7 +730,6 @@
                             <th>No.</th>
                             <th><span class="show-desktop">Unit Number</span><span class="show-mobile">UN</span></th>
                             <th>Floor</th>
-                            <!-- <th>Block</th> -->
                             <th><span class="show-desktop">Beds</span><span class="show-mobile">BR</span></th>
                             <th><span class="show-desktop">Gross m²</span><span class="show-mobile">m²</span></th>
                             <th>View</th>
@@ -1231,6 +816,7 @@
                                     price_after_handover_idr: item.price_after_handover_idr,
                                     block_fix: item.block_fix,
                                     currency_usd_idr: item.currency_usd_idr,
+                                    unit_type: item.unit_type,
                                 };
                             });
                             console.log("Data berhasil diambil:", data);
@@ -1322,6 +908,17 @@
                             // console.log("Filter floor diterapkan:", floorValue);
                         }
 
+                        // Menerapkan filter floor
+                        if (searchParams.has("unit_type")) {
+                            var unit_typeValue = searchParams.get("unit_type");
+                            // Reset semua tombol unit_type terlebih dahulu
+                            $(".btn-filter.btn-unit-type").removeClass("active");
+                            // Set tombol yang sesuai dengan nilai di URL sebagai aktif
+                            $(".btn-filter.btn-unit-type[data-unit-type='" + unit_typeValue + "']").addClass("active");
+                            // Di sini tambahkan kode untuk menerapkan filter unit_type ke konten
+                            // console.log("Filter unit_type diterapkan:", unit_typeValue);
+                        }
+
                         // Menerapkan slide
                         if (searchParams.has("slide")) {
                             var slideValue = searchParams.get("slide");
@@ -1392,6 +989,30 @@
 
                         // Update UI terlebih dahulu
                         $(".btn-filter.btn-floor").removeClass("active");
+                        $(this).addClass("active");
+
+                        // Ubah URL (ini juga akan memicu applyFiltersFromURL)
+                        changeURL(newURL);
+                    });
+
+                    // Filter JS - btn unit type
+                    $(".btn-filter.btn-unit-type").click(function () {
+                        var unitTypeValue = $(this).data("unit-type");
+                        var currentURL = window.location.href;
+                        var urlObj = new URL(currentURL);
+                        var searchParams = urlObj.searchParams;
+
+                        if (searchParams.has("unit_type")) {
+                            searchParams.set("unit_type", unitTypeValue);
+                        } else {
+                            searchParams.append("unit_type", unitTypeValue);
+                        }
+
+                        urlObj.search = searchParams.toString();
+                        var newURL = urlObj.toString();
+
+                        // Update UI terlebih dahulu
+                        $(".btn-filter.btn-unit-type").removeClass("active");
                         $(this).addClass("active");
 
                         // Ubah URL (ini juga akan memicu applyFiltersFromURL)
@@ -1707,7 +1328,7 @@
                                              <td>${item.bedrooms}</td>
                                              <td>${item.gros_sqm_total}</td>
                                              <td>${item.view}</td>
-                                             <td><b>${item.total_price_idr_000}</b><br><span style="font-size:12px;">${item.total_price_usd}</span></td>
+                                             <td class="price-column"><b>${item.total_price_idr_000}</b><br><span>${item.total_price_usd}</span></td>
                                          </tr>
                                      `;
                                 }
@@ -1747,6 +1368,7 @@
                             let price_after_handover_idr = $(this).data('price_after_handover_idr');
                             let block_fix = $(this).data('block_fix');
                             let currency_usd_idr = $(this).data('currency_usd_idr');
+                            let unit_type = $(this).data('unit_type');
 
                             let isActive = $(this).hasClass('active');
                             let targetElement = $(`.${unitNumber}`);
@@ -1792,6 +1414,7 @@
                                 params.delete('price_after_handover_idr');
                                 params.delete('block_fix');
                                 params.delete('currency_usd_idr');
+                                params.delete('unit_type');
 
 
                                 let newUrl = `?${params.toString()}`;
@@ -1834,6 +1457,7 @@
                                 params.set('price_after_handover_idr', price_after_handover_idr);
                                 params.set('block_fix', block_fix);
                                 params.set('currency_usd_idr', currency_usd_idr);
+                                params.set('unit_type', unit_type);
 
                                 let newUrl = `?${params.toString()}`;
                                 changeURL(newUrl, `Unit ${unitNumber}`);
@@ -1871,6 +1495,52 @@
                                 updateTextFromParams();
                             }
                         });
+
+
+                        jQuery(document).on('elementor/popup/hide', function (event, id, instance) {
+                            // Kode Anda akan dijalankan di sini saat popup ditutup
+                            console.log('Popup dengan ID ' + id + ' telah ditutup.');
+
+                            // Buat URL baru dengan parameter
+                            let params = new URLSearchParams(window.location.search);
+                            console.log(params);
+                            // Hapus semua field dari params
+                            // params.set('block', params.get('block'));
+
+                            // Hapus semua field baru dari params
+                            params.delete('unit_number');
+                            params.delete('bedrooms');
+                            params.delete('bathrooms');
+                            params.delete('gros_sqm_total');
+                            params.delete('net_total_sqm');
+                            params.delete('net_internal_sqm');
+                            params.delete('net_external_sql');
+                            params.delete('view');
+                            params.delete('description');
+                            params.delete('plan_type');
+                            params.delete('total_price_idr_000');
+                            params.delete('total_price_usd');
+                            params.delete('status');
+                            params.delete('price_during_construction');
+                            params.delete('price_after_handover');
+                            params.delete('price_during_construction_idr');
+                            params.delete('price_after_handover_idr');
+                            params.delete('block_fix');
+                            params.delete('currency_usd_idr');
+                            params.set('unit_type','');
+                            params.set('floor','');
+                            params.delete('net_external_sqm');
+
+
+                            let newUrl = `?${params.toString()}`;
+
+                            console.log(newUrl);
+                            changeURL(newUrl, `Category All`);
+
+                            $('.unit').removeClass('active');
+                            $('.unit').removeClass('hover');
+                        });
+
 
 
                         // Fungsi untuk mengupdate teks berdasarkan URL parameter
@@ -2025,6 +1695,7 @@
                             $('.order_usd_to_idr').each(function () {
                                 $(this).val(params.get('currency_usd_idr'));
                             });
+
                         }
 
 
@@ -2035,14 +1706,17 @@
                         let params = new URLSearchParams(window.location.search);
                         let block = params.get('block');
                         let floor = params.get('floor');
+                        let unit_type = params.get('unit_type');
                         let unit_number = params.get('unit_number');
 
                         // Filter data langsung dari query params
                         let filteredData = data.filter(item => {
                             let blockMatch = !block || item.block === block;
                             let floorMatch = !floor || item.floor === parseInt(floor);
+                            let unitTypeMatch = !unit_type || item.unit_type === unit_type;
                             let unitMatch = !unit_number || item.unit_number === parseInt(unit_number);
-                            return blockMatch && floorMatch && unitMatch;
+                            let statusMatch = item.status == 'available' || item.status == 'booked'; // Exclude comingsoon
+                            return blockMatch && floorMatch && unitTypeMatch && unitMatch && statusMatch;
                         });
 
 
@@ -2052,6 +1726,12 @@
                         // Set nilai select option sesuai query params
                         if (block) $('#blockFilter').val(block);
                         if (floor) $('#floorFilter').val(floor);
+                        if (unit_type) {
+                            // Reset semua tombol unit type terlebih dahulu
+                            $(".btn-filter.btn-unit-type").removeClass("active");
+                            // Set tombol yang sesuai dengan nilai di URL sebagai aktif
+                            $(".btn-filter.btn-unit-type[data-unit-type='" + unit_type + "']").addClass("active");
+                        }
                         if (unit_number) {
                             $('#unitFilter').val(unit_number);
                             // Tandai baris dengan unit_number dari query params sebagai active
@@ -2158,7 +1838,6 @@
                     }
                 });
             });
-
 
 
         });
